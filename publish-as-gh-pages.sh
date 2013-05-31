@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -x
+
+(cd slides && ./node_modules/.bin/grunt jade copy)
+(cd exercices && make clean html)
+
 if [[ ! -d /tmp/master-class-ol3 ]]; then
     git clone --branch gh-pages git@github.com:elemoine/master-class-ol3.git /tmp/master-class-ol3
 else
