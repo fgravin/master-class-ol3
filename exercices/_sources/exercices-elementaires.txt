@@ -63,7 +63,7 @@ Exercice élémentaire 1
 .. _exercice-elementaire-2:
 
 Exercice élémentaire 2
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 *Choisir le renderer de la carte*
 
