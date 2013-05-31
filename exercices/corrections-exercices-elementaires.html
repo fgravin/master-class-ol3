@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Corrections des exercices élémentaires &mdash; Master Class OL3 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Master Class OL3 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Exercices élémentaires" href="exercices-elementaires.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="exercices-elementaires.html" title="Exercices élémentaires"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="corrections-des-exercices-elementaires">
+<h1>Corrections des exercices élémentaires<a class="headerlink" href="#corrections-des-exercices-elementaires" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="correction-exercice-elementaire-1">
+<span id="id1"></span><h2>Correction exercice élémentaire 1<a class="headerlink" href="#correction-exercice-elementaire-1" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-1"><em>Exercice élémentaire 1</em></a></p>
+<p>Aucune correction pour cet exercice.</p>
+</div>
+<div class="section" id="correction-exercice-elementaire-2">
+<span id="id2"></span><h2>Correction exercice élémentaire 2<a class="headerlink" href="#correction-exercice-elementaire-2" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-2"><em>Exercice élémentaire 2</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">],</span>
+        <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Pour que <em>renderer</em> DOM soit utilisé il faut passer la valeur
+<tt class="docutils literal"><span class="pre">ol.RendererHint.DOM</span></tt> pour l&#8217;option <tt class="docutils literal"><span class="pre">renderer</span></tt>. Et pour que
+le renderer puisse être spécifié dans l&#8217;URL c&#8217;est la valeur retournée
+par la fonction <tt class="docutils literal"><span class="pre">ol.RendererHints.createFromQueryData</span></tt> qu&#8217;il faut
+passer.</p>
+</div>
+<div class="section" id="correction-exercice-elementaire-3">
+<span id="id3"></span><h2>Correction exercice élémentaire 3<a class="headerlink" href="#correction-exercice-elementaire-3" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-3"><em>Exercice élémentaire 3</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">],</span>
+          <span class="nx">rotation</span><span class="o">:</span> <span class="mi">45</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-4">
+<span id="id4"></span><h2>Correction exercice élémentaire 4<a class="headerlink" href="#correction-exercice-elementaire-4" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-4"><em>Exercice élémentaire 4</em></a></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+      <span class="nx">view</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">])</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mi">4096</span><span class="p">)</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-5">
+<span id="id5"></span><h2>Correction exercice élémentaire 5<a class="headerlink" href="#correction-exercice-elementaire-5" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-5"><em>Exercice élémentaire 5</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">();</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+
+      <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">248024.23082580912</span><span class="p">,</span> <span class="mf">270955.339311362</span><span class="p">,</span>
+                    <span class="mf">6243887.163136197</span><span class="p">,</span> <span class="mf">6259174.568793232</span><span class="p">];</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>La fonction <tt class="docutils literal"><span class="pre">fitExtent</span></tt> a besoin de connaître les dimensions de la carte en
+pixels pour être capable de recentrer la vue sur une étendue donnée. La vue est
+en effet complétement déterminée par un centre, une résolution et une rotation,
+et elle n&#8217;a aucune connaissance des dimensions du rectangle d&#8217;affichange dans
+la page. Dans ces conditions, si on ne lui passe pas des dimensions (largeur et
+hauteur en pixels), il ne lui est pas possible de recentrer la vue sur une
+étendue géographique.</p>
+</div>
+<div class="section" id="correction-exercice-elementaire-6">
+<span id="id6"></span><h2>Correction exercice élémentaire 6<a class="headerlink" href="#correction-exercice-elementaire-6" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-6"><em>Exercice élémentaire 6</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">({</span>
+              <span class="nx">attributions</span><span class="o">:</span> <span class="p">[</span>
+                <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Attribution</span><span class="p">(</span>
+                  <span class="s1">&#39;&lt;a href=&quot;http://www.opencyclemap.org/&quot;&gt;OpenCycleMap&lt;/a&gt;&#39;</span><span class="p">),</span>
+                <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">.</span><span class="nx">DATA_ATTRIBUTION</span>
+              <span class="p">],</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png&#39;</span><span class="p">,</span>
+            <span class="p">})</span>
+          <span class="p">})</span>
+        <span class="p">],</span>
+        <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-7">
+<span id="id7"></span><h2>Correction exercice élémentaire 7<a class="headerlink" href="#correction-exercice-elementaire-7" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-7"><em>Exercice élémentaire 7</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">(),</span>
+            <span class="nx">brightness</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span>
+            <span class="nx">contrast</span><span class="o">:</span> <span class="mf">1.625</span><span class="p">,</span>
+            <span class="nx">hue</span><span class="o">:</span> <span class="o">-</span><span class="mf">1.25</span><span class="p">,</span>
+            <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="nx">saturation</span><span class="o">:</span> <span class="mi">5</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>Il est important de noter ici que les paramètres d&#8217;affichage (<tt class="docutils literal"><span class="pre">opacity</span></tt>,
+etc.) sont des paramètres de l&#8217;objet <tt class="docutils literal"><span class="pre">Layer</span></tt>, et non de l&#8217;objet <tt class="docutils literal"><span class="pre">Source</span></tt>.
+La source ne concerne que les données elles mêmes, et pas la façon dont ces
+données sont affichées.</p>
+<p>Pour changer la visibilité de la couche dans la console :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nx">layerCollection</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getLayers</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nx">osmLayer</span> <span class="o">=</span> <span class="nx">layerCollection</span><span class="p">.</span><span class="nx">getAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nx">osmLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="o">!</span><span class="nx">osmLayer</span><span class="p">.</span><span class="nx">getVisible</span><span class="p">())</span>
+<span class="o">&gt;</span> <span class="nx">osmLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="o">!</span><span class="nx">osmLayer</span><span class="p">.</span><span class="nx">getVisible</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-8">
+<span id="id8"></span><h2>Correction exercice élémentaire 8<a class="headerlink" href="#correction-exercice-elementaire-8" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-8"><em>Exercice élémentaire 8</em></a></p>
+<p>Dans la console :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">getCenter</span><span class="p">(),</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span>
+        <span class="p">[</span><span class="mf">2.3310364</span><span class="p">,</span> <span class="mf">48.8623122</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="nx">center</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Corrections des exercices élémentaires</a><ul>
+<li><a class="reference internal" href="#correction-exercice-elementaire-1">Correction exercice élémentaire 1</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-2">Correction exercice élémentaire 2</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-3">Correction exercice élémentaire 3</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-4">Correction exercice élémentaire 4</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-5">Correction exercice élémentaire 5</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-6">Correction exercice élémentaire 6</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-7">Correction exercice élémentaire 7</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-8">Correction exercice élémentaire 8</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="exercices-elementaires.html"
+                        title="Chapitre précédent">Exercices élémentaires</a></p>
+  <h3>Cette page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/corrections-exercices-elementaires.txt"
+           rel="nofollow">Montrer la source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="exercices-elementaires.html" title="Exercices élémentaires"
+             >précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Éric Lemoine.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
