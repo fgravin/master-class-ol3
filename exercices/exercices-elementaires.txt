@@ -1,0 +1,80 @@
+Exercices élémentaires pour la master class
+h
+- Editeur de texte
+- Serveur web (Apache)
+- Navigateur FireFox, Chrome ou Safari
+
+Parcourir l'API doc
+
+Donner un lien vers l'API doc
+Donner un lien vers les exemples officiels
+
+Pour chaque exercice on part toujours du même code HTML/JS.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercice élémentaire</title>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+  <script type="text/javascript">
+  
+  var map = new ol.Map({
+    layers: [
+      new ol.layer.TileLayer({
+        source: new ol.source.OSM()
+      }
+    ],
+    view: new ol.View2D({
+      zoom: 1,
+      center: [0, 0]
+    })
+  });
+
+  </script>
+</html>
+
+Thèmes abordés :
+
+  - Discussion autour de l'exemple de base
+  
+
+ol.Map / ol.View2D
+
+- Explications
+
+ o Création d'une carte
+ o Création d'une vue
+ o Configuration d'une carte avec une vue
+ o Les méthodes 
+
+- Exercice 1
+
+A la création de la vue :
+
+ o Initialiser la vue avec un niveau de zoom égal à 5
+ o Initialiser la vue avec un centre égal à []
+ o Initialiser la vue avec une rotation égale à -45
+
+- Exercice 2
+
+Après avoir créé la carte et la vue :
+
+ o Déterminer la résolution actuelle de la vue
+ o Changer la vue à une résolution deux fois plus petite que la résolution actuelle
+
+ o Déterminer le centre actuel de la vue
+ o Déplacer la vue de 5 km à l'est
+
+ o Effectuer une rotation de 45 degré à l'ouest
+
+- Exercice 3
+
+ o Déterminer la taille (size) en pixels de la carte
+ o Utiliser la méthode fitExtent de la vue pour centrer la carte sur l'étendu
+   [...]
+
+ol.layer.TileLayer
+

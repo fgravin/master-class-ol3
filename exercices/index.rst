@@ -3,20 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Master Class OL3's documentation!
-============================================
+Exercices Master Class OL3
+==========================
 
-Contents:
+Exercices :
 
 .. toctree::
    :maxdepth: 2
 
+   exercices-elementaires
 
+Corrections :
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 2
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   corrections-exercices-elementaires
