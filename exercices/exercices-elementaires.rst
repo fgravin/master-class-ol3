@@ -177,3 +177,33 @@ Exercice élémentaire 5
       : http://ol3js.org/en/master/apidoc/.
 
 :ref:`correction-exercice-elementaire-5`
+
+
+.. _exercice-elementaire-6:
+
+Exercice élémentaire 6
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Utiliser une autre source de donnée de type OpenStreetMap*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-6.html`` par exemple.
+2. Changer les options de la vue pour obtenir une carte de Paris. (Celles
+   utilisées dans :ref:`exercice-elementaire-3` par exemple.)
+3. Passer au constructeur ``ol.source.OSM`` un objet d'options contenant une
+   propriété ``url`` dont la valeur est
+   ``http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png``.  Voir
+   http://www.thunderforest.com/landscape/ pour obtenir des informations sur
+   cette source de donnée. Et voir ``OSMOptions`` dans la doc de l'API pour
+   connaître toutes les options qui peuvent être passées à ``ol.source.OSM``.
+4. Ajouter une attribution à la source pour que les `conditions d'utilisation
+   des tuiles OpenCycleMap <http://www.thunderforest.com/terms/>`_ soient
+   respectées. Une attribution du type ``<a
+   href="http://www.opencyclemap.org">OpenCycleMap</a>`` est
+   en accord avec ces conditions.
+
+.. hint:: Regarder l'exemple
+    http://ol3js.org/en/master/examples/localized-openstreetmap.html pour
+    inspiration.
+
+:ref:`correction-exercice-elementaire-6`

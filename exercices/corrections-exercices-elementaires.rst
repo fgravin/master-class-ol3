@@ -218,3 +218,55 @@ et elle n'a aucune connaissance des dimensions du rectangle d'affichange dans
 la page. Dans ces conditions, si on ne lui passe pas des dimensions (largeur et
 hauteur en pixels), il ne lui est pas possible de recentrer la vue sur une
 étendue géographique.
+
+
+.. _correction-exercice-elementaire-6:
+
+Correction exercice élémentaire 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-6`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+          var map = new ol.Map({
+            target: 'map',
+            view: new ol.View2D({
+              zoom: 12,
+              center: [259489.78506858557, 6251530.865964714]
+            }),
+            layers: [
+              new ol.layer.TileLayer({
+                source: new ol.source.OSM({
+                  attributions: [
+                    new ol.Attribution(
+                      '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'),
+                    ol.source.OSM.DATA_ATTRIBUTION
+                  ],
+                  url: 'http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png',
+                })
+              })
+            ],
+            renderer: ol.RendererHint.CANVAS
+          });
+          </script>
+      </body>
+    </html>
