@@ -217,7 +217,7 @@ Exercice élémentaire 7
 *Changer les paramètres d'affichage d'une couche*
 
 1. Copier le code HTML de base dans un nouveau fichier,
-   ``exercice-elementaire-6.html`` par exemple.
+   ``exercice-elementaire-7.html`` par exemple.
 2. Dans l'objet d'options passé au constructor ``ol.layer.TileLayer`` ajouter
    des propriétés ``opacity``, ``hue``, ``saturation``, ``brightness``, et
    ``contrast``.
@@ -232,3 +232,30 @@ Exercice élémentaire 7
       Voir la doc de l'API pour plus d'informations.
 
 :ref:`correction-exercice-elementaire-7`
+
+
+.. _exercice-elementaire-8:
+
+Exercice élémentaire 8
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Manipuler les projections*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-8.html`` par exemple.
+2. Dans une console, afficher le centre de la vue.
+3. Le système de coordonnée (projection) de ce centre est "EPSG:3857" (connu
+   sous le nom de Spherical Mercator). Convertir les coordonnées du centre de
+   "EPSG:3857" à "EPSG:4326" (longitude/latitude WGS84).
+4. Les coordonnées GPS du Louvre à Paris sont latitude : 48,8623122,
+   longitude : 2,3310364. Modifier le code JavaScript de la page pour
+   que la vue soit centrée sur ces coordonnées à l'état initial. Changer
+   aussi le zoom à 12 pour un meilleur résultat.
+
+.. hint::
+
+    * La fonction ``ol.proj.transform`` est à utiliser pour transformer
+      des coordonnées d'un système de coordonnée à un autre. Voir la doc
+      de l'API.
+
+:ref:`correction-exercice-elementaire-8`

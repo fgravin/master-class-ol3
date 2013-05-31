@@ -331,5 +331,57 @@ Pour changer la visibilité de la couche dans la console :
 
     > layerCollection = map.getLayers()
     > osmLayer = layerCollection.getAt(0)
-    > osmLayer.setVisible(!osmLayer.getVisible());
-    > osmLayer.setVisible(!osmLayer.getVisible());
+    > osmLayer.setVisible(!osmLayer.getVisible())
+    > osmLayer.setVisible(!osmLayer.getVisible())
+
+
+.. _correction-exercice-elementaire-8:
+
+Correction exercice élémentaire 8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-8`
+
+Dans la console :
+
+.. code-block:: javascript
+
+    > ol.proj.transform(map.getView().getCenter(), 'EPSG:3857', 'EPSG:4326')
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+          var center = ol.proj.transform(
+            [2.3310364, 48.8623122], 'EPSG:4326', 'EPSG:3857');
+          var map = new ol.Map({
+            target: 'map',
+            view: new ol.View2D({
+              zoom: 12,
+              center: center
+            }),
+            layers: [
+              new ol.layer.TileLayer({
+                source: new ol.source.OSM()
+              })
+            ]
+          });
+          </script>
+      </body>
+    </html>
