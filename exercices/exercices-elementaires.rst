@@ -142,3 +142,38 @@ Exercice élémentaire 4
      de la vue. Exemple : ``view.setRotation(45)``.
 
 :ref:`correction-exercice-elementaire-4`
+
+
+.. _exercice-elementaire-5:
+
+Exercice élémentaire 5
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Aller un peu plus loin avec la vue*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-5.html`` par exemple.
+2. Modifier le code JavaScript de la page afin que l'objet ``ol.View2D`` soit
+   créé à l'extérieur de la définition de l'objet des options passé à la carte.
+   L'objet ``ol.View2D`` créé sera référencé par une variable nommé ``view``.
+   Et c'est cette référence qui devra être passé à la carte par l'intermédiaire
+   de l'option ``view``.
+3. Après la création de la carte, agir sur la vue (référencée par la variable
+   ``view``) pour recentrer celle-ci sur l'étendue ``[248024.23082580912,
+   270955.339311362, 6243887.163136197, 6259174.568793232]``.
+4. Changer le code pour que la vue n'ait pas d'état initialement, et pour
+   qu'elle ne soit rééllement définie que lorsque qu'elle recentrée sur
+   l'étendue spécifiée.
+5. Tenter de comprendre pourquoi la fonction ``fitExtent`` a besoin des
+   dimensions de la carte en pixels pour faire ce qui lui est demandé.
+
+.. hint::
+
+    * C'est la fonction ``fitExtent`` de ``ol.View2D`` qui doit être utilisée
+      pour ça.
+    * La fonction ``getSize`` de ``ol.Map`` doit aussi être utilisée pour cette
+      exercice.
+    * Pensez à jetter un oeil à la doc de l'API
+      : http://ol3js.org/en/master/apidoc/.
+
+:ref:`correction-exercice-elementaire-5`

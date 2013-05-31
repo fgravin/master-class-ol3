@@ -164,3 +164,57 @@ Correction exercice élémentaire 4
           </script>
       </body>
     </html>
+
+
+.. _correction-exercice-elementaire-5:
+
+Correction exercice élémentaire 5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-5`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+          var view = new ol.View2D();
+          var map = new ol.Map({
+            target: 'map',
+            view: view,
+            layers: [
+              new ol.layer.TileLayer({
+                source: new ol.source.OSM()
+              })
+            ]
+          });
+
+          var extent = [248024.23082580912, 270955.339311362,
+                        6243887.163136197, 6259174.568793232];
+          view.fitExtent(extent, map.getSize());
+          </script>
+      </body>
+    </html>
+
+La fonction ``fitExtent`` a besoin de connaître les dimensions de la carte en
+pixels pour être capable de recentrer la vue sur une étendue donnée. La vue est
+en effet complétement déterminée par un centre, une résolution et une rotation,
+et elle n'a aucune connaissance des dimensions du rectangle d'affichange dans
+la page. Dans ces conditions, si on ne lui passe pas des dimensions (largeur et
+hauteur en pixels), il ne lui est pas possible de recentrer la vue sur une
+étendue géographique.
