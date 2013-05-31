@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -d /tmp/master-class-ol3 ]]; then
+if [[ ! -d /tmp/master-class-ol3 ]]; then
     git clone --branch gh-pages git@github.com:elemoine/master-class-ol3.git /tmp/master-class-ol3
 else
     (cd /tmp/master-class-ol3; git checkout gh-pages; git fetch origin; git merge --ff-only origin/gh-pages)
