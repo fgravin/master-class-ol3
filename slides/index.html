@@ -471,8 +471,107 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
           <img src="img/cesium-ol3.png" alt="Cesium OpenLayers 3 integration">
         </section>
 
+        <section style="text-align:left;">
+          <h2>Contenu (rappel)</h2>
+          <ul style="list-style-type:none;">
+            <li>Présentation générale d'OL3 (~45mn)</li>
+            <li>Description de l'API et exercices élémentaires (~1h)</li>
+            <li>Développement d'une application (~1h)</li>
+            <li>(Apprendre à participer et contribuer à OL3)</li>
+          </ul>
+        </section>
+
         <section>
-          <h2>Merci !</h2>
+          <h1>API, et exercices élémentaires</h1>
+        </section>
+
+        <section>
+          <h2>Logiciels requis</h2>
+          <ul style="list-style-type:none;margin:20px 0 30px 0;">
+            <li>Éditeur de texte</li>
+            <li>Serveur web (Apache)</li>
+            <li>Navigateur web (FireFox ou Chrome)</li>
+          </ul>
+          <p>Ou utiliser <a href="http://jsfiddle.net">http://jsfiddle.net</a>.</p>
+        </section>
+
+        <section>
+          <h2>Ressources</h2>
+          <ul style="list-style-type:none;margin: 30px 0 0 0;">
+            <li>Doc de l'API : <a href="http://ol3js.org/en/master/apidoc/">http://ol3js.org/en/master/apidoc/</a></li>
+            <li>Exemples : <a href="http://ol3js.org/en/master/examples/">http://ol3js.org/en/master/examples/</a></li>
+          </ul>
+          <aside class="notes">
+            <p>La doc de l'API est loin d'être parfaite. Il manque du texte, et
+            certaines classes et fonctions n'apparaissent à cause de problèmes
+            techniques. Ces problèmes sont en train d'être corrigés.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Les objets de base</h2>
+          <ul style="list-style-type:none;margin: 30px 0 0 0;">
+            <li><code>ol.Map</code></li>
+            <li><code>ol.View2D</code></li>
+            <li><code>ol.layer.* (ol.layer.TileLayer)</code></li>
+            <li><code>ol.control.* (ol.control.Attribution)</code></li>
+            <li><code>ol.interaction.* (ol.interaction.DragPan)</code></li>
+          </ul>
+          <aside class="notes">
+            <p>Ces objets sont qui sont manipulés dans les exercices
+            élémentaires.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Exemple de base</h2>
+          Utilisé comme base pour chaque exercice.
+          <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport"
+          content="initial-scale=1.0, user-scalable=no,
+                   width=device-width"&gt;
+    &lt;title&gt;Exercice élémentaire&lt;/title&gt;
+    &lt;link rel="stylesheet"
+          href="http://ol3js.org/en/master/build/ol.css"&gt;
+    &lt;style&gt;
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;div id="map"&gt;&lt;/div&gt;
+      &lt;script
+        src="http://ol3js.org/en/master/build/ol.js"&gt;&lt;/script&gt;
+      &lt;script&gt;
+      var map = new ol.Map({
+        target: 'map',
+        view: new ol.View2D({
+          zoom: 0,
+          center: [0, 0]
+        }),
+        layers: [
+          new ol.layer.TileLayer({
+            source: new ol.source.OSM()
+          })
+        ]
+      });
+      &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+          <aside class="notes">
+            <p>Cette page sert de base pour chaque exercice élémentaire.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Maintenant, à vos cahiers d'exercices !</h2>
         </section>
 
       </div>
