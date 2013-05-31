@@ -4,7 +4,7 @@ var raster = new ol.layer.TileLayer({
  
 var vector = new ol.layer.Vector({
   source: new ol.source.Vector({
-    projection: ol.projection.get('EPSG:3857')
+    projection: ol.proj.get('EPSG:3857')
   }),
   style: new ol.style.Style({rules: [
     new ol.style.Rule({
