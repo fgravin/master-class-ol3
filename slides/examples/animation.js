@@ -1,5 +1,5 @@
 function transform(coord) {
-  return ol.projection.transform(coord, 'EPSG:4326', 'EPSG:3857');
+  return ol.proj.transform(coord, 'EPSG:4326', 'EPSG:3857');
 }
 
 var london = transform([-0.12755, 51.507222]);

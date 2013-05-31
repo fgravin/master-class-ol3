@@ -28,7 +28,7 @@ function getContent() {
 map.on('click', function(evt) {
   var element = popup.getElement();
   var coordinate = evt.getCoordinate();
-  hdms = ol.coordinate.toStringHDMS(ol.projection.transform(
+  hdms = ol.coordinate.toStringHDMS(ol.proj.transform(
       coordinate, 'EPSG:3857', 'EPSG:4326'));
   popup.setPosition(coordinate);
   $(element).popover({
