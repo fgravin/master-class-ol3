@@ -207,3 +207,28 @@ Exercice élémentaire 6
     inspiration.
 
 :ref:`correction-exercice-elementaire-6`
+
+
+.. _exercice-elementaire-7:
+
+Exercice élémentaire 7
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Changer les paramètres d'affichage d'une couche*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-6.html`` par exemple.
+2. Dans l'objet d'options passé au constructor ``ol.layer.TileLayer`` ajouter
+   des propriétés ``opacity``, ``hue``, ``saturation``, ``brightness``, et
+   ``contrast``.
+3. Dans la console, récupérer une référence sur la couche et changer sa
+   visibilité.
+
+.. hint::
+
+    * ``ol.Map`` fournit une fonction ``getLayers``. Cette fonction
+      retourne un object de type ``ol.Collection``, qui lui même fournit
+      des méthodes pour accéder aux différents objets de la collection.
+      Voir la doc de l'API pour plus d'informations.
+
+:ref:`correction-exercice-elementaire-7`
