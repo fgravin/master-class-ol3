@@ -46,6 +46,8 @@ Tous les exercices de cette partie se font à partir de la page HTML suivante :
 Exercice élémentaire 1
 ~~~~~~~~~~~~~~~~~~~~~~
 
+*Afficher une carte simple*
+
 1. Copier le code HTML donné ci-dessus et le coller dans un fichier du nom de
    votre choix, ``exercice-elementaire-1.html`` par exemple.
 2. Placer ce fichier dans un répertoire rendu accessible par HTTP par le serveur
@@ -58,23 +60,31 @@ Exercice élémentaire 1
 (Pas de correction pour cet exercice.)
 
 
-
 .. _exercice-elementaire-2:
 
 Exercice élémentaire 2
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
+
+*Choisir le renderer de la carte*
+
+OL3 peut utiliser trois technologies web différentes pour l'affichage de la
+carte : WebGL, Canvas, et DOM. Si rien n'est précisé par l'utilisateur la
+librairie OL3 choisit WebGL si le navigateur prend en charge WebGL. Sinon OL3
+choisit Canvas, et enfin, si Canvas n'est pas pris en charge, c'est le
+*renderer* DOM qui est utilisé.
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-2.html`` par exemple.
-2. Modifier l'objet d'options passés au constructeur ``ol.View2D`` pour
-   que la vue soit initialisée avec un niveau de zoom égal à 12.
-3. Modifier à nouveau l'objet d'options pour que la vue soit initialisée
-   avec un centre égal à ``[259489.78506858557, 6251530.865964714]``.
-4. Modifier à nouveau l'objet d'options pour que la vue soit pivotée
-   (rotation) d'un angle de 45 degré à l'est.
+2. Faire en sorte que le *renderer* Canvas soit utilisé par la carte. Il
+   faut pour ceci positionner la propriété ``renderer`` dans l'objet d'options
+   passé au constructeur ``ol.Map``. Et la valeur pour cette propriété doit
+   être ``ol.RendererHint.CANVAS``.
+3. Faire maintenant en sorte que ce soit le *renderer* DOM qui soit utilisé.
+4. Utiliser maintenant la valeur ``ol.RendererHints.createFromQueryData()``
+   pour que le *renderer* puisse être spécifié dans l'URL par le paramètre
+   ``renderer``. Exemple : ``exercice-elementaire-2.html?renderer=canvas``.
 
 :ref:`correction-exercice-elementaire-2`
-
 
 
 .. _exercice-elementaire-3:
@@ -82,8 +92,30 @@ Exercice élémentaire 2
 Exercice élémentaire 3
 ~~~~~~~~~~~~~~~~~~~~~~
 
+*Initialiser la vue de la carte*
+
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-3.html`` par exemple.
+2. Modifier l'objet d'options passés au constructeur ``ol.View2D`` pour
+   que la vue soit initialisée avec un niveau de zoom égal à 12.
+3. Modifier à nouveau l'objet d'options pour que la vue soit initialisée
+   avec un centre égal à ``[259489.78506858557, 6251530.865964714]``.
+4. Modifier à nouveau l'objet d'options pour que la vue soit pivotée
+   (rotation) d'un angle de 45 degré à l'est.
+
+:ref:`correction-exercice-elementaire-3`
+
+
+
+.. _exercice-elementaire-4:
+
+Exercice élémentaire 4
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Changer la vue de la carte*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-4.html`` par exemple.
 2. Ouvrir la nouvelle page HTML et ouvrir les outils de développement du
    navigateur. Vous pouvez utiliser la touche ``F12`` comme raccourci.
 3. Saisir dans la console des outils de développement la commande JavaScript
@@ -109,4 +141,4 @@ Exercice élémentaire 3
    * De la même façon ils fournissent des *setters* pour changer les états
      de la vue. Exemple : ``view.setRotation(45)``.
 
-:ref:`correction-exercice-elementaire-3`
+:ref:`correction-exercice-elementaire-4`

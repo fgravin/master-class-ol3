@@ -42,6 +42,57 @@ Correction exercice élémentaire 2
           var map = new ol.Map({
             target: 'map',
             view: new ol.View2D({
+              zoom: 0,
+              center: [0, 0]
+            }),
+            layers: [
+              new ol.layer.TileLayer({
+                source: new ol.source.OSM()
+              })
+            ],
+            renderer: ol.RendererHint.CANVAS
+          });
+          </script>
+      </body>
+    </html>
+
+Pour que *renderer* DOM soit utilisé il faut passer la valeur
+``ol.RendererHint.DOM`` pour l'option ``renderer``. Et pour que
+le renderer puisse être spécifié dans l'URL c'est la valeur retournée
+par la fonction ``ol.RendererHints.createFromQueryData`` qu'il faut
+passer.
+
+
+.. _correction-exercice-elementaire-3:
+
+Correction exercice élémentaire 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-3`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+          var map = new ol.Map({
+            target: 'map',
+            view: new ol.View2D({
               zoom: 12,
               center: [259489.78506858557, 6251530.865964714],
               rotation: 45
@@ -58,12 +109,12 @@ Correction exercice élémentaire 2
 
 
 
-.. _correction-exercice-elementaire-3:
+.. _correction-exercice-elementaire-4:
 
-Correction exercice élémentaire 3
+Correction exercice élémentaire 4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`exercice-elementaire-3`
+:ref:`exercice-elementaire-4`
 
 .. code-block:: javascript
 

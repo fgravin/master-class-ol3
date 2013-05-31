@@ -19,15 +19,15 @@
       var map = new ol.Map({
         target: 'map',
         view: new ol.View2D({
-          zoom: 12,
-          center: [259489.78506858557, 6251530.865964714],
-          rotation: 45
+          zoom: 0,
+          center: [0, 0]
         }),
         layers: [
           new ol.layer.TileLayer({
             source: new ol.source.OSM()
           })
-        ]
+        ],
+        renderer: ol.RendererHint.CANVAS
       });
       </script>
   </body>

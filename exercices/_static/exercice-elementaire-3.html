@@ -19,8 +19,9 @@
       var map = new ol.Map({
         target: 'map',
         view: new ol.View2D({
-          zoom: 0,
-          center: [0, 0]
+          zoom: 12,
+          center: [259489.78506858557, 6251530.865964714],
+          rotation: 45
         }),
         layers: [
           new ol.layer.TileLayer({
@@ -28,10 +29,6 @@
           })
         ]
       });
-      view = map.getView()
-      view.setCenter([259489.78506858557, 6251530.865964714])
-      view.setResolution(view.getResolution() / 4096)
-      view.setRotation(45)
       </script>
   </body>
 </html>
