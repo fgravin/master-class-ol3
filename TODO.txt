@@ -1,2 +1,1 @@
 - Vérifier que les slides sont converties correctement en PDF
-- Copier les images et changer les liens dans les slides
