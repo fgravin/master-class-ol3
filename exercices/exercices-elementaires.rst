@@ -285,3 +285,19 @@ Exercice élémentaire 9
       spécifique.
 
 :ref:`correction-exercice-elementaire-9`
+
+
+.. _exercice-elementaire-10:
+
+Exercice élémentaire 10
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Manipuler les interactions*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-10.html`` par exemple.
+2. Modifier le code JavaScript de la page pour ajouter une interaction
+   de type ``ol.interaction.DragRotateAndZoom`` à la carte. (C'est
+   la touche ``SHIFT`` qui active cette interaction.)
+
+:ref:`correction-exercice-elementaire-10`
