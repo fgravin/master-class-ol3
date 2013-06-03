@@ -259,3 +259,29 @@ Exercice élémentaire 8
       de l'API.
 
 :ref:`correction-exercice-elementaire-8`
+
+
+.. _exercice-elementaire-9:
+
+Exercice élémentaire 9
+~~~~~~~~~~~~~~~~~~~~~~
+
+*Manipuler les controls*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-9.html`` par exemple.
+2. Modifier le code JavaScript de la page de telle façon qu'une échelle
+   graphique soit ajoutée à la carte.
+3. Modifier la configuration du *control* pour que les unités de
+   mesure anglo-saxonnes (inches, feets, miles) soient utilisées plutôt
+   que les unités métriques.
+
+.. hint::
+
+    * C'est le *control* ``ol.control.ScaleLine`` qui permet d'ajouter
+      une échelle graphique sur la carte.
+    * La fonction ``ol.control.defaults`` permet d'obtenir un tableau
+      contenant les *controls* par défaut, et d'autres choisis de manière
+      spécifique.
+
+:ref:`correction-exercice-elementaire-9`
