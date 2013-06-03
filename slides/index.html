@@ -135,7 +135,6 @@
         <section>
           <h2>2D et 3D</h2>
           <img class="framed" src="img/osm3d.jpg">
-          <p><small>(Image issue du projet OSM-3D.org)</small></p>
           <aside class="notes">
             <p>OL3 permettra d'afficher des données 3D de type "bâtiment" et
             "terrain". Références : nouvelle version de Google Maps, Nokia Maps.
@@ -256,8 +255,7 @@ var map = new ol.Map({
 var osm = new ol.layer.TileLayer({
   source: new ol.source.OSM()
 });
-          </code></pre>
-          <pre class="fragment fade-in"><code class="javascript" data-trim>
+
 var bing = new ol.layer.TileLayer({
   source: new ol.source.BingMaps({
     // your key here
@@ -265,8 +263,7 @@ var bing = new ol.layer.TileLayer({
     style: 'AerialWithLabels'
   })
 }));
-          </code></pre>
-          <pre class="fragment fade-in"><code class="javascript" data-trim>
+
 var mapbox = new ol.layer.TileLayer({
   source: new ol.source.TileJSON({
     url: '//api.tiles.mapbox.com/v3/mapbox.world-dark.jsonp'
@@ -584,10 +581,14 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
   &lt;/body&gt;
 &lt;/html&gt;
           </code></pre>
-          <p><small>Disponible ici: <a href="http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html">http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html</a>.</small></p>
           <aside class="notes">
             <p>Cette page sert de base pour chaque exercice élémentaire.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>Exemple de base</h2>
+          <p><small>Disponible ici: <a href="http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html">http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html</a>.</small></p>
         </section>
 
         <section>
