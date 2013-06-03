@@ -74,9 +74,9 @@
         <section style="text-align:left;">
           <h2>Éric Lemoine</h2>
           <p><img style=vertical-align:middle;margin:0;" src="img/c2c_square_143x50_transparent.png"> <a href="http://www.camptocamp.com">http://www.camptocamp.com</a></p>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="http://www.equipmentforpilates.co.uk/uploads/1/5/7/4/15746486/289839404.gif?66"> eric.lemoine@camptocamp.com</p>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="https://abs.twimg.com/a/1369448277/images/resources/twitter-bird-light-bgs.png"> @elemoine</p>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="https://si0.twimg.com/profile_images/651575553/twittergithub2_normal.png"> @elemoine</p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="img/envelope-logo.gif"> eric.lemoine@camptocamp.com</p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="img/twitter-logo.png"> @elemoine</p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="img/github-logo.png"> @elemoine</p>
           <aside class="notes">
             <p>Camptocamp utilise, et contribue à, OpenLayers depuis 2006. En 2012,
             Camptocamp décide de développer une nouvelle version d'OpenLayers :
@@ -118,9 +118,9 @@
 
         <section style="text-align:left;">
           <h2>Liens</h2>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;"src="https://si0.twimg.com/profile_images/2605676239/vehxwmrxnbqu1n1k772g_normal.jpeg"> <a href="http://ol3js.org">http://ol3js.org</a></p>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="https://si0.twimg.com/profile_images/651575553/twittergithub2_normal.png"> <a href="http://github.com/openlayers/ol3">http://github.com/openlayers/ol3</a></p>
-          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="http://www.equipmentforpilates.co.uk/uploads/1/5/7/4/15746486/289839404.gif?66"> <a href="https://groups.google.com/forum/#!forum/ol3-dev">https://groups.google.com/forum/#</a></p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;"src="img/www-logo.jpeg"> <a href="http://ol3js.org">http://ol3js.org</a></p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="img/github-logo.png"> <a href="http://github.com/openlayers/ol3">http://github.com/openlayers/ol3</a></p>
+          <p><img style="width:48px;height:48px;vertical-align:middle;margin:0;" src="img/envelope-logo.gif"> <a href="https://groups.google.com/forum/#!forum/ol3-dev">https://groups.google.com/forum/#</a></p>
           <aside class="notes">
             <p>Connaître Git et GitHub est nécessaire pour contribuer à OL3. Et
             très utile pour utiliser OL3.</p>
@@ -135,12 +135,16 @@
         <section>
           <h2>2D et 3D</h2>
           <img class="framed" src="img/osm3d.jpg">
-          <p><small>(Image issue du projet OSM-3D.org)</small></p>
           <aside class="notes">
             <p>OL3 permettra d'afficher des données 3D de type "bâtiment" et
             "terrain". Références : nouvelle version de Google Maps, Nokia Maps.
             La technologie WebGL nous permet d'aller dans cette direction.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>2D et 3D</h2>
+          Un de objectifs : afficher des données 3D de type "bâtiment" et "terrain".
         </section>
 
         <section>
@@ -156,6 +160,12 @@
         </section>
 
         <section>
+          <h2>Vecteur</h2>
+          Objectif : afficher vecteur "complexes", autant au niveau des
+          styles que des nombres d'objets à afficher.
+        </section>
+
+        <section>
           <h2>Cartes = Graphiques</h2>
           <img class="framed" src="img/teapot-map.jpg">
           <aside class="notes">
@@ -164,6 +174,14 @@
             d'obtenir des bonnes performance. Elles permettent aussi d'isoler la
             carte du reste de la page HTML, ce qui rend OL3 plus fiable et
             robuste pour les développeurs d'application.</p>
+        </section>
+
+        <section>
+          <h2>Cartes = Graphiques</h2>
+          <p>Objectif : afficher des
+          données 2D et 3D complexes avec de bonnes performances.</p>
+          <p>Utilisation de Canvas et WebGL.</p>
+
         </section>
 
         <section>
@@ -237,8 +255,7 @@ var map = new ol.Map({
 var osm = new ol.layer.TileLayer({
   source: new ol.source.OSM()
 });
-          </code></pre>
-          <pre class="fragment fade-in"><code class="javascript" data-trim>
+
 var bing = new ol.layer.TileLayer({
   source: new ol.source.BingMaps({
     // your key here
@@ -246,8 +263,7 @@ var bing = new ol.layer.TileLayer({
     style: 'AerialWithLabels'
   })
 }));
-          </code></pre>
-          <pre class="fragment fade-in"><code class="javascript" data-trim>
+
 var mapbox = new ol.layer.TileLayer({
   source: new ol.source.TileJSON({
     url: '//api.tiles.mapbox.com/v3/mapbox.world-dark.jsonp'
@@ -525,7 +541,7 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
 
         <section>
           <h2>Exemple de base</h2>
-          Utilisé comme base pour chaque exercice.
+          <p>Utilisé comme base pour chaque exercice.</p>
           <pre><code class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -568,6 +584,11 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
           <aside class="notes">
             <p>Cette page sert de base pour chaque exercice élémentaire.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>Exemple de base</h2>
+          <p><small>Disponible ici: <a href="http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html">http://erilem.net/master-class-ol3/exercices/exercices-elementaires.html</a>.</small></p>
         </section>
 
         <section>
