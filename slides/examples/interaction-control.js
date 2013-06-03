@@ -29,7 +29,7 @@ rotation.bindTo('value', map.getView(), 'rotation');
 var geolocation = new ol.Geolocation();
 geolocation.bindTo('projection', map.getView());
 
-geolocation.on('position_changed', function() {
+geolocation.on('change:position', function() {
   var duration = 2000;
   var start = +new Date();
   var pan = ol.animation.pan({
