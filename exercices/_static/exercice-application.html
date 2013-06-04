@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Exercice élémentaire</title>
+    <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+    <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+    </style>
+  </head>
+  <body>
+      <div id="map"></div>
+      <div id="log"></div>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js"></script>
+      <script src="http://ol3js.org/en/master/build/ol-whitespace.js"></script>
+      <script>
+
+      ol.proj.addCommonProjections();
+
+      Proj4js.defs['EPSG:2154'] = '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 ' +
+          '+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 '+
+          '+units=m +no_defs';
+
+      ol.proj.configureProj4jsProjection({
+        code: 'EPSG:2154',
+        extent: [-357823.2365, 1313632.3628, 6037008.6939, 7230727.3772]
+      });
+
+      var resolutions = [156543.0339, 78271.51695, 39135.758475, 19567.8792375, 9783.93961875, 4891.969809375, 2445.9849046875, 1222.99245234375, 611.4962261718748, 305.7481130859374, 152.87405654296887, 76.43702827148444, 38.21851413574208, 19.10925706787104, 9.55462853393552, 4.77731426696776, 2.38865713348388, 1.1943285667420798, 0.5971642833710399, 0.29858214168551994, 0.14929107084275997, 0.07464553542123999];
+
+      var extent = [-357823.2365, 3.97171934419e7, 6037008.6939, 4.61120253723e7];
+
+     var map = new ol.Map({
+         target: 'map',
+         renderer: ol.RendererHint.CANVAS,
+         layers: [
+            new ol.layer.TileLayer({
+                source: new ol.source.TiledWMS({
+                    url: 'http://tile.geobretagne.fr/gwc02/service/wms',
+                    params: {
+                        'LAYERS': 'carte',
+                        'VERSION': '1.1.1'
+                    },
+                    tileGrid: new ol.tilegrid.TileGrid({
+                        resolutions: resolutions,
+                        origin: [-357823.2365, 1313632.3628]
+                    }),
+                    extent: extent
+                })
+            })
+         ],
+         view: new ol.View2D({
+             resolutions: resolutions,
+             projection: 'EPSG:2154'
+         })
+     });
+
+     map.getView().fitExtent([222780.25898701185, 406229.1268385743,
+                              6715370.958999903, 6837670.204234279], map.getSize());
+
+
+
+      var parser = new ol.parser.ogc.WMTSCapabilities(), result;
+      var url = 'wmtscapabilities.xml';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      /**
+       * onload handler for the XHR request.
+       */
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          result = parser.read(xhr.responseXML);
+          document.getElementById('log').innerHTML =
+              window.JSON.stringify(result, undefined, 2);
+          var wmtsSourceOptions = ol.source.WMTS.optionsFromCapabilities(result, 'carte');
+          var wmtsSource = new ol.source.WMTS(wmtsSourceOptions);
+
+          var projection = wmtsSource.getProjection();
+          var projectionExtent = projection.getExtent();
+          var resolutions = wmtsSource.getResolutions();
+
+          var i, matrixIds = [];
+          for (i = 0; i < 22; ++i) {
+              matrixIds.push('EPSG:2154:' + i);
+          }
+          debugger;
+
+          wmtsSource = new ol.source.WMTS({
+            url: 'http://geobretagne.fr/gwc02/service/wmts',
+            layer: 'carte',
+            matrixSet: 'EPSG:2154',
+            format: 'image/jpeg',
+            projection: projection,
+            tileGrid: new ol.tilegrid.WMTS({
+              origin: ol.extent.getTopLeft(projectionExtent),
+              resolutions: resolutions,
+              matrixIds: matrixIds
+            }),
+            style: '_null',
+            extent: projectionExtent
+         });
+
+          var view = new ol.View2D({
+            projection: projection,
+            resolutions: resolutions,
+            center: ol.extent.getCenter(projectionExtent),
+            zoom: 13
+          });
+
+          map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.TileLayer({
+                source: wmtsSource
+              })
+            ],
+            view: view
+          });
+        }
+      };
+
+//      xhr.send();
+      </script>
+  </body>
+</html>

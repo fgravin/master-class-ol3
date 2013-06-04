@@ -13,6 +13,16 @@ disponible en ligne à http://erilem.net/master-class-ol3/exercices/.  Une
 version PDF peut être téléchargée
 à http://erilem.net/master-class-ol3/exercices/exercices.pdf.
 
+La partie *Exercices élémentaires* contient des exercices relativement simples
+visant à se familiariser avec OpenLayers 3. Chaque exercice élémentaire est
+indépendant.
+
+La partie *Développement d'une application* propose le développement d'une
+(modeste) application web cartographique de A à Z. Les données géographiques
+utilisées pour cette application sont issues de la plate-forme `GéoBretagne
+<http://cms.geobretagne.fr/>`_. C'est le service WMS mis à disposition par
+GéoBretagne qui sera utilisé.
+
 .. toctree::
    :maxdepth: 2
 
@@ -22,3 +32,8 @@ version PDF peut être téléchargée
    :maxdepth: 2
 
    corrections-exercices-elementaires
+
+.. toctree::
+   :maxdepth: 2
+
+   exercice-application
