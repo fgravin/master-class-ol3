@@ -40,6 +40,8 @@ Tous les exercices de cette partie se font à partir de la page HTML suivante :
     </html>
 
 
+.. note:: Pensez à lire les **indices** !
+
 
 .. _exercice-elementaire-1:
 
@@ -86,6 +88,12 @@ choisit Canvas, et enfin, si Canvas n'est pas pris en charge, c'est le
 
 :ref:`correction-exercice-elementaire-2`
 
+.. hint:: Pour vérifier quel *renderer* est utilisé vous pouvez effectuer un
+    clic droit sur la carte et sélectionner "Inspecter l'élément". Si c'est
+    le *renderer* DOM qui est utilisé l'élément inspecté sera une balise
+    ``<img>``, sinon ce sera une balise ``<canvas>``. Cette technique
+    ne permet pas de distinguer Canvas de WebGL.
+
 
 .. _exercice-elementaire-3:
 
@@ -97,11 +105,11 @@ Exercice élémentaire 3
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-3.html`` par exemple.
 2. Modifier l'objet d'options passés au constructeur ``ol.View2D`` pour
-   que la vue soit initialisée avec un niveau de zoom égal à 12.
+   que la vue soit initialisée avec un niveau de zoom égal à 17.
 3. Modifier à nouveau l'objet d'options pour que la vue soit initialisée
-   avec un centre égal à ``[259489.78506858557, 6251530.865964714]``.
+   avec un centre égal à ``[288074.8449901076, 6247982.515792289]``.
 4. Modifier à nouveau l'objet d'options pour que la vue soit pivotée
-   (rotation) d'un angle de 45 degré à l'est.
+   (rotation) d'un angle de 45 dans le sens des aiguilles d'une montre.
 
 :ref:`correction-exercice-elementaire-3`
 
@@ -121,9 +129,9 @@ Exercice élémentaire 4
 3. Saisir dans la console des outils de développement la commande JavaScript
    permettant d'obtenir le centre actuel de la vue.
 4. Toujours dans la console, agir sur la vue pour changer son centre à
-   ``[259489.78506858557, 6251530.865964714]``.
+   ``[288074.8449901076, 6247982.515792289]``.
 5. Obtenir dans la console la résolution actuelle de la vue.
-6. Agir sur la vue pour passer à une résolution 4096 fois plus petite que
+6. Agir sur la vue pour passer à une résolution 131072.0 fois plus petite que
    la résolution actuelle.
 7. Agir sur la vue pour faire pivoter la carte de 45 degré à l'est.
 8. Ajouter les lignes JavaScript saisies précédemment dans la console dans
@@ -159,10 +167,10 @@ Exercice élémentaire 5
    Et c'est cette référence qui devra être passé à la carte par l'intermédiaire
    de l'option ``view``.
 3. Après la création de la carte, agir sur la vue (référencée par la variable
-   ``view``) pour recentrer celle-ci sur l'étendue ``[248024.23082580912,
-   270955.339311362, 6243887.163136197, 6259174.568793232]``.
-4. Changer le code pour que la vue n'ait pas d'état initialement, et pour
-   qu'elle ne soit rééllement définie que lorsque qu'elle recentrée sur
+   ``view``) pour recentrer celle-ci sur l'étendue ``[287716.5464200208,
+   288433.14356019435, 6247743.650078897, 6248221.38150568]``.
+4. Changer le code pour que la vue n'ait pas d'état initial, et pour
+   qu'elle ne soit rééllement définie que lorsque qu'elle est recentrée sur
    l'étendue spécifiée.
 5. Tenter de comprendre pourquoi la fonction ``fitExtent`` a besoin des
    dimensions de la carte en pixels pour faire ce qui lui est demandé.
@@ -188,7 +196,7 @@ Exercice élémentaire 6
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-6.html`` par exemple.
-2. Changer les options de la vue pour obtenir une carte de Paris. (Celles
+2. Changer les options de la vue pour centrer la carte sur l'ENSG. (Options
    utilisées dans :ref:`exercice-elementaire-3` par exemple.)
 3. Passer au constructeur ``ol.source.OSM`` un objet d'options contenant une
    propriété ``url`` dont la valeur est
@@ -247,10 +255,10 @@ Exercice élémentaire 8
 3. Le système de coordonnée (projection) de ce centre est "EPSG:3857" (connu
    sous le nom de Spherical Mercator). Convertir les coordonnées du centre de
    "EPSG:3857" à "EPSG:4326" (longitude/latitude WGS84).
-4. Les coordonnées GPS du Louvre à Paris sont latitude : 48,8623122,
-   longitude : 2,3310364. Modifier le code JavaScript de la page pour
+4. Les coordonnées GPS de l'ENSG sont latitude : 48,8413379,
+   longitude : 2,5878203. Modifier le code JavaScript de la page pour
    que la vue soit centrée sur ces coordonnées à l'état initial. Changer
-   aussi le zoom à 12 pour un meilleur résultat.
+   aussi le zoom à 17 pour un meilleur résultat.
 
 .. hint::
 

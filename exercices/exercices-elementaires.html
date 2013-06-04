@@ -88,6 +88,10 @@
 <span class="nt">&lt;/html&gt;</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pensez à lire les <strong>indices</strong> !</p>
+</div>
 <div class="section" id="exercice-elementaire-1">
 <span id="id1"></span><h2>Exercice élémentaire 1<a class="headerlink" href="#exercice-elementaire-1" title="Lien permanent vers ce titre">¶</a></h2>
 <p><em>Afficher une carte simple</em></p>
@@ -124,6 +128,14 @@ pour que le <em>renderer</em> puisse être spécifié dans l&#8217;URL par le pa
 <tt class="docutils literal"><span class="pre">renderer</span></tt>. Exemple : <tt class="docutils literal"><span class="pre">exercice-elementaire-2.html?renderer=canvas</span></tt>.</li>
 </ol>
 <p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-2"><em>Correction exercice élémentaire 2</em></a></p>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<p class="last">Pour vérifier quel <em>renderer</em> est utilisé vous pouvez effectuer un
+clic droit sur la carte et sélectionner &#8220;Inspecter l&#8217;élément&#8221;. Si c&#8217;est
+le <em>renderer</em> DOM qui est utilisé l&#8217;élément inspecté sera une balise
+<tt class="docutils literal"><span class="pre">&lt;img&gt;</span></tt>, sinon ce sera une balise <tt class="docutils literal"><span class="pre">&lt;canvas&gt;</span></tt>. Cette technique
+ne permet pas de distinguer Canvas de WebGL.</p>
+</div>
 </div>
 <div class="section" id="exercice-elementaire-3">
 <span id="id3"></span><h2>Exercice élémentaire 3<a class="headerlink" href="#exercice-elementaire-3" title="Lien permanent vers ce titre">¶</a></h2>
@@ -132,11 +144,11 @@ pour que le <em>renderer</em> puisse être spécifié dans l&#8217;URL par le pa
 <li>Copier le code HTML de base dans un nouveau fichier,
 <tt class="docutils literal"><span class="pre">exercice-elementaire-3.html</span></tt> par exemple.</li>
 <li>Modifier l&#8217;objet d&#8217;options passés au constructeur <tt class="docutils literal"><span class="pre">ol.View2D</span></tt> pour
-que la vue soit initialisée avec un niveau de zoom égal à 12.</li>
+que la vue soit initialisée avec un niveau de zoom égal à 17.</li>
 <li>Modifier à nouveau l&#8217;objet d&#8217;options pour que la vue soit initialisée
-avec un centre égal à <tt class="docutils literal"><span class="pre">[259489.78506858557,</span> <span class="pre">6251530.865964714]</span></tt>.</li>
+avec un centre égal à <tt class="docutils literal"><span class="pre">[288074.8449901076,</span> <span class="pre">6247982.515792289]</span></tt>.</li>
 <li>Modifier à nouveau l&#8217;objet d&#8217;options pour que la vue soit pivotée
-(rotation) d&#8217;un angle de 45 degré à l&#8217;est.</li>
+(rotation) d&#8217;un angle de 45 dans le sens des aiguilles d&#8217;une montre.</li>
 </ol>
 <p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-3"><em>Correction exercice élémentaire 3</em></a></p>
 </div>
@@ -151,9 +163,9 @@ navigateur. Vous pouvez utiliser la touche <tt class="docutils literal"><span cl
 <li>Saisir dans la console des outils de développement la commande JavaScript
 permettant d&#8217;obtenir le centre actuel de la vue.</li>
 <li>Toujours dans la console, agir sur la vue pour changer son centre à
-<tt class="docutils literal"><span class="pre">[259489.78506858557,</span> <span class="pre">6251530.865964714]</span></tt>.</li>
+<tt class="docutils literal"><span class="pre">[288074.8449901076,</span> <span class="pre">6247982.515792289]</span></tt>.</li>
 <li>Obtenir dans la console la résolution actuelle de la vue.</li>
-<li>Agir sur la vue pour passer à une résolution 4096 fois plus petite que
+<li>Agir sur la vue pour passer à une résolution 131072.0 fois plus petite que
 la résolution actuelle.</li>
 <li>Agir sur la vue pour faire pivoter la carte de 45 degré à l&#8217;est.</li>
 <li>Ajouter les lignes JavaScript saisies précédemment dans la console dans
@@ -187,10 +199,10 @@ L&#8217;objet <tt class="docutils literal"><span class="pre">ol.View2D</span></t
 Et c&#8217;est cette référence qui devra être passé à la carte par l&#8217;intermédiaire
 de l&#8217;option <tt class="docutils literal"><span class="pre">view</span></tt>.</li>
 <li>Après la création de la carte, agir sur la vue (référencée par la variable
-<tt class="docutils literal"><span class="pre">view</span></tt>) pour recentrer celle-ci sur l&#8217;étendue <tt class="docutils literal"><span class="pre">[248024.23082580912,</span>
-<span class="pre">270955.339311362,</span> <span class="pre">6243887.163136197,</span> <span class="pre">6259174.568793232]</span></tt>.</li>
-<li>Changer le code pour que la vue n&#8217;ait pas d&#8217;état initialement, et pour
-qu&#8217;elle ne soit rééllement définie que lorsque qu&#8217;elle recentrée sur
+<tt class="docutils literal"><span class="pre">view</span></tt>) pour recentrer celle-ci sur l&#8217;étendue <tt class="docutils literal"><span class="pre">[287716.5464200208,</span>
+<span class="pre">288433.14356019435,</span> <span class="pre">6247743.650078897,</span> <span class="pre">6248221.38150568]</span></tt>.</li>
+<li>Changer le code pour que la vue n&#8217;ait pas d&#8217;état initial, et pour
+qu&#8217;elle ne soit rééllement définie que lorsque qu&#8217;elle est recentrée sur
 l&#8217;étendue spécifiée.</li>
 <li>Tenter de comprendre pourquoi la fonction <tt class="docutils literal"><span class="pre">fitExtent</span></tt> a besoin des
 dimensions de la carte en pixels pour faire ce qui lui est demandé.</li>
@@ -214,7 +226,7 @@ exercice.</li>
 <ol class="arabic simple">
 <li>Copier le code HTML de base dans un nouveau fichier,
 <tt class="docutils literal"><span class="pre">exercice-elementaire-6.html</span></tt> par exemple.</li>
-<li>Changer les options de la vue pour obtenir une carte de Paris. (Celles
+<li>Changer les options de la vue pour centrer la carte sur l&#8217;ENSG. (Options
 utilisées dans <a class="reference internal" href="#exercice-elementaire-3"><em>Exercice élémentaire 3</em></a> par exemple.)</li>
 <li>Passer au constructeur <tt class="docutils literal"><span class="pre">ol.source.OSM</span></tt> un objet d&#8217;options contenant une
 propriété <tt class="docutils literal"><span class="pre">url</span></tt> dont la valeur est
@@ -269,10 +281,10 @@ Voir la doc de l&#8217;API pour plus d&#8217;informations.</li>
 <li>Le système de coordonnée (projection) de ce centre est &#8220;EPSG:3857&#8221; (connu
 sous le nom de Spherical Mercator). Convertir les coordonnées du centre de
 &#8220;EPSG:3857&#8221; à &#8220;EPSG:4326&#8221; (longitude/latitude WGS84).</li>
-<li>Les coordonnées GPS du Louvre à Paris sont latitude : 48,8623122,
-longitude : 2,3310364. Modifier le code JavaScript de la page pour
+<li>Les coordonnées GPS de l&#8217;ENSG sont latitude : 48,8413379,
+longitude : 2,5878203. Modifier le code JavaScript de la page pour
 que la vue soit centrée sur ces coordonnées à l&#8217;état initial. Changer
-aussi le zoom à 12 pour un meilleur résultat.</li>
+aussi le zoom à 17 pour un meilleur résultat.</li>
 </ol>
 <div class="admonition hint">
 <p class="first admonition-title">Indice</p>

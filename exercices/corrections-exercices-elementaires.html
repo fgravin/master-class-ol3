@@ -122,8 +122,8 @@ passer.</p>
       <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
         <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
         <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
-          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">],</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">288074.8449901076</span><span class="p">,</span> <span class="mf">6247982.515792289</span><span class="p">],</span>
           <span class="nx">rotation</span><span class="o">:</span> <span class="mi">45</span>
         <span class="p">}),</span>
         <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
@@ -143,9 +143,9 @@ passer.</p>
 <p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-4"><em>Exercice élémentaire 4</em></a></p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nx">view</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span>
 <span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">()</span>
-<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">])</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">288074.8449901076</span><span class="p">,</span> <span class="mf">6247982.515792289</span><span class="p">])</span>
 <span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span>
-<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mf">131072.0</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="nx">view</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -180,8 +180,8 @@ passer.</p>
         <span class="p">]</span>
       <span class="p">});</span>
       <span class="nx">view</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span>
-      <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">])</span>
-      <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mi">4096</span><span class="p">)</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">([</span><span class="mf">288074.8449901076</span><span class="p">,</span> <span class="mf">6247982.515792289</span><span class="p">])</span>
+      <span class="nx">view</span><span class="p">.</span><span class="nx">setResolution</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">()</span> <span class="o">/</span> <span class="mf">131072.0</span><span class="p">)</span>
       <span class="nx">view</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
       <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -221,8 +221,8 @@ passer.</p>
         <span class="p">]</span>
       <span class="p">});</span>
 
-      <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">248024.23082580912</span><span class="p">,</span> <span class="mf">270955.339311362</span><span class="p">,</span>
-                    <span class="mf">6243887.163136197</span><span class="p">,</span> <span class="mf">6259174.568793232</span><span class="p">];</span>
+      <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">287716.5464200208</span><span class="p">,</span> <span class="mf">288433.14356019435</span><span class="p">,</span>
+                    <span class="mf">6247743.650078897</span><span class="p">,</span> <span class="mf">6248221.38150568</span><span class="p">];</span>
       <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
       <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -261,8 +261,8 @@ hauteur en pixels), il ne lui est pas possible de recentrer la vue sur une
       <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
         <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
         <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
-          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">259489.78506858557</span><span class="p">,</span> <span class="mf">6251530.865964714</span><span class="p">]</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">288074.8449901076</span><span class="p">,</span> <span class="mf">6247982.515792289</span><span class="p">]</span>
         <span class="p">}),</span>
         <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
           <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
@@ -338,6 +338,9 @@ données sont affichées.</p>
 <span class="o">&gt;</span> <span class="nx">osmLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="o">!</span><span class="nx">osmLayer</span><span class="p">.</span><span class="nx">getVisible</span><span class="p">())</span>
 </pre></div>
 </div>
+<p><tt class="docutils literal"><span class="pre">osmLayer.getVisible()</span></tt> retourne un booléen (<tt class="docutils literal"><span class="pre">true</span></tt> ou <tt class="docutils literal"><span class="pre">false</span></tt>).
+<tt class="docutils literal"><span class="pre">osmLayer.setVisible(!osmLayer.getVisible())</span></tt> permet donc d&#8217;inverser la
+visibilité.</p>
 </div>
 <div class="section" id="correction-exercice-elementaire-8">
 <span id="id8"></span><h2>Correction exercice élémentaire 8<a class="headerlink" href="#correction-exercice-elementaire-8" title="Lien permanent vers ce titre">¶</a></h2>
@@ -365,11 +368,11 @@ données sont affichées.</p>
       <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
       <span class="nt">&lt;script&gt;</span>
       <span class="kd">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span>
-        <span class="p">[</span><span class="mf">2.3310364</span><span class="p">,</span> <span class="mf">48.8623122</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">);</span>
+        <span class="p">[</span><span class="mf">2.5878203</span><span class="p">,</span> <span class="mf">48.8413379</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">);</span>
       <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
         <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
         <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
-          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span>
           <span class="nx">center</span><span class="o">:</span> <span class="nx">center</span>
         <span class="p">}),</span>
         <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>

@@ -93,8 +93,8 @@ Correction exercice élémentaire 3
           var map = new ol.Map({
             target: 'map',
             view: new ol.View2D({
-              zoom: 12,
-              center: [259489.78506858557, 6251530.865964714],
+              zoom: 17,
+              center: [288074.8449901076, 6247982.515792289],
               rotation: 45
             }),
             layers: [
@@ -120,9 +120,9 @@ Correction exercice élémentaire 4
 
     > view = map.getView()
     > view.getCenter()
-    > view.setCenter([259489.78506858557, 6251530.865964714])
+    > view.setCenter([288074.8449901076, 6247982.515792289])
     > view.getResolution()
-    > view.setResolution(view.getResolution() / 4096)
+    > view.setResolution(view.getResolution() / 131072.0)
     > view.setRotation(45)
 
 .. code-block:: html
@@ -158,8 +158,8 @@ Correction exercice élémentaire 4
             ]
           });
           view = map.getView()
-          view.setCenter([259489.78506858557, 6251530.865964714])
-          view.setResolution(view.getResolution() / 4096)
+          view.setCenter([288074.8449901076, 6247982.515792289])
+          view.setResolution(view.getResolution() / 131072.0)
           view.setRotation(45)
           </script>
       </body>
@@ -204,8 +204,8 @@ Correction exercice élémentaire 5
             ]
           });
 
-          var extent = [248024.23082580912, 270955.339311362,
-                        6243887.163136197, 6259174.568793232];
+          var extent = [287716.5464200208, 288433.14356019435,
+                        6247743.650078897, 6248221.38150568];
           view.fitExtent(extent, map.getSize());
           </script>
       </body>
@@ -250,8 +250,8 @@ Correction exercice élémentaire 6
           var map = new ol.Map({
             target: 'map',
             view: new ol.View2D({
-              zoom: 12,
-              center: [259489.78506858557, 6251530.865964714]
+              zoom: 17,
+              center: [288074.8449901076, 6247982.515792289]
             }),
             layers: [
               new ol.layer.TileLayer({
@@ -334,6 +334,10 @@ Pour changer la visibilité de la couche dans la console :
     > osmLayer.setVisible(!osmLayer.getVisible())
     > osmLayer.setVisible(!osmLayer.getVisible())
 
+``osmLayer.getVisible()`` retourne un booléen (``true`` ou ``false``).
+``osmLayer.setVisible(!osmLayer.getVisible())`` permet donc d'inverser la
+visibilité.
+
 
 .. _correction-exercice-elementaire-8:
 
@@ -369,11 +373,11 @@ Dans la console :
           <script src="http://ol3js.org/en/master/build/ol.js"></script>
           <script>
           var center = ol.proj.transform(
-            [2.3310364, 48.8623122], 'EPSG:4326', 'EPSG:3857');
+            [2.5878203, 48.8413379], 'EPSG:4326', 'EPSG:3857');
           var map = new ol.Map({
             target: 'map',
             view: new ol.View2D({
-              zoom: 12,
+              zoom: 17,
               center: center
             }),
             layers: [
