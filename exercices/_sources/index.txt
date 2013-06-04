@@ -13,14 +13,10 @@ disponible en ligne à http://erilem.net/master-class-ol3/exercices/.  Une
 version PDF peut être téléchargée
 à http://erilem.net/master-class-ol3/exercices/exercices.pdf.
 
-Exercices :
-
 .. toctree::
    :maxdepth: 2
 
    exercices-elementaires
-
-Corrections :
 
 .. toctree::
    :maxdepth: 2
