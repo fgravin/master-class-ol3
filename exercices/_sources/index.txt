@@ -42,3 +42,11 @@ GéoBretagne qui sera utilisé.
    :maxdepth: 2
 
    correction-application
+
+.. image:: _static/cc-by-sa.png
+   :target: http://creativecommons.org/licenses/by-sa/3.0/
+   :alt: Creative Commons License
+
+Ce document est mis à disposition selon les termes de la license `Creative
+Commons Attribution-ShareAlike 3.0 Unported License
+<http://creativecommons.org/licenses/by-sa/3.0/>`_.
