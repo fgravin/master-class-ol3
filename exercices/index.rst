@@ -37,3 +37,8 @@ GéoBretagne qui sera utilisé.
    :maxdepth: 2
 
    exercice-application
+
+.. toctree::
+   :maxdepth: 2
+
+   correction-exercice-application
