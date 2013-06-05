@@ -19,6 +19,7 @@ gh-pages: .gh-pages
 	 cp -r ../exercices/_build/html/* exercices && \
 	 cp ../exercices/_build/latex/MasterClassOL3.pdf exercices/exercices.pdf && \
 	 cp -r ../slides/.grunt/self/* slides && \
+	 cp ../slides/slides.pdf slides && \
 	 git add --all . && \
 	 git commit -m 'Update' && \
 	 git push origin gh-pages)
