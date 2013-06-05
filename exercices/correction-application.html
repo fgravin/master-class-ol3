@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Correction application &mdash; Master Class OL3 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Master Class OL3 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Développement d’une application" href="application.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="application.html" title="Développement d’une application"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="correction-application">
+<h1>Correction application<a class="headerlink" href="#correction-application" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="correction-etape-1">
+<span id="correction-application-etape-1"></span><h2>Correction étape 1<a class="headerlink" href="#correction-etape-1" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-1"><em>Étape 1</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;chrome=1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Application<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nc">.map</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+      <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+      <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+          <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">40679590.16384748</span><span class="p">,</span> <span class="o">-</span><span class="mf">40093165.28284361</span><span class="p">,</span>
+        <span class="mf">5967723.758526416</span><span class="p">,</span> <span class="mf">6264605.176386041</span><span class="p">];</span>
+    <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-2">
+<span id="correction-application-etape-2"></span><h2>Correction étape 2<a class="headerlink" href="#correction-etape-2" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-2"><em>Étape 2</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;chrome=1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Application<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nc">.map</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+        <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+      <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+      <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+          <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+        <span class="p">})</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">40679590.16384748</span><span class="p">,</span> <span class="o">-</span><span class="mf">40093165.28284361</span><span class="p">,</span>
+        <span class="mf">5967723.758526416</span><span class="p">,</span> <span class="mf">6264605.176386041</span><span class="p">];</span>
+    <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-3">
+<span id="correction-application-etape-3"></span><h2>Correction étape 3<a class="headerlink" href="#correction-etape-3" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-3"><em>Étape 3</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;chrome=1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Application<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nc">.map</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+        <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">156543.0339</span><span class="p">,</span> <span class="mf">78271.51695</span><span class="p">,</span> <span class="mf">39135.758475</span><span class="p">,</span>
+        <span class="mf">19567.8792375</span><span class="p">,</span> <span class="mf">9783.93961875</span><span class="p">,</span> <span class="mf">4891.969809375</span><span class="p">,</span>
+        <span class="mf">2445.9849046875</span><span class="p">,</span> <span class="mf">1222.99245234375</span><span class="p">,</span> <span class="mf">611.4962261718748</span><span class="p">,</span>
+        <span class="mf">305.7481130859374</span><span class="p">,</span> <span class="mf">152.87405654296887</span><span class="p">,</span> <span class="mf">76.43702827148444</span><span class="p">,</span>
+        <span class="mf">38.21851413574208</span><span class="p">,</span> <span class="mf">19.10925706787104</span><span class="p">,</span> <span class="mf">9.55462853393552</span><span class="p">,</span>
+        <span class="mf">4.77731426696776</span><span class="p">,</span> <span class="mf">2.38865713348388</span><span class="p">,</span> <span class="mf">1.1943285667420798</span><span class="p">,</span>
+        <span class="mf">0.5971642833710399</span><span class="p">,</span> <span class="mf">0.29858214168551994</span><span class="p">,</span> <span class="mf">0.14929107084275997</span><span class="p">,</span>
+        <span class="mf">0.07464553542123999</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+      <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">,</span>
+      <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+          <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+          <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+      <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">117427.53782167949</span><span class="p">,</span> <span class="mf">410639.9782710938</span><span class="p">,</span>
+        <span class="mf">6731783.8687657695</span><span class="p">,</span> <span class="mf">6880224.577668993</span><span class="p">];</span>
+    <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-4">
+<span id="correction-application-etape-4"></span><h2>Correction étape 4<a class="headerlink" href="#correction-etape-4" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-4"><em>Étape 4</em></a></p>
+<p>Pour créer la deuxième couche :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+      <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+      <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>La nouvelle configuration de la carte:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+  <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+  <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+  <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+  <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-5">
+<span id="correction-application-etape-5"></span><h2>Correction étape 5<a class="headerlink" href="#correction-etape-5" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-5"><em>Étape 5</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;chrome=1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Application<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nc">.map</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nf">#background-selector</span> <span class="p">{</span>
+        <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+        <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+        <span class="k">right</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+        <span class="k">z-index</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;background-selector&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;carte&quot;</span> <span class="na">selected</span><span class="nt">&gt;</span>Carte<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;satellite&quot;</span><span class="nt">&gt;</span>Satellite<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-2.0.0.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+        <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">156543.0339</span><span class="p">,</span> <span class="mf">78271.51695</span><span class="p">,</span> <span class="mf">39135.758475</span><span class="p">,</span>
+        <span class="mf">19567.8792375</span><span class="p">,</span> <span class="mf">9783.93961875</span><span class="p">,</span> <span class="mf">4891.969809375</span><span class="p">,</span>
+        <span class="mf">2445.9849046875</span><span class="p">,</span> <span class="mf">1222.99245234375</span><span class="p">,</span> <span class="mf">611.4962261718748</span><span class="p">,</span>
+        <span class="mf">305.7481130859374</span><span class="p">,</span> <span class="mf">152.87405654296887</span><span class="p">,</span> <span class="mf">76.43702827148444</span><span class="p">,</span>
+        <span class="mf">38.21851413574208</span><span class="p">,</span> <span class="mf">19.10925706787104</span><span class="p">,</span> <span class="mf">9.55462853393552</span><span class="p">,</span>
+        <span class="mf">4.77731426696776</span><span class="p">,</span> <span class="mf">2.38865713348388</span><span class="p">,</span> <span class="mf">1.1943285667420798</span><span class="p">,</span>
+        <span class="mf">0.5971642833710399</span><span class="p">,</span> <span class="mf">0.29858214168551994</span><span class="p">,</span> <span class="mf">0.14929107084275997</span><span class="p">,</span>
+        <span class="mf">0.07464553542123999</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+      <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">,</span>
+      <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+          <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+          <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+          <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+          <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+      <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">117427.53782167949</span><span class="p">,</span> <span class="mf">410639.9782710938</span><span class="p">,</span>
+        <span class="mf">6731783.8687657695</span><span class="p">,</span> <span class="mf">6880224.577668993</span><span class="p">];</span>
+    <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;:selected&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;carte&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;satellite&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-6">
+<span id="correction-application-etape-6"></span><h2>Correction étape 6<a class="headerlink" href="#correction-etape-6" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-6"><em>Étape 6</em></a></p>
+<p>Le code pour créer la couche &#8220;paimpol_zone_plu_ccpg&#8221; :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">paimpollayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">imagelayer</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">singleimagewms</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://geobretagne.fr/geoserver/id22/wms&#39;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;layers&#39;</span><span class="o">:</span> <span class="s1">&#39;paimpol_zone_plu_ccpg&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;version&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;transparent&#39;</span><span class="o">:</span> <span class="s1">&#39;true&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>La nouvelle configuration de la carte, ainsi que le nouvel appel
+à <tt class="docutils literal"><span class="pre">fitExtent</span></tt> pour centrer la vue sur Paimpol :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+  <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+  <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+  <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+  <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">,</span> <span class="nx">paimpolLayer</span><span class="p">]</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">246462.7961724792</span><span class="p">,</span> <span class="mf">264788.57370056753</span><span class="p">,</span>
+    <span class="mf">6864884.621557758</span><span class="p">,</span> <span class="mf">6874162.16586421</span><span class="p">];</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-etape-7">
+<span id="correction-application-etape-7"></span><h2>Correction étape 7<a class="headerlink" href="#correction-etape-7" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="application.html#application-etape-7"><em>Étape 7</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;chrome=1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Application<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nc">.map</span> <span class="p">{</span>
+        <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nf">#background-selector</span> <span class="p">{</span>
+        <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+        <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+        <span class="k">right</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+        <span class="k">z-index</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nf">#geolocation</span> <span class="p">{</span>
+        <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+        <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+        <span class="k">right</span><span class="o">:</span> <span class="m">76px</span><span class="p">;</span>
+        <span class="k">z-index</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;background-selector&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;carte&quot;</span> <span class="na">selected</span><span class="nt">&gt;</span>Carte<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;satellite&quot;</span><span class="nt">&gt;</span>Satellite<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;geolocation&quot;</span><span class="nt">&gt;</span>Localise moi!<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-2.0.0.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+        <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">156543.0339</span><span class="p">,</span> <span class="mf">78271.51695</span><span class="p">,</span> <span class="mf">39135.758475</span><span class="p">,</span>
+        <span class="mf">19567.8792375</span><span class="p">,</span> <span class="mf">9783.93961875</span><span class="p">,</span> <span class="mf">4891.969809375</span><span class="p">,</span>
+        <span class="mf">2445.9849046875</span><span class="p">,</span> <span class="mf">1222.99245234375</span><span class="p">,</span> <span class="mf">611.4962261718748</span><span class="p">,</span>
+        <span class="mf">305.7481130859374</span><span class="p">,</span> <span class="mf">152.87405654296887</span><span class="p">,</span> <span class="mf">76.43702827148444</span><span class="p">,</span>
+        <span class="mf">38.21851413574208</span><span class="p">,</span> <span class="mf">19.10925706787104</span><span class="p">,</span> <span class="mf">9.55462853393552</span><span class="p">,</span>
+        <span class="mf">4.77731426696776</span><span class="p">,</span> <span class="mf">2.38865713348388</span><span class="p">,</span> <span class="mf">1.1943285667420798</span><span class="p">,</span>
+        <span class="mf">0.5971642833710399</span><span class="p">,</span> <span class="mf">0.29858214168551994</span><span class="p">,</span> <span class="mf">0.14929107084275997</span><span class="p">,</span>
+        <span class="mf">0.07464553542123999</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
+
+    <span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+      <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">,</span>
+      <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+          <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+          <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+          <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+          <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">paimpolLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">ImageLayer</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">SingleImageWMS</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://geobretagne.fr/geoserver/id22/wms&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;paimpol_zone_plu_ccpg&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;TRANSPARENT&#39;</span><span class="o">:</span> <span class="s1">&#39;TRUE&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+
+
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+      <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">,</span> <span class="nx">paimpolLayer</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">246462.7961724792</span><span class="p">,</span> <span class="mf">264788.57370056753</span><span class="p">,</span>
+        <span class="mf">6864884.621557758</span><span class="p">,</span> <span class="mf">6874162.16586421</span><span class="p">];</span>
+    <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;:selected&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;carte&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;satellite&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+        <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">geoloc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Geolocation</span><span class="p">({</span><span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">});</span>
+    <span class="nx">geoloc</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change:position&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="nx">geoloc</span><span class="p">.</span><span class="nx">getPosition</span><span class="p">());</span>
+        <span class="nx">geoloc</span><span class="p">.</span><span class="nx">setTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#geolocation&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">geoloc</span><span class="p">.</span><span class="nx">setTracking</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Correction application</a><ul>
+<li><a class="reference internal" href="#correction-etape-1">Correction étape 1</a></li>
+<li><a class="reference internal" href="#correction-etape-2">Correction étape 2</a></li>
+<li><a class="reference internal" href="#correction-etape-3">Correction étape 3</a></li>
+<li><a class="reference internal" href="#correction-etape-4">Correction étape 4</a></li>
+<li><a class="reference internal" href="#correction-etape-5">Correction étape 5</a></li>
+<li><a class="reference internal" href="#correction-etape-6">Correction étape 6</a></li>
+<li><a class="reference internal" href="#correction-etape-7">Correction étape 7</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="application.html"
+                        title="Chapitre précédent">Développement d&#8217;une application</a></p>
+  <h3>Cette page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/correction-application.txt"
+           rel="nofollow">Montrer la source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="application.html" title="Développement d’une application"
+             >précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Éric Lemoine.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

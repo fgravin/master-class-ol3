@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Développement d’une application &mdash; Master Class OL3 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Master Class OL3 0.1 documentation" href="index.html" />
+    <link rel="next" title="Correction application" href="correction-application.html" />
+    <link rel="prev" title="Corrections des exercices élémentaires" href="corrections-exercices-elementaires.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="correction-application.html" title="Correction application"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="corrections-exercices-elementaires.html" title="Corrections des exercices élémentaires"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developpement-d-une-application">
+<h1>Développement d&#8217;une application<a class="headerlink" href="#developpement-d-une-application" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Vous allez ici créer une carte occupant tout l&#8217;écran et compatible avec des
+appareils mobile. Cette carte affichera des données issues de la plate-forme
+GéoBretagne, selon la projection Lambert93 (projection officielle pour les
+cartes de France métropolitaine).</p>
+<div class="section" id="etape-1">
+<span id="application-etape-1"></span><h2>Étape 1<a class="headerlink" href="#etape-1" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Créer une page web avec une carte occupant tout l&#8217;écran</em></p>
+<p>Votre objectif à cette étape est d&#8217;obtenir une carte quelconque occupant tout
+l&#8217;écran. La carte sera la plus simple possible : projection globale EPSG:3857
+(projection par défaut dans OL3), et une couche OSM.</p>
+<p>Vous pouvez, si vous le souhaitez, d&#8217;ores-et-déja centrer la carte sur la
+Bretagne.  Voici une étendue dans le système de coordonnée EPSG:3857 pour la
+Bretagne : <tt class="docutils literal"><span class="pre">[-40679590.16384748,</span> <span class="pre">-40093165.28284361,</span> <span class="pre">5967723.758526416,</span>
+<span class="pre">6264605.176386041]</span></tt>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ol class="last arabic simple">
+<li>Pour créer une carte occupant tout l&#8217;écran vous pouvez vous inspirez de
+l&#8217;exemple <a class="reference external" href="http://ol3js.org/en/master/examples/mobile-full-screen.html">http://ol3js.org/en/master/examples/mobile-full-screen.html</a>.</li>
+<li>Pour créer une carte OSM la plus simple possible vous pouvez vous
+inspirez de l&#8217;exemple <a class="reference external" href="http://ol3js.org/en/master/examples/simple.html">http://ol3js.org/en/master/examples/simple.html</a>.</li>
+</ol>
+</div>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-1"><em>Correction étape 1</em></a></p>
+</div>
+<div class="section" id="etape-2">
+<span id="application-etape-2"></span><h2>Étape 2<a class="headerlink" href="#etape-2" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Charger proj4js dans la page et ajouter la projection Lambert93</em></p>
+<p>Cette étape consiste à ajouter la bibliothèque proj4js et à la configurer pour
+qu&#8217;elle puisse fonctionner avec la projection Lambert93 (EPSG:2154).</p>
+<p>Pour ajouter la bibliothèque proj4js ajouter à la page une balise <tt class="docutils literal"><span class="pre">&lt;script&gt;</span></tt>
+dont l&#8217;attribut <tt class="docutils literal"><span class="pre">src</span></tt> est positionné à
+<tt class="docutils literal"><span class="pre">http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js</span></tt>.</p>
+<p>Et pour que proj4js puisse être utilisé pour la projection Lamber93 il faut
+déclarer cette projection auprès de proj4js. Comme ceci:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+    <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+    <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Cette ligne doit donc être ajoutée dans le code JavaScript de la page, avant
+la création de la carte.</p>
+<p>Le chargement de proj4js et la déclaration de la projection EPSG:2154 ne
+devrait avoir aucun impact sur la carte créée à l&#8217;étape précédente. Recharger
+la page dans le navigateur pour vous en assurer.</p>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-2"><em>Correction étape 2</em></a></p>
+</div>
+<div class="section" id="etape-3">
+<span id="application-etape-3"></span><h2>Étape 3<a class="headerlink" href="#etape-3" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Ajouter la couche &#8220;carte&#8221; de la plate-forme GéoBretagne</em></p>
+<p>À cette étape vous aller modifier la carte pour que celle-ci la couche WMS
+&#8220;carte&#8221; de la plate-forme GéoBretagne, et que l&#8217;affichage se fasse selon la
+projection &#8220;EPSG:2154&#8221;. Vous allez pour ceci modifier la configuration de
+la vue (<tt class="docutils literal"><span class="pre">View2D</span></tt>), et remplacer la source <tt class="docutils literal"><span class="pre">ol.source.OSM</span></tt> par une source
+<tt class="docutils literal"><span class="pre">ol.source.TiledWMS</span></tt> configurée correctement.</p>
+<ol class="arabic">
+<li><p class="first">Le service WMS de la plate-forme GéoBretagne que nous utilisons ici prend en
+charge l&#8217;extension <a class="reference external" href="http://wiki.osgeo.org/wiki/WMS_Tiling_Client_Recommendation">WMS-C</a> pour fournir
+des images (tuiles) selon une grille donnée. Cette grille fixe les
+résolutions d&#8217;affichage et l&#8217;étendue des tuiles.</p>
+<p>Dans un but de préparation créer dans le code JavaScript de la page, après
+la définition de la projection EPSG:2154, deux tableaux JavaScript : un
+contenant les résolutions prises en charge par le service WMS-C, et un
+contenant l&#8217;étendue des tuiles.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Proj4js</span><span class="p">.</span><span class="nx">defs</span><span class="p">[</span><span class="s1">&#39;EPSG:2154&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 &#39;</span> <span class="o">+</span>
+    <span class="s1">&#39;+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 &#39;</span><span class="o">+</span>
+    <span class="s1">&#39;+units=m +no_defs&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">156543.0339</span><span class="p">,</span> <span class="mf">78271.51695</span><span class="p">,</span> <span class="mf">39135.758475</span><span class="p">,</span>
+    <span class="mf">19567.8792375</span><span class="p">,</span> <span class="mf">9783.93961875</span><span class="p">,</span> <span class="mf">4891.969809375</span><span class="p">,</span>
+    <span class="mf">2445.9849046875</span><span class="p">,</span> <span class="mf">1222.99245234375</span><span class="p">,</span> <span class="mf">611.4962261718748</span><span class="p">,</span>
+    <span class="mf">305.7481130859374</span><span class="p">,</span> <span class="mf">152.87405654296887</span><span class="p">,</span> <span class="mf">76.43702827148444</span><span class="p">,</span>
+    <span class="mf">38.21851413574208</span><span class="p">,</span> <span class="mf">19.10925706787104</span><span class="p">,</span> <span class="mf">9.55462853393552</span><span class="p">,</span>
+    <span class="mf">4.77731426696776</span><span class="p">,</span> <span class="mf">2.38865713348388</span><span class="p">,</span> <span class="mf">1.1943285667420798</span><span class="p">,</span>
+    <span class="mf">0.5971642833710399</span><span class="p">,</span> <span class="mf">0.29858214168551994</span><span class="p">,</span> <span class="mf">0.14929107084275997</span><span class="p">,</span>
+    <span class="mf">0.07464553542123999</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Le service de la plate-forme GéoBretagne utilisé ici est décrit à cette
+page: <a class="reference external" href="http://tile.geobretagne.fr/gwc02/home">http://tile.geobretagne.fr/gwc02/home</a>. Les résolutions et l&#8217;étendue
+sont définies dans le document WMS GetCapabilities à cette URL :
+<a class="reference external" href="http://tile.geobretagne.fr/gwc02/service/wms?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=getcapabilities&amp;TILED=true">http://tile.geobretagne.fr/gwc02/service/wms?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=getcapabilities&amp;TILED=true</a></p>
+</li>
+<li><p class="first">Il s&#8217;agit maintenant de configurer la vue (<tt class="docutils literal"><span class="pre">View2D</span></tt>) pour que la carte
+soit représentée selon la projection EPSG:2154 et que les résolutions d&#8217;affichage
+soient celles prises en charge par le service WMS-C.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+  <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">,</span>
+  <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Vous allez maintenant créer un objet de type <tt class="docutils literal"><span class="pre">ol.layer.TileLayer</span></tt>
+permettant d&#8217;afficher les tuiles de la couche WMS-C &#8220;carte&#8221; du
+service <a class="reference external" href="http://tile.geobretagne.fr/gwc02/service/wms">http://tile.geobretagne.fr/gwc02/service/wms</a>. Voici le code à écrire
+pour créer cet objet:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;VERSION&#39;</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">tileGrid</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">tilegrid</span><span class="p">.</span><span class="nx">TileGrid</span><span class="p">({</span>
+      <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span><span class="p">,</span>
+      <span class="nx">origin</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">extent</span><span class="o">:</span> <span class="nx">extent</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Ce bloc de code peut être ajouté après la création de la vue. Prenez un peu
+de temps pour le comprendre. (Et poser des questions !)</p>
+</li>
+<li><p class="first">Maintenant que la vue et la couche sont créées il faut adapter l&#8217;objet
+d&#8217;options passé à <tt class="docutils literal"><span class="pre">ol.Map</span></tt>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+  <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+  <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+  <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
+  <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>À noter que le <em>renderer</em> Canvas est utilisé ici. Dans ce cas précis,
+à cause d&#8217;une limitation au niveau du service WMS (en-tête <a class="reference external" href="https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS">CORS</a> non
+positionné par le serveur), il n&#8217;est pas possible d&#8217;utiliser le <em>renderer</em>
+WebGL.</p>
+</li>
+<li><p class="first">La dernière étape consiste à centrer la vue sur la Bretagne:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">117427.53782167949</span><span class="p">,</span> <span class="mf">410639.9782710938</span><span class="p">,</span>
+    <span class="mf">6731783.8687657695</span><span class="p">,</span> <span class="mf">6880224.577668993</span><span class="p">];</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-3"><em>Correction étape 3</em></a></p>
+</div>
+<div class="section" id="etape-4">
+<span id="application-etape-4"></span><h2>Étape 4<a class="headerlink" href="#etape-4" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Ajouter une deuxième couche tuilée</em></p>
+<p>Ajoutez à cette étape une deuxième couche WMS tuilée, exactement du même type
+que la première mais reposant sur la couche WMS &#8220;satellite&#8221;.</p>
+<p>Les deux couches étant opaques vous observerez que la couche &#8220;satellite&#8221;
+recouvre complètement la couche &#8220;carte&#8221;.</p>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-4"><em>Correction étape 4</em></a></p>
+</div>
+<div class="section" id="etape-5">
+<span id="application-etape-5"></span><h2>Étape 5<a class="headerlink" href="#etape-5" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Ajouter un outil de sélection de couche</em></p>
+<p>À cette étape vous allez ajouter un outil de type <tt class="docutils literal"><span class="pre">&lt;select&gt;</span></tt> permettant
+de sélectionner, parmi &#8220;carte&#8221; et &#8220;satellite&#8221;, quelle couche est visible.</p>
+<p>Cette étape nécessite d&#8217;ajouter des éléments HTML dans la page, et de manipuler
+ces éléments en JavaScript. Pour faciliter la manipulation d&#8217;éléments DOM en
+JavaScript nous allons utiliser la célèbre bibliothèque jQuery.</p>
+<p>Tout d&#8217;abord, pour charger jQuery dans la page ajouter la balise <tt class="docutils literal"><span class="pre">&lt;script&gt;</span></tt>
+suivante:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-2.0.0.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</div>
+<p>Ensuite, ajouter une balise <tt class="docutils literal"><span class="pre">&lt;select&gt;</span></tt> dans le code HTML, à l&#8217;intérieur du
+<tt class="docutils literal"><span class="pre">div</span></tt> de la carte:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;background-selector&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;carte&quot;</span> <span class="na">selected</span><span class="nt">&gt;</span>Carte<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;satellite&quot;</span><span class="nt">&gt;</span>Satellite<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>Afin de placer le sélecteur dans la carte, un peu de CSS est nécessaire:</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nf">#background-selector</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="k">right</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Il ne reste alors plus qu&#8217;à écrire le code JavaScript permettant de changer
+la visibilité des couches quand la sélection change:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;:selected&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;carte&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">selected</span> <span class="o">==</span> <span class="s1">&#39;satellite&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">carteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="nx">satelliteLayer</span><span class="p">.</span><span class="nx">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>À titre d&#8217;exercice, déterminer pourquoi cette dernière ligne est nécessaire.</p>
+<p>Toujours à titre d&#8217;exerice vous pouve écrire ce code JavaScript sans utiliser
+jQuery. Il est en effet un peu idiot de charger jQuery pour si peu.</p>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-5"><em>Correction étape 5</em></a></p>
+</div>
+<div class="section" id="etape-6">
+<span id="application-etape-6"></span><h2>Étape 6<a class="headerlink" href="#etape-6" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Ajouter une couche image</em></p>
+<p>Pour cette étape vous devez ajouter une couche non-tuilée (de type image) pour
+la couche WMS &#8220;paimpol_zone_plu_ccpg&#8221; du service WMS
+<a class="reference external" href="http://geobretagne.fr/geoserver/id22/wms">http://geobretagne.fr/geoserver/id22/wms</a>.</p>
+<p>Pour bien visualiser la couche vous pouvez changer la valeur de
+<tt class="docutils literal"><span class="pre">initialExtent</span></tt> pour se rapprocher de la commune Paimpol:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">246462.7961724792</span><span class="p">,</span> <span class="mf">264788.57370056753</span><span class="p">,</span>
+    <span class="mf">6864884.621557758</span><span class="p">,</span> <span class="mf">6874162.16586421</span><span class="p">];</span>
+<span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ol class="last arabic simple">
+<li>Vous utiliserez ici <tt class="docutils literal"><span class="pre">ol.layer.ImageLayer</span></tt> plutôt que
+<tt class="docutils literal"><span class="pre">ol.layer.TileLayer</span></tt>.</li>
+<li>Et vous utiliserez <tt class="docutils literal"><span class="pre">ol.source.SingleImageWMS</span></tt> plutôt que
+<tt class="docutils literal"><span class="pre">ol.source.TiledWMS</span></tt>.</li>
+</ol>
+</div>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-6"><em>Correction étape 6</em></a></p>
+</div>
+<div class="section" id="etape-7">
+<span id="application-etape-7"></span><h2>Étape 7<a class="headerlink" href="#etape-7" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Ajouter un bouton de géo-localisation</em></p>
+<p>Il s&#8217;agit à cette étape d&#8217;ajouter à la carte un bouton permettant
+à l&#8217;utilisateur de centrer la carte sur sa position actuelle.</p>
+<p>La classe <tt class="docutils literal"><span class="pre">ol.Geolocation</span></tt> d&#8217;OpenLayers doit être utilisée pour ça.</p>
+<p>En exercice <em>bonus</em> : animer le recentrage de la carte pour chaque
+géo-localisation. (La solution de cette exercice bonus n&#8217;est pas donnée dans la
+correction.)</p>
+<p><a class="reference internal" href="correction-application.html#correction-application-etape-7"><em>Correction étape 7</em></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Développement d&#8217;une application</a><ul>
+<li><a class="reference internal" href="#etape-1">Étape 1</a></li>
+<li><a class="reference internal" href="#etape-2">Étape 2</a></li>
+<li><a class="reference internal" href="#etape-3">Étape 3</a></li>
+<li><a class="reference internal" href="#etape-4">Étape 4</a></li>
+<li><a class="reference internal" href="#etape-5">Étape 5</a></li>
+<li><a class="reference internal" href="#etape-6">Étape 6</a></li>
+<li><a class="reference internal" href="#etape-7">Étape 7</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="corrections-exercices-elementaires.html"
+                        title="Chapitre précédent">Corrections des exercices élémentaires</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="correction-application.html"
+                        title="Chapitre suivant">Correction application</a></p>
+  <h3>Cette page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/application.txt"
+           rel="nofollow">Montrer la source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="correction-application.html" title="Correction application"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="corrections-exercices-elementaires.html" title="Corrections des exercices élémentaires"
+             >précédent</a> |</li>
+        <li><a href="index.html">Master Class OL3 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Éric Lemoine.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
