@@ -187,7 +187,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'MasterClassOL3.tex', u'Master Class OL3 Documentation',
-   u'Éric Lemoine', 'manual'),
+   u'Éric Lemoine, Camptocamp', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
