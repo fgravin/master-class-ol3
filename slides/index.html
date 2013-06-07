@@ -93,9 +93,9 @@
             <li class="fragment">Conclusion</li>
           </ul>
           <aside class="notes">
-            <p>La master class se veut interactive! Toute question à tout moment
+            <p>La master class se veut interactive ! Toute question à tout moment
             est bienvenue.</p>
-            <p>Très important: certaines parties de l'API ne sont pas stabilisées.
+            <p>Très important : certaines parties de l'API ne sont pas stabilisées.
             La partie vecteur, par exemple, subit actuellement des modifications
             profondes pour fonctionner avec WebGL. Nous n'insisterons pas sur les
             parties les plus mouvantes. Mais il faut savoir que l'ensemble de
@@ -134,7 +134,7 @@
 
         <section>
           <h2>Vision OL3</h2>
-          <p>&rarr; Où veut-on aller avec OL3?</p>
+          <p>&rarr; Où veut-on aller avec OL3 ?</p>
         </section>
 
         <section>
@@ -149,12 +149,12 @@
 
         <section>
           <h2>2D et 3D</h2>
-          Un de objectifs : afficher des données 3D de type "bâtiment" et "terrain".
+          Un des objectifs : afficher des données 3D de type "bâtiment" et "terrain".
         </section>
 
         <section>
           <h2>Vecteur</h2>
-          <p>Des millions?!</p>
+          <p>Des millions ?!</p>
           <img class="framed" src="img/many-points-map.png">
           <aside class="notes">
             <p>OL3 permettra d'afficher beaucoup d'objets vectoriels avec des
@@ -166,7 +166,7 @@
 
         <section>
           <h2>Vecteur</h2>
-          Objectif : afficher vecteur "complexes", autant au niveau des
+          Objectif : afficher des vecteurs "complexes", autant au niveau des
           styles que des nombres d'objets à afficher.
         </section>
 
@@ -215,7 +215,7 @@
             </div>
           </div>
           <p class="fragment">&rarr; OL3 doit savoir faire beaucoup de choses !</p>
-          <p class="fragment">&rarr; "Un projet ambitieux, pour des cartes ambitieuses"</p>
+          <p class="fragment">&rarr; Un projet ambitieux, pour des cartes ambitieuses</p>
           <aside class="notes">
             <p>Comparaison OL2 / OL3 : OL3 doit offrir les fonctionalités d'OL2,
             plus d'autres. OL3 offre une API plus cohérente. OL3 est plus légère
@@ -281,7 +281,7 @@ var mapbox = new ol.layer.TileLayer({
            "source" interagit avec le service web et stocke les données. Le
            "layer" contient les informations relatives à l'affichage (l'opacité
            de la couche par exemple).</p>
-           <p>Ce qu'on peut voir dans l'exemple: affichage à n'importe quelle
+           <p>Ce qu'on peut voir dans l'exemple : affichage à n'importe quelle
            résolution, tuiles temporaires (carte sans bord), caches de tuiles,
            file avec priorités pour le chargement des tuiles (les tuiles les
            plus proches de la souris sont chargés en premier).</p>
@@ -312,7 +312,7 @@ var mapbox = new ol.layer.TileLayer({
         </section>
 
         <section>
-          <h2>Pas de popups!?!</h2>
+          <h2>Pas de popups !?!</h2>
         </section>
 
         <section>
@@ -412,7 +412,7 @@ var vector = new ol.layer.Vector({
         <section>
           <h2>Vecteur avec Canvas 2D</h2>
 
-          <p>Code pour l'interaction avec les vecteurs:</p>
+          <p>Code pour l'interaction avec les vecteurs :</p>
           <pre><code class="javascript" data-trim>
 map.getFeatureInfo({
   pixel: evt.getPixel(),
@@ -450,7 +450,7 @@ map.getFeatureInfo({
         </section>
 
         <section>
-          <h2>Closure Compiler - un exemple</h2>
+          <h2>CC - un exemple</h2>
           <pre><code class="javascript" data-trim>
 goog.provide('ANamespace.ASubNamespace.AClass');
 ANamespace.ASubNamespace.AClass = function() {
@@ -541,53 +541,6 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
           <aside class="notes">
             <p>Ces objets sont qui sont manipulés dans les exercices
             élémentaires.</p>
-          </aside>
-        </section>
-
-        <section>
-          <h2>Exemple de base</h2>
-          <p>Utilisé comme base pour chaque exercice.</p>
-          <pre><code class="html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;meta name="viewport"
-          content="initial-scale=1.0, user-scalable=no,
-                   width=device-width"&gt;
-    &lt;title&gt;Exercice élémentaire&lt;/title&gt;
-    &lt;link rel="stylesheet"
-          href="http://ol3js.org/en/master/build/ol.css"&gt;
-    &lt;style&gt;
-        #map {
-          width: 600px;
-          height: 400px;
-        }
-    &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-      &lt;div id="map"&gt;&lt;/div&gt;
-      &lt;script
-        src="http://ol3js.org/en/master/build/ol.js"&gt;&lt;/script&gt;
-      &lt;script&gt;
-      var map = new ol.Map({
-        target: 'map',
-        view: new ol.View2D({
-          zoom: 0,
-          center: [0, 0]
-        }),
-        layers: [
-          new ol.layer.TileLayer({
-            source: new ol.source.OSM()
-          })
-        ]
-      });
-      &lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-          </code></pre>
-          <aside class="notes">
-            <p>Cette page sert de base pour chaque exercice élémentaire.</p>
           </aside>
         </section>
 
