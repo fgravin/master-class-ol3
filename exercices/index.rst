@@ -25,6 +25,11 @@ utilisées pour cette application sont issues de la plate-forme `GéoBretagne
 <http://cms.geobretagne.fr/>`_. C'est le service WMS mis à disposition par
 GéoBretagne qui sera utilisé.
 
+Liens utiles :
+
+* Doc de l'API : http://ol3js.org/en/master/apidoc/
+* Exemples officiels : http://ol3js.org/en/master/examples/
+
 .. toctree::
    :maxdepth: 2
 
