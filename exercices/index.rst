@@ -6,6 +6,8 @@
 Exercices Master Class OL3
 ==========================
 
+.. image:: _static/c2c-logo.png
+
 Ce document contient les énoncés et corrections des exercices de la *master
 class* OpenLayers 3 donnée aux `Rencontres SIG-la-lettre 2013
 <http://www.rencontres-sig-la-lettre.fr/master-class-2013/>`_. Il est
