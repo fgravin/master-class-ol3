@@ -77,7 +77,7 @@ la page dans le navigateur pour vous en assurer.
 "carte" de la plate-forme GéoBretagne, et que l'affichage se fasse selon la
 projection "EPSG:2154". Vous allez pour ceci modifier la configuration de
 la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
-``ol.source.TiledWMS`` configurée correctement.
+``ol.source.TileWMS`` configurée correctement.
 
 1. Le service WMS de la plate-forme GéoBretagne que nous utilisons ici prend en
    charge l'extension `WMS-C
@@ -123,15 +123,15 @@ la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
           resolutions: resolutions
         });
 
-3. Vous allez maintenant créer un objet de type ``ol.layer.TileLayer``
+3. Vous allez maintenant créer un objet de type ``ol.layer.Tile``
    permettant d'afficher les tuiles de la couche WMS-C "carte" du 
    service http://tile.geobretagne.fr/gwc02/service/wms. Voici le code à écrire
    pour créer cet objet:
 
    .. code-block:: javascript
 
-        var carteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var carteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'carte',
@@ -155,7 +155,7 @@ la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
 
         var map = new ol.Map({
           target: 'map',
-          renderer: ol.RendererHint.CANVAS,
+          renderer: 'canvas',
           view: view,
           layers: [carteLayer]
         });
@@ -285,10 +285,10 @@ Pour bien visualiser la couche vous pouvez changer la valeur de
 
 .. hint::
 
-   1. Vous utiliserez ici ``ol.layer.ImageLayer`` plutôt que
-      ``ol.layer.TileLayer``.
-   2. Et vous utiliserez ``ol.source.SingleImageWMS`` plutôt que
-      ``ol.source.TiledWMS``.
+   1. Vous utiliserez ici ``ol.layer.Image`` plutôt que
+      ``ol.layer.Tile``.
+   2. Et vous utiliserez ``ol.source.ImageWMS`` plutôt que
+      ``ol.source.TileWMS``.
 
 
 :ref:`correction-application-etape-6`

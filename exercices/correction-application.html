@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Correction application &mdash; Master Class OL3 1.0 documentation</title>
+    <title>Correction application &mdash; documentation Master Class OL3 2.0</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="top" title="Master Class OL3 1.0 documentation" href="index.html" />
+    <link rel="top" title="documentation Master Class OL3 2.0" href="index.html" />
     <link rel="prev" title="Développement d’une application" href="application.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="application.html" title="Développement d’une application"
              accesskey="P">précédent</a> |</li>
-        <li><a href="index.html">Master Class OL3 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">documentation Master Class OL3 2.0</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -78,7 +78,7 @@
       <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
       <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
       <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
-        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
           <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
         <span class="p">})</span>
       <span class="p">]</span>
@@ -127,7 +127,7 @@
       <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
       <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
       <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
-        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
+        <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
           <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
         <span class="p">})</span>
       <span class="p">]</span>
@@ -186,8 +186,8 @@
       <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
@@ -203,7 +203,7 @@
 
     <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
       <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
       <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
       <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">]</span>
     <span class="p">});</span>
@@ -221,8 +221,8 @@
 <span id="correction-application-etape-4"></span><h2>Correction étape 4<a class="headerlink" href="#correction-etape-4" title="Lien permanent vers ce titre">¶</a></h2>
 <p><a class="reference internal" href="application.html#application-etape-4"><em>Étape 4</em></a></p>
 <p>Pour créer la deuxième couche :</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
     <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
       <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
@@ -240,7 +240,7 @@
 <p>La nouvelle configuration de la carte:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
   <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-  <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+  <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
   <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
   <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">]</span>
 <span class="p">});</span>
@@ -304,8 +304,8 @@
       <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
@@ -319,8 +319,8 @@
       <span class="p">})</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
@@ -337,7 +337,7 @@
 
     <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
       <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
       <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
       <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">]</span>
     <span class="p">});</span>
@@ -368,8 +368,8 @@
 <span id="correction-application-etape-6"></span><h2>Correction étape 6<a class="headerlink" href="#correction-etape-6" title="Lien permanent vers ce titre">¶</a></h2>
 <p><a class="reference internal" href="application.html#application-etape-6"><em>Étape 6</em></a></p>
 <p>Le code pour créer la couche &#8220;paimpol_zone_plu_ccpg&#8221; :</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">paimpollayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">imagelayer</span><span class="p">({</span>
-  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">singleimagewms</span><span class="p">({</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">paimpollayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Image</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">ImageWMS</span><span class="p">({</span>
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://geobretagne.fr/geoserver/id22/wms&#39;</span><span class="p">,</span>
     <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
       <span class="s1">&#39;layers&#39;</span><span class="o">:</span> <span class="s1">&#39;paimpol_zone_plu_ccpg&#39;</span><span class="p">,</span>
@@ -385,7 +385,7 @@
 à <tt class="docutils literal"><span class="pre">fitExtent</span></tt> pour centrer la vue sur Paimpol :</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
   <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-  <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+  <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
   <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
   <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">,</span> <span class="nx">paimpolLayer</span><span class="p">]</span>
 <span class="p">});</span>
@@ -460,8 +460,8 @@
       <span class="nx">resolutions</span><span class="o">:</span> <span class="nx">resolutions</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">carteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;carte&#39;</span><span class="p">,</span>
@@ -475,8 +475,8 @@
       <span class="p">})</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">TileLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TiledWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">satelliteLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tile.geobretagne.fr/gwc02/service/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;satellite&#39;</span><span class="p">,</span>
@@ -490,8 +490,8 @@
       <span class="p">})</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">paimpolLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">ImageLayer</span><span class="p">({</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">SingleImageWMS</span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">paimpolLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Image</span><span class="p">({</span>
+      <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">ImageWMS</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://geobretagne.fr/geoserver/id22/wms&#39;</span><span class="p">,</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
           <span class="s1">&#39;LAYERS&#39;</span><span class="o">:</span> <span class="s1">&#39;paimpol_zone_plu_ccpg&#39;</span><span class="p">,</span>
@@ -505,7 +505,7 @@
 
     <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
       <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-      <span class="nx">renderer</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">RendererHint</span><span class="p">.</span><span class="nx">CANVAS</span><span class="p">,</span>
+      <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
       <span class="nx">view</span><span class="o">:</span> <span class="nx">view</span><span class="p">,</span>
       <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span><span class="nx">carteLayer</span><span class="p">,</span> <span class="nx">satelliteLayer</span><span class="p">,</span> <span class="nx">paimpolLayer</span><span class="p">]</span>
     <span class="p">});</span>
@@ -528,7 +528,7 @@
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#background-selector&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
 
     <span class="kd">var</span> <span class="nx">geoloc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Geolocation</span><span class="p">({</span><span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:2154&#39;</span><span class="p">});</span>
-    <span class="nx">geoloc</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change:position&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">geoloc</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">view</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="nx">geoloc</span><span class="p">.</span><span class="nx">getPosition</span><span class="p">());</span>
         <span class="nx">geoloc</span><span class="p">.</span><span class="nx">setTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
     <span class="p">});</span>
@@ -550,7 +550,7 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table des matières</a></h3>
+  <h3><a href="index.html">Table des Matières</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Correction application</a><ul>
 <li><a class="reference internal" href="#correction-etape-1">Correction étape 1</a></li>
@@ -598,12 +598,12 @@
         <li class="right" >
           <a href="application.html" title="Développement d’une application"
              >précédent</a> |</li>
-        <li><a href="index.html">Master Class OL3 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">documentation Master Class OL3 2.0</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Éric Lemoine.
-      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

@@ -38,7 +38,7 @@ Correction étape 1
           target: 'map',
           view: view,
           layers: [
-            new ol.layer.TileLayer({
+            new ol.layer.Tile({
               source: new ol.source.OSM()
             })
           ]
@@ -91,7 +91,7 @@ Correction étape 2
           target: 'map',
           view: view,
           layers: [
-            new ol.layer.TileLayer({
+            new ol.layer.Tile({
               source: new ol.source.OSM()
             })
           ]
@@ -155,8 +155,8 @@ Correction étape 3
           resolutions: resolutions
         });
 
-        var carteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var carteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'carte',
@@ -172,7 +172,7 @@ Correction étape 3
 
         var map = new ol.Map({
           target: 'map',
-          renderer: ol.RendererHint.CANVAS,
+          renderer: 'canvas',
           view: view,
           layers: [carteLayer]
         });
@@ -196,8 +196,8 @@ Pour créer la deuxième couche :
 
 .. code-block:: javascript
 
-    var satelliteLayer = new ol.layer.TileLayer({
-      source: new ol.source.TiledWMS({
+    var satelliteLayer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
         url: 'http://tile.geobretagne.fr/gwc02/service/wms',
         params: {
           'LAYERS': 'satellite',
@@ -217,7 +217,7 @@ La nouvelle configuration de la carte:
 
     var map = new ol.Map({
       target: 'map',
-      renderer: ol.RendererHint.CANVAS,
+      renderer: 'canvas',
       view: view,
       layers: [carteLayer, satelliteLayer]
     });
@@ -286,8 +286,8 @@ Correction étape 5
           resolutions: resolutions
         });
 
-        var carteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var carteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'carte',
@@ -301,8 +301,8 @@ Correction étape 5
           })
         });
 
-        var satelliteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var satelliteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'satellite',
@@ -319,7 +319,7 @@ Correction étape 5
 
         var map = new ol.Map({
           target: 'map',
-          renderer: ol.RendererHint.CANVAS,
+          renderer: 'canvas',
           view: view,
           layers: [carteLayer, satelliteLayer]
         });
@@ -356,8 +356,8 @@ Le code pour créer la couche "paimpol_zone_plu_ccpg" :
 
 .. code-block:: javascript
 
-    var paimpollayer = new ol.layer.imagelayer({
-      source: new ol.source.singleimagewms({
+    var paimpollayer = new ol.layer.Image({
+      source: new ol.source.ImageWMS({
         url: 'http://geobretagne.fr/geoserver/id22/wms',
         params: {
           'layers': 'paimpol_zone_plu_ccpg',
@@ -375,7 +375,7 @@ La nouvelle configuration de la carte, ainsi que le nouvel appel
 
     var map = new ol.Map({
       target: 'map',
-      renderer: ol.RendererHint.CANVAS,
+      renderer: 'canvas',
       view: view,
       layers: [carteLayer, satelliteLayer, paimpolLayer]
     });
@@ -455,8 +455,8 @@ Correction étape 7
           resolutions: resolutions
         });
 
-        var carteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var carteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'carte',
@@ -470,8 +470,8 @@ Correction étape 7
           })
         });
 
-        var satelliteLayer = new ol.layer.TileLayer({
-          source: new ol.source.TiledWMS({
+        var satelliteLayer = new ol.layer.Tile({
+          source: new ol.source.TileWMS({
             url: 'http://tile.geobretagne.fr/gwc02/service/wms',
             params: {
               'LAYERS': 'satellite',
@@ -485,8 +485,8 @@ Correction étape 7
           })
         });
 
-        var paimpolLayer = new ol.layer.ImageLayer({
-          source: new ol.source.SingleImageWMS({
+        var paimpolLayer = new ol.layer.Image({
+          source: new ol.source.ImageWMS({
             url: 'http://geobretagne.fr/geoserver/id22/wms',
             params: {
               'LAYERS': 'paimpol_zone_plu_ccpg',
@@ -500,7 +500,7 @@ Correction étape 7
 
         var map = new ol.Map({
           target: 'map',
-          renderer: ol.RendererHint.CANVAS,
+          renderer: 'canvas',
           view: view,
           layers: [carteLayer, satelliteLayer, paimpolLayer]
         });
@@ -523,7 +523,7 @@ Correction étape 7
         $('#background-selector').trigger('change');
 
         var geoloc = new ol.Geolocation({projection: 'EPSG:2154'});
-        geoloc.on('change:position', function() {
+        geoloc.on('change', function() {
             view.setCenter(geoloc.getPosition());
             geoloc.setTracking(false);
         });

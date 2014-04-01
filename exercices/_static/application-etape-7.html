@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+    <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
     <title>Application</title>
     <style type="text/css">
       html, body, .map {
@@ -59,8 +59,8 @@
       resolutions: resolutions
     });
 
-    var carteLayer = new ol.layer.TileLayer({
-      source: new ol.source.TiledWMS({
+    var carteLayer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
         url: 'http://tile.geobretagne.fr/gwc02/service/wms',
         params: {
           'LAYERS': 'carte',
@@ -74,8 +74,8 @@
       })
     });
 
-    var satelliteLayer = new ol.layer.TileLayer({
-      source: new ol.source.TiledWMS({
+    var satelliteLayer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
         url: 'http://tile.geobretagne.fr/gwc02/service/wms',
         params: {
           'LAYERS': 'satellite',
@@ -89,8 +89,8 @@
       })
     });
 
-    var paimpolLayer = new ol.layer.ImageLayer({
-      source: new ol.source.SingleImageWMS({
+    var paimpolLayer = new ol.layer.Image({
+      source: new ol.source.ImageWMS({
         url: 'http://geobretagne.fr/geoserver/id22/wms',
         params: {
           'LAYERS': 'paimpol_zone_plu_ccpg',
@@ -104,7 +104,7 @@
 
     var map = new ol.Map({
       target: 'map',
-      renderer: ol.RendererHint.CANVAS,
+      renderer: 'canvas',
       view: view,
       layers: [carteLayer, satelliteLayer, paimpolLayer]
     });
@@ -127,7 +127,7 @@
     $('#background-selector').trigger('change');
 
     var geoloc = new ol.Geolocation({projection: 'EPSG:2154'});
-    geoloc.on('change:position', function() {
+    geoloc.on('change', function() {
         view.setCenter(geoloc.getPosition());
         geoloc.setTracking(false);
     });
