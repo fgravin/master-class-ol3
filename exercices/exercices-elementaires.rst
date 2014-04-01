@@ -314,3 +314,32 @@ Exercice élémentaire 10
       argument).
 
 :ref:`correction-exercice-elementaire-10`
+
+.. _exercice-elementaire-11:
+
+Exercice élémentaire 11
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Utiliser une couche/source vecteur*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-11.html`` par exemple.
+2. Télécharger le fichier
+   http://ol3js.org/en/master/examples/data/geojson/countries.geojson
+   et le placer dans le même répertoire que le fichier HTML.
+3. Modifier le code JavaScript de la page pour ajouter à la carte une
+   couche vecteur (``ol.layer.Vector``) dont le source est un source GeoJSON
+   (``ol.source.GeoJSON``) dont l'URL référence le fichier countries.geojson
+   téléchargé à l'étape précédente.
+4. Changer le style de la couche vecteur et utiliser d'autres couleurs pour
+   les contours et les fonds des polygones.
+
+.. hint::
+
+    * Il est nécessaire de passer au source GeoJSON la même projection
+      que celle utilisée dans la vue. (Ceci changera peut-être dans des
+      versions utérieures d'OpenLayers.)
+    * L'objet objet à utiliser pour changer le style des contours est
+      ``ol.style.Stroke``. Pour les fonds il s'agit de ``ol.style.Fill``.
+
+:ref:`correction-exercice-elementaire-11`

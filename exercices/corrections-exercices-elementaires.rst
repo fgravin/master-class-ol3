@@ -479,9 +479,67 @@ Correction exercice élémentaire 10
                 source: new ol.source.OSM()
               })
             ],
-            interactions: ol.interaction.defaults({}, [
+            interactions: ol.interaction.defaults().extend([
               new ol.interaction.DragRotateAndZoom()
             ])
+          });
+          </script>
+      </body>
+    </html>
+
+
+Correction exercice élémentaire 11
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-11`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+          var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            view: new ol.View2D({
+              zoom: 0,
+              center: [0, 0]
+            }),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              new ol.layer.Vector({
+                source: new ol.source.GeoJSON({
+                  url: 'countries.geojson',
+                  projection: 'EPSG:3857'
+                }),
+                style: new ol.style.Style({
+                  fill: new ol.style.Fill({
+                    color: 'rgba(237,12,203,0.3)'
+                  }),
+                  stroke: new ol.style.Stroke({
+                    color: 'rgba(0,0,0,1)',
+                    width: 2
+                  })
+                })
+              })
+            ]
           });
           </script>
       </body>
