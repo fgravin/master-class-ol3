@@ -487,6 +487,7 @@ Correction exercice élémentaire 10
       </body>
     </html>
 
+.. _correction-exercice-elementaire-11:
 
 Correction exercice élémentaire 11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
