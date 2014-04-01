@@ -3,5 +3,13 @@ extends _layouts/master
 block context
   - var title = 'Vector Layer';
 
+block styles
+  link(rel="stylesheet", href="../components/bootstrap/docs/assets/css/bootstrap.css", type="text/css")
+
+block extra
+  div#popup()
+
 block scripts
+  script(src="../components/jquery/dist/jquery.js")
+  script(src="../components/bootstrap/docs/assets/js/bootstrap.min.js")
   script(src='vector-layer.js')
