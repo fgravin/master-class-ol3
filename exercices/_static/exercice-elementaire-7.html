@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>Exercice élémentaire</title>
-    <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+    <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
     <style>
         #map {
           width: 600px;
@@ -23,7 +23,7 @@
           center: [0, 0]
         }),
         layers: [
-          new ol.layer.TileLayer({
+          new ol.layer.Tile({
             source: new ol.source.OSM(),
             brightness: 0.1,
             contrast: 1.625,
