@@ -3,10 +3,10 @@ var view = new ol.View2D({
   zoom: 14
 });
 
-var layer = new ol.layer.TileLayer({
+var layer = new ol.layer.Tile({
   source: new ol.source.BingMaps({
-    key: 'AlQLZ0-5yk301_ESrmNLma3LYxEKNSg7w-e_knuRfyYFtld-UFvXVs38NOulku3Q',
-    style: 'Aerial'
+    key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3',
+    imagerySet: 'Aerial'
   })
 });
 
@@ -15,7 +15,7 @@ var map = new ol.Map({
   controls: ol.control.defaults({}, [
     new ol.control.FullScreen(),
     new ol.control.ScaleLine({
-      units: ol.control.ScaleLineUnits.IMPERIAL
+      units: 'imperial'
     })
   ]),
   layers: [layer],
@@ -29,7 +29,7 @@ rotation.bindTo('value', map.getView(), 'rotation');
 var geolocation = new ol.Geolocation();
 geolocation.bindTo('projection', map.getView());
 
-geolocation.on('change:position', function() {
+geolocation.on('change', function() {
   var duration = 2000;
   var start = +new Date();
   var pan = ol.animation.pan({
@@ -42,7 +42,7 @@ geolocation.on('change:position', function() {
     resolution: 4 * view.getResolution(),
     start: start
   });
-  map.addPreRenderFunctions([pan, bounce]);
+  map.beforeRender([pan, bounce]);
   view.setCenter(geolocation.getPosition());
   geolocation.setTracking(false);
 });
