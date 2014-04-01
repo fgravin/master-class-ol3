@@ -285,9 +285,10 @@ Exercice élémentaire 9
 
     * C'est le *control* ``ol.control.ScaleLine`` qui permet d'ajouter
       une échelle graphique sur la carte.
-    * La fonction ``ol.control.defaults`` permet d'obtenir un tableau
-      contenant les *controls* par défaut, et d'autres choisis de manière
-      spécifique.
+    * La fonction ``ol.control.defaults`` permet d'obtenir une collection
+      (``ol.Collection``) contenant les *controls* par défaut, qui peut
+      être étendue avec sa méthode ``extend`` (qui prend un tableau en
+      argument).
 
 :ref:`correction-exercice-elementaire-9`
 
@@ -304,5 +305,12 @@ Exercice élémentaire 10
 2. Modifier le code JavaScript de la page pour ajouter une interaction
    de type ``ol.interaction.DragRotateAndZoom`` à la carte. (C'est
    la touche ``SHIFT`` qui active cette interaction.)
+
+.. hint::
+
+    * La fonction ``ol.interaction.defaults`` permet d'obtenir une collection
+      (``ol.Collection``) contenant les *interactions* par défaut, qui peut
+      être étendue avec sa méthode ``extend`` (qui prend un tableau en
+      argument).
 
 :ref:`correction-exercice-elementaire-10`

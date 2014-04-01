@@ -430,7 +430,7 @@ au constructeur ``ol.Map`` alors ``ol.Map`` crèe trois *controls* (les
                 source: new ol.source.OSM()
               })
             ],
-            controls: ol.control.defaults({}, [
+            controls: ol.control.defaults().extend([
               new ol.control.ScaleLine({
                 units: 'imperial'
               })
