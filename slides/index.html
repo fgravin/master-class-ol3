@@ -257,19 +257,19 @@ var map = new ol.Map({
         <section>
           <h2><code>ol.layer</code> / <code>ol.source</code></h2>
           <pre><code class="javascript" data-trim>
-var osm = new ol.layer.TileLayer({
+var osm = new ol.layer.Tile({
   source: new ol.source.OSM()
 });
 
-var bing = new ol.layer.TileLayer({
+var bing = new ol.layer.Tile({
   source: new ol.source.BingMaps({
     // your key here
     key: 'AlQLZ0-5yk301_ESrmN...',
-    style: 'AerialWithLabels'
+    imagerySet: 'AerialWithLabels'
   })
 }));
 
-var mapbox = new ol.layer.TileLayer({
+var mapbox = new ol.layer.Tile({
   source: new ol.source.TileJSON({
     url: '//api.tiles.mapbox.com/v3/mapbox.world-dark.jsonp'
   })
@@ -290,10 +290,10 @@ var mapbox = new ol.layer.TileLayer({
         <section>
           <h2><code>ol.interaction</code></h2>
           <ul class="plain">
-            <li><code>ol.interaction.Drag</code></li>
-            <li><code>ol.interaction.DragRotate</code></li>
+            <li><code>ol.interaction.DragPan</code></li>
+            <li><code>ol.interaction.DoubleClickZoom</code></li>
             <li><code>ol.interaction.KeyboardPan</code></li>
-            <li><code>ol.interaction.TouchZoom</code></li>
+            <li><code>ol.interaction.PinchZoom</code></li>
             <li><code>// etc.</code></li>
           </ul>
         </section>
@@ -319,10 +319,10 @@ var mapbox = new ol.layer.TileLayer({
           <h2><code>ol.Overlay</code></h2>
           <pre><code class="javascript" data-trim>
 var marker = new ol.Overlay({
-  map: map,
   position: buriedTreasure,
   element: document.createTextElement('X marks the spot')
 });
+map.addOverlay(marker);
           </code></pre>
           <aside class="notes">
             <p>Un object <code>Overlay</code> est attaché à la carte - il bouge
@@ -337,9 +337,9 @@ var marker = new ol.Overlay({
 var el = document.getElementById('popup');
 
 var popup = new ol.Overlay({
-  map: map,
   element: el
 });
+map.addOverlay(popup);
 
 map.on('click', function(evt) {
   $(el).popover({
@@ -377,7 +377,7 @@ function fly(map, home, duration) {
     resolution: 4 * view.getResolution(),
     start: start
   });
-  map.addPreRenderFunctions([pan, bounce]);
+  map.beforeRender(pan, bounce);
   view.setCenter(home);
 }
           </code></pre>
@@ -389,43 +389,23 @@ function fly(map, home, duration) {
           </aside>
         </section>
 
-        <section style="text-align:center;">
-          <h2>Vecteur</h2>
-          <img class="fragment" src="img/Warning-zone.jpg">
-          <aside class="notes">
-            <p>L'API relative au vecteur n'est pas stable. Le travail en cours
-            sur WebGL vecteur nécessite des changements.</p>
-          </aside>
-        </section>
-
         <section>
           <h2><code>ol.layer.Vector</code></h2>
           <pre><code class="javascript" data-trim>
 var vector = new ol.layer.Vector({
-  source: new ol.source.Vector({
-    projection: ol.proj.get('EPSG:4326')
+  source: new ol.source.Vector(),
+  style: new ol.style.Style({
+    fill: new ol.style.Fill({
+       color: 'rgba(255,255,255,0.2)'
+    }),
+    stroke: new ol.style.Stroke({
+      color: '#bada55',
+      width: 2
+    })
   })
 });
           </code></pre>
-        </section>
-
-        <section>
-          <h2>Vecteur avec Canvas 2D</h2>
-
-          <p>Code pour l'interaction avec les vecteurs :</p>
-          <pre><code class="javascript" data-trim>
-map.getFeatureInfo({
-  pixel: evt.getPixel(),
-  layers: [countries], // optional
-  success: function(features) {
-    $('#info').html('');
-    for (var i = 0, ii = features.length; i < ii; ++i) {
-      $('#info').append(features[i].get('name') + '&lt;br&gt;');
-    }
-  }
-});
-          </code></pre>
-          <a class="ex-link" href="./examples/synthetic-data.html">Exemple vecteur canvas</a>
+          <a class="ex-link" href="./examples/vector-layer.html">Exemple vecteur canvas</a>
         </section>
 
         <section>
@@ -472,24 +452,10 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
         <section>
           <h2>État actuel</h2>
           <ul class="plain fragment">
-            <li>Alpha 1 released</li>
-            <li>Limité, mais déja utile</li>
-            <li>L'API change...</li>
+            <li>v3.0.0-beta2 disponible</li>
+            <li>API stable / en cours de stabilisation</li>
+            <li>v3.0.0 sortira prochainement</li>
           </ul>
-        </section>
-
-        <section>
-          <h2>Vers la 3.0.0 finale</h2>
-          <ul class="plain">
-            <li class="fragment">Plus d'alphas et betas à venir</li>
-            <li class="fragment">Le renderer WebGL pour le vecteur</li>
-            <li class="fragment">Stabilisation des API</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Cesium Integration</h2>
-          <img src="img/cesium-ol3.png" alt="Cesium OpenLayers 3 integration">
         </section>
 
         <section style="text-align:left;">
@@ -534,7 +500,7 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
           <ul style="list-style-type:none;margin: 30px 0 0 0;">
             <li><code>ol.Map</code></li>
             <li><code>ol.View2D</code></li>
-            <li><code>ol.layer.* (ol.layer.TileLayer)</code></li>
+            <li><code>ol.layer.* (ol.layer.Tile)</code></li>
             <li><code>ol.control.* (ol.control.Attribution)</code></li>
             <li><code>ol.interaction.* (ol.interaction.DragPan)</code></li>
           </ul>
@@ -584,9 +550,9 @@ window.b=new function(){this.a="prop1"};window.b.a="change";
         <section>
           <h2>Les nouveaux objets</h2>
           <ul style="list-style-type:none;margin:20px 0 30px 0;">
-            <li><code>ol.source.TiledWMS</code></li>
-            <li><code>ol.source.SingleImageWMS</code></li>
-            <li><code>ol.layer.ImageLayer</code></li>
+            <li><code>ol.source.TileWMS</code></li>
+            <li><code>ol.source.ImageWMS</code></li>
+            <li><code>ol.layer.Image</code></li>
             <li><code>ol.Geolocation</code></li>
             <li><code>ol.animation.*</code></li>
           </ul>
