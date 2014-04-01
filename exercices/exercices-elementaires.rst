@@ -30,7 +30,7 @@ Tous les exercices de cette partie se font à partir de la page HTML suivante :
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ]
@@ -80,11 +80,8 @@ choisit Canvas, et enfin, si Canvas n'est pas pris en charge, c'est le
 2. Faire en sorte que le *renderer* Canvas soit utilisé par la carte. Il
    faut pour ceci positionner la propriété ``renderer`` dans l'objet d'options
    passé au constructeur ``ol.Map``. Et la valeur pour cette propriété doit
-   être ``ol.RendererHint.CANVAS``.
+   être ``'canvas'``.
 3. Faire maintenant en sorte que ce soit le *renderer* DOM qui soit utilisé.
-4. Utiliser maintenant la valeur ``ol.RendererHints.createFromQueryData()``
-   pour que le *renderer* puisse être spécifié dans l'URL par le paramètre
-   ``renderer``. Exemple : ``exercice-elementaire-2.html?renderer=canvas``.
 
 :ref:`correction-exercice-elementaire-2`
 
@@ -226,7 +223,7 @@ Exercice élémentaire 7
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-7.html`` par exemple.
-2. Dans l'objet d'options passé au constructor ``ol.layer.TileLayer`` ajouter
+2. Dans l'objet d'options passé au constructor ``ol.layer.Tile`` ajouter
    des propriétés ``opacity``, ``hue``, ``saturation``, ``brightness``, et
    ``contrast``.
 3. Dans la console, récupérer une référence sur la couche et changer sa

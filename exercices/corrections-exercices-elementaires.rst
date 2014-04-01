@@ -27,7 +27,7 @@ Correction exercice élémentaire 2
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -46,22 +46,18 @@ Correction exercice élémentaire 2
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ],
-            renderer: ol.RendererHint.CANVAS
+            renderer: 'canvas'
           });
           </script>
       </body>
     </html>
 
 Pour que *renderer* DOM soit utilisé il faut passer la valeur
-``ol.RendererHint.DOM`` pour l'option ``renderer``. Et pour que
-le renderer puisse être spécifié dans l'URL c'est la valeur retournée
-par la fonction ``ol.RendererHints.createFromQueryData`` qu'il faut
-passer.
-
+``'dom'`` pour l'option ``renderer``.
 
 .. _correction-exercice-elementaire-3:
 
@@ -78,7 +74,7 @@ Correction exercice élémentaire 3
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -98,7 +94,7 @@ Correction exercice élémentaire 3
               rotation: 45
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ]
@@ -133,7 +129,7 @@ Correction exercice élémentaire 4
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -152,7 +148,7 @@ Correction exercice élémentaire 4
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ]
@@ -181,7 +177,7 @@ Correction exercice élémentaire 5
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -198,7 +194,7 @@ Correction exercice élémentaire 5
             target: 'map',
             view: view,
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ]
@@ -235,7 +231,7 @@ Correction exercice élémentaire 6
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -254,7 +250,7 @@ Correction exercice élémentaire 6
               center: [288074.8449901076, 6247982.515792289]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM({
                   attributions: [
                     new ol.Attribution(
@@ -265,7 +261,7 @@ Correction exercice élémentaire 6
                 })
               })
             ],
-            renderer: ol.RendererHint.CANVAS
+            renderer: 'canvas'
           });
           </script>
       </body>
@@ -287,7 +283,7 @@ Correction exercice élémentaire 7
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -306,7 +302,7 @@ Correction exercice élémentaire 7
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM(),
                 brightness: 0.1,
                 contrast: 1.625,
@@ -360,7 +356,7 @@ Dans la console :
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -381,7 +377,7 @@ Dans la console :
               center: center
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ]
@@ -411,7 +407,7 @@ au constructeur ``ol.Map`` alors ``ol.Map`` crèe trois *controls* (les
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -430,13 +426,13 @@ au constructeur ``ol.Map`` alors ``ol.Map`` crèe trois *controls* (les
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ],
             controls: ol.control.defaults({}, [
               new ol.control.ScaleLine({
-                units: ol.control.ScaleLineUnits.IMPERIAL
+                units: 'imperial'
               })
             ])
           });
@@ -460,7 +456,7 @@ Correction exercice élémentaire 10
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
@@ -479,7 +475,7 @@ Correction exercice élémentaire 10
               center: [0, 0]
             }),
             layers: [
-              new ol.layer.TileLayer({
+              new ol.layer.Tile({
                 source: new ol.source.OSM()
               })
             ],
@@ -490,4 +486,3 @@ Correction exercice élémentaire 10
           </script>
       </body>
     </html>
-
