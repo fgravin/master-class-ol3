@@ -20,7 +20,7 @@ l'écran. La carte sera la plus simple possible : projection globale EPSG:3857
 
 Vous pouvez, si vous le souhaitez, d'ores-et-déja centrer la carte sur la
 Bretagne.  Voici une étendue dans le système de coordonnée EPSG:3857 pour la
-Bretagne : ``[-40679590.16384748, -40093165.28284361, 5967723.758526416,
+Bretagne : ``[-40679590.16384748, 5967723.758526416, -40093165.28284361,
 6264605.176386041]``.
 
 .. hint::
@@ -105,7 +105,7 @@ la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
             0.5971642833710399, 0.29858214168551994, 0.14929107084275997,
             0.07464553542123999];
 
-        var extent = [-357823.2365, 1313632.3628, 6037008.6939, 7230727.3772];
+        var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
    Le service de la plate-forme GéoBretagne utilisé ici est décrit à cette
    page: http://tile.geobretagne.fr/gwc02/home. Les résolutions et l'étendue
@@ -170,8 +170,8 @@ la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
 
    .. code-block:: javascript
 
-        var initialExtent = [117427.53782167949, 410639.9782710938,
-            6731783.8687657695, 6880224.577668993];
+        var initialExtent = [117427.53782167949, 6731783.8687657695,
+            410639.9782710938, 6880224.577668993];
         view.fitExtent(initialExtent, map.getSize());
 
 :ref:`correction-application-etape-3`
@@ -270,16 +270,16 @@ jQuery. Il est en effet un peu idiot de charger jQuery pour si peu.
 *Ajouter une couche image*
 
 Pour cette étape vous devez ajouter une couche non-tuilée (de type image) pour
-la couche WMS "paimpol_zone_plu_ccpg" du service WMS
-http://geobretagne.fr/geoserver/id22/wms.
+la couche WMS "zonage_plu_cc_paimpol_goelo" du service WMS
+http://geobretagne.fr/geoserver/paimpolgoelo/wms.
 
 Pour bien visualiser la couche vous pouvez changer la valeur de
 ``initialExtent`` pour se rapprocher de la commune Paimpol:
 
 .. code-block:: javascript
 
-    var initialExtent = [246462.7961724792, 264788.57370056753,
-        6864884.621557758, 6874162.16586421];
+    var initialExtent = [246462.7961724792, 6864884.621557758,
+        264788.57370056753, 6874162.16586421];
     view.fitExtent(initialExtent, map.getSize());
 
 

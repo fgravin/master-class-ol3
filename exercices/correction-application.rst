@@ -43,8 +43,8 @@ Correction étape 1
             })
           ]
         });
-        var extent = [-40679590.16384748, -40093165.28284361,
-            5967723.758526416, 6264605.176386041];
+        var extent = [-40679590.16384748, 5967723.758526416,
+            -40093165.28284361, 6264605.176386041];
         view.fitExtent(extent, map.getSize());
         </script>
       </body>
@@ -96,8 +96,8 @@ Correction étape 2
             })
           ]
         });
-        var extent = [-40679590.16384748, -40093165.28284361,
-            5967723.758526416, 6264605.176386041];
+        var extent = [-40679590.16384748, 5967723.758526416,
+            -40093165.28284361, 6264605.176386041];
         view.fitExtent(extent, map.getSize());
         </script>
       </body>
@@ -148,7 +148,7 @@ Correction étape 3
             4.77731426696776, 2.38865713348388, 1.1943285667420798,
             0.5971642833710399, 0.29858214168551994, 0.14929107084275997,
             0.07464553542123999];
-        var extent = [-357823.2365, 1313632.3628, 6037008.6939, 7230727.3772];
+        var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
         var view = new ol.View2D({
           projection: 'EPSG:2154',
@@ -177,8 +177,8 @@ Correction étape 3
           layers: [carteLayer]
         });
 
-        var initialExtent = [117427.53782167949, 410639.9782710938,
-            6731783.8687657695, 6880224.577668993];
+        var initialExtent = [117427.53782167949, 6731783.8687657695,
+            410639.9782710938, 6880224.577668993];
         view.fitExtent(initialExtent, map.getSize());
         </script>
       </body>
@@ -279,7 +279,7 @@ Correction étape 5
             4.77731426696776, 2.38865713348388, 1.1943285667420798,
             0.5971642833710399, 0.29858214168551994, 0.14929107084275997,
             0.07464553542123999];
-        var extent = [-357823.2365, 1313632.3628, 6037008.6939, 7230727.3772];
+        var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
         var view = new ol.View2D({
           projection: 'EPSG:2154',
@@ -324,8 +324,8 @@ Correction étape 5
           layers: [carteLayer, satelliteLayer]
         });
 
-        var initialExtent = [117427.53782167949, 410639.9782710938,
-            6731783.8687657695, 6880224.577668993];
+        var initialExtent = [117427.53782167949, 6731783.8687657695,
+            410639.9782710938, 6880224.577668993];
         view.fitExtent(initialExtent, map.getSize());
 
         $('#background-selector').change(function() {
@@ -352,17 +352,17 @@ Correction étape 6
 
 :ref:`application-etape-6`
 
-Le code pour créer la couche "paimpol_zone_plu_ccpg" :
+Le code pour créer la couche "zonage_plu_cc_paimpol_goelo" :
 
 .. code-block:: javascript
 
-    var paimpollayer = new ol.layer.Image({
+    var paimpolLayer = new ol.layer.Image({
       source: new ol.source.ImageWMS({
-        url: 'http://geobretagne.fr/geoserver/id22/wms',
+        url: 'http://geobretagne.fr/geoserver/paimpolgoelo/wms',
         params: {
-          'layers': 'paimpol_zone_plu_ccpg',
-          'version': '1.1.1',
-          'transparent': 'true'
+          'LAYERS': 'zonage_plu_cc_paimpol_goelo',
+          'VERSION': '1.1.1',
+          'TRANSPARENT': 'true'
         },
         extent: extent
       })
@@ -380,8 +380,8 @@ La nouvelle configuration de la carte, ainsi que le nouvel appel
       layers: [carteLayer, satelliteLayer, paimpolLayer]
     });
 
-    var initialExtent = [246462.7961724792, 264788.57370056753,
-        6864884.621557758, 6874162.16586421];
+    var initialExtent = [246462.7961724792, 6864884.621557758,
+        264788.57370056753, 6874162.16586421];
     view.fitExtent(initialExtent, map.getSize());
 
 
@@ -448,7 +448,7 @@ Correction étape 7
             4.77731426696776, 2.38865713348388, 1.1943285667420798,
             0.5971642833710399, 0.29858214168551994, 0.14929107084275997,
             0.07464553542123999];
-        var extent = [-357823.2365, 1313632.3628, 6037008.6939, 7230727.3772];
+        var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
         var view = new ol.View2D({
           projection: 'EPSG:2154',
@@ -505,8 +505,8 @@ Correction étape 7
           layers: [carteLayer, satelliteLayer, paimpolLayer]
         });
 
-        var initialExtent = [246462.7961724792, 264788.57370056753,
-            6864884.621557758, 6874162.16586421];
+        var initialExtent = [246462.7961724792, 6864884.621557758,
+            264788.57370056753, 6874162.16586421];
         view.fitExtent(initialExtent, map.getSize());
 
 
@@ -534,4 +534,3 @@ Correction étape 7
         </script>
       </body>
     </html>
-
