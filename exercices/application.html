@@ -64,7 +64,7 @@ l&#8217;écran. La carte sera la plus simple possible : projection globale EPSG:
 (projection par défaut dans OL3), et une couche OSM.</p>
 <p>Vous pouvez, si vous le souhaitez, d&#8217;ores-et-déja centrer la carte sur la
 Bretagne.  Voici une étendue dans le système de coordonnée EPSG:3857 pour la
-Bretagne : <tt class="docutils literal"><span class="pre">[-40679590.16384748,</span> <span class="pre">-40093165.28284361,</span> <span class="pre">5967723.758526416,</span>
+Bretagne : <tt class="docutils literal"><span class="pre">[-40679590.16384748,</span> <span class="pre">5967723.758526416,</span> <span class="pre">-40093165.28284361,</span>
 <span class="pre">6264605.176386041]</span></tt>.</p>
 <div class="admonition hint">
 <p class="first admonition-title">Indice</p>
@@ -129,7 +129,7 @@ contenant l&#8217;étendue des tuiles.</p>
     <span class="mf">0.5971642833710399</span><span class="p">,</span> <span class="mf">0.29858214168551994</span><span class="p">,</span> <span class="mf">0.14929107084275997</span><span class="p">,</span>
     <span class="mf">0.07464553542123999</span><span class="p">];</span>
 
-<span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">357823.2365</span><span class="p">,</span> <span class="mf">6037008.6939</span><span class="p">,</span> <span class="mf">1313632.3628</span><span class="p">,</span> <span class="mf">7230727.3772</span><span class="p">];</span>
 </pre></div>
 </div>
 <p>Le service de la plate-forme GéoBretagne utilisé ici est décrit à cette
@@ -186,8 +186,8 @@ positionné par le serveur), il n&#8217;est pas possible d&#8217;utiliser le <em
 WebGL.</p>
 </li>
 <li><p class="first">La dernière étape consiste à centrer la vue sur la Bretagne:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">117427.53782167949</span><span class="p">,</span> <span class="mf">410639.9782710938</span><span class="p">,</span>
-    <span class="mf">6731783.8687657695</span><span class="p">,</span> <span class="mf">6880224.577668993</span><span class="p">];</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">117427.53782167949</span><span class="p">,</span> <span class="mf">6731783.8687657695</span><span class="p">,</span>
+    <span class="mf">410639.9782710938</span><span class="p">,</span> <span class="mf">6880224.577668993</span><span class="p">];</span>
 <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
 </pre></div>
 </div>
@@ -260,12 +260,12 @@ jQuery. Il est en effet un peu idiot de charger jQuery pour si peu.</p>
 <span id="application-etape-6"></span><h2>Étape 6<a class="headerlink" href="#etape-6" title="Lien permanent vers ce titre">¶</a></h2>
 <p><em>Ajouter une couche image</em></p>
 <p>Pour cette étape vous devez ajouter une couche non-tuilée (de type image) pour
-la couche WMS &#8220;paimpol_zone_plu_ccpg&#8221; du service WMS
-<a class="reference external" href="http://geobretagne.fr/geoserver/id22/wms">http://geobretagne.fr/geoserver/id22/wms</a>.</p>
+la couche WMS &#8220;zonage_plu_cc_paimpol_goelo&#8221; du service WMS
+<a class="reference external" href="http://geobretagne.fr/geoserver/paimpolgoelo/wms">http://geobretagne.fr/geoserver/paimpolgoelo/wms</a>.</p>
 <p>Pour bien visualiser la couche vous pouvez changer la valeur de
 <tt class="docutils literal"><span class="pre">initialExtent</span></tt> pour se rapprocher de la commune Paimpol:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">246462.7961724792</span><span class="p">,</span> <span class="mf">264788.57370056753</span><span class="p">,</span>
-    <span class="mf">6864884.621557758</span><span class="p">,</span> <span class="mf">6874162.16586421</span><span class="p">];</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">initialExtent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">246462.7961724792</span><span class="p">,</span> <span class="mf">6864884.621557758</span><span class="p">,</span>
+    <span class="mf">264788.57370056753</span><span class="p">,</span> <span class="mf">6874162.16586421</span><span class="p">];</span>
 <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">initialExtent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
 </pre></div>
 </div>

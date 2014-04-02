@@ -165,7 +165,7 @@ Exercice élémentaire 5
    de l'option ``view``.
 3. Après la création de la carte, agir sur la vue (référencée par la variable
    ``view``) pour recentrer celle-ci sur l'étendue ``[287716.5464200208,
-   288433.14356019435, 6247743.650078897, 6248221.38150568]``.
+   6247743.650078897, 288433.14356019435, 6248221.38150568]``.
 4. Changer le code pour que la vue n'ait pas d'état initial, et pour
    qu'elle ne soit rééllement définie que lorsque qu'elle est recentrée sur
    l'étendue spécifiée.
