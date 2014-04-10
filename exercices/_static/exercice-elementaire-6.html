@@ -26,8 +26,9 @@
           new ol.layer.Tile({
             source: new ol.source.OSM({
               attributions: [
-                new ol.Attribution(
-                  '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'),
+                new ol.Attribution({
+                  html: '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'
+                }),
                 ol.source.OSM.DATA_ATTRIBUTION
               ],
               url: 'http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png',

@@ -11,7 +11,7 @@ Tous les exercices de cette partie se font à partir de la page HTML suivante :
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         <title>Exercice élémentaire</title>
-        <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
         <style>
             #map {
               width: 600px;
