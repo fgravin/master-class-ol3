@@ -222,8 +222,8 @@
         <span class="p">]</span>
       <span class="p">});</span>
 
-      <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">287716.5464200208</span><span class="p">,</span> <span class="mf">288433.14356019435</span><span class="p">,</span>
-                    <span class="mf">6247743.650078897</span><span class="p">,</span> <span class="mf">6248221.38150568</span><span class="p">];</span>
+      <span class="kd">var</span> <span class="nx">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">287716.5464200208</span><span class="p">,</span> <span class="mf">6247743.650078897</span><span class="p">,</span>
+          <span class="mf">288433.14356019435</span><span class="p">,</span> <span class="mf">6248221.38150568</span><span class="p">];</span>
       <span class="nx">view</span><span class="p">.</span><span class="nx">fitExtent</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getSize</span><span class="p">());</span>
       <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -269,8 +269,9 @@ hauteur en pixels), il ne lui est pas possible de recentrer la vue sur une
           <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
             <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">({</span>
               <span class="nx">attributions</span><span class="o">:</span> <span class="p">[</span>
-                <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Attribution</span><span class="p">(</span>
-                  <span class="s1">&#39;&lt;a href=&quot;http://www.opencyclemap.org/&quot;&gt;OpenCycleMap&lt;/a&gt;&#39;</span><span class="p">),</span>
+                <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Attribution</span><span class="p">({</span>
+                  <span class="nx">html</span><span class="o">:</span> <span class="s1">&#39;&lt;a href=&quot;http://www.opencyclemap.org/&quot;&gt;OpenCycleMap&lt;/a&gt;&#39;</span>
+                <span class="p">}),</span>
                 <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">.</span><span class="nx">DATA_ATTRIBUTION</span>
               <span class="p">],</span>
               <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png&#39;</span><span class="p">,</span>

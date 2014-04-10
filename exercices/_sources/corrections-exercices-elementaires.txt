@@ -200,8 +200,8 @@ Correction exercice élémentaire 5
             ]
           });
 
-          var extent = [287716.5464200208, 288433.14356019435,
-                        6247743.650078897, 6248221.38150568];
+          var extent = [287716.5464200208, 6247743.650078897,
+              288433.14356019435, 6248221.38150568];
           view.fitExtent(extent, map.getSize());
           </script>
       </body>
@@ -253,8 +253,9 @@ Correction exercice élémentaire 6
               new ol.layer.Tile({
                 source: new ol.source.OSM({
                   attributions: [
-                    new ol.Attribution(
-                      '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'),
+                    new ol.Attribution({
+                      html: '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'
+                    }),
                     ol.source.OSM.DATA_ATTRIBUTION
                   ],
                   url: 'http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png',
