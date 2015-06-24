@@ -28,9 +28,11 @@
             source: new ol.source.OSM()
           }),
           new ol.layer.Vector({
-            source: new ol.source.GeoJSON({
+            source: new ol.source.Vector({
               url: 'countries.geojson',
-              projection: 'EPSG:3857'
+              format: new ol.format.GeoJSON({
+                defaultDataProjection: 'EPSG:4326'
+              })
             }),
             style: new ol.style.Style({
               fill: new ol.style.Fill({
