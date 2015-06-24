@@ -193,11 +193,11 @@ Exercice élémentaire 6
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-6.html`` par exemple.
-2. Changer les options de la vue pour centrer la carte sur l'ENSG. (Options
+2. Changer les options de la vue pour centrer la carte sur l'ENSEIRB MATMECA. (Options
    utilisées dans :ref:`exercice-elementaire-3` par exemple.)
 3. Passer au constructeur ``ol.source.OSM`` un objet d'options contenant une
    propriété ``url`` dont la valeur est
-   ``http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png``.  Voir
+   ``http://{a-c}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png``.  Voir
    http://www.thunderforest.com/landscape/ pour obtenir des informations sur
    cette source de donnée. Et voir ``OSMOptions`` dans la doc de l'API pour
    connaître toutes les options qui peuvent être passées à ``ol.source.OSM``.
@@ -252,8 +252,8 @@ Exercice élémentaire 8
 3. Le système de coordonnée (projection) de ce centre est "EPSG:3857" (connu
    sous le nom de Spherical Mercator). Convertir les coordonnées du centre de
    "EPSG:3857" à "EPSG:4326" (longitude/latitude WGS84).
-4. Les coordonnées GPS de l'ENSG sont latitude : 48,8413379,
-   longitude : 2,5878203. Modifier le code JavaScript de la page pour
+4. Les coordonnées GPS de l'ENSEIRB MATMECA sont latitude : 44.806314,
+   longitude : -0.6056187. Modifier le code JavaScript de la page pour
    que la vue soit centrée sur ces coordonnées à l'état initial. Changer
    aussi le zoom à 17 pour un meilleur résultat.
 

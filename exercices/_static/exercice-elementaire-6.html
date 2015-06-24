@@ -20,18 +20,19 @@
         target: 'map',
         view: new ol.View({
           zoom: 17,
-          center: [288074.8449901076, 6247982.515792289]
+          center: [-67417.17160956847, 5591081.0649206545]
         }),
         layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM({
               attributions: [
                 new ol.Attribution({
-                  html: '<a href="http://www.opencyclemap.org/">OpenCycleMap</a>'
+                  html: 'All maps &copy; ' +
+                          '<a href="http://www.opencyclemap.org">OpenCycleMap</a>'
                 }),
-                ol.source.OSM.DATA_ATTRIBUTION
+                ol.source.OSM.ATTRIBUTION
               ],
-              url: 'http://{a-c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png',
+              url: 'http://{a-c}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png'
             })
           })
         ],

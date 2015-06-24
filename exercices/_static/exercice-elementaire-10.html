@@ -27,7 +27,7 @@
             source: new ol.source.OSM()
           })
         ],
-        interactions: ol.interaction.defaults({}, [
+        interactions: ol.interaction.defaults().extend([
           new ol.interaction.DragRotateAndZoom()
         ])
       });

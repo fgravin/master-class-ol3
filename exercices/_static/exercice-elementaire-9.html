@@ -27,9 +27,9 @@
             source: new ol.source.OSM()
           })
         ],
-        controls: ol.control.defaults({}, [
+        controls: ol.control.defaults().extend([
           new ol.control.ScaleLine({
-            units: ol.control.ScaleLineUnits.IMPERIAL
+            units: 'imperial'
           })
         ])
       });
