@@ -41,7 +41,7 @@ Correction exercice élémentaire 2
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -88,7 +88,7 @@ Correction exercice élémentaire 3
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 17,
               center: [288074.8449901076, 6247982.515792289],
               rotation: 45
@@ -143,7 +143,7 @@ Correction exercice élémentaire 4
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -189,7 +189,7 @@ Correction exercice élémentaire 5
           <div id="map"></div>
           <script src="http://ol3js.org/en/master/build/ol.js"></script>
           <script>
-          var view = new ol.View2D();
+          var view = new ol.View();
           var map = new ol.Map({
             target: 'map',
             view: view,
@@ -245,7 +245,7 @@ Correction exercice élémentaire 6
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 17,
               center: [288074.8449901076, 6247982.515792289]
             }),
@@ -298,7 +298,7 @@ Correction exercice élémentaire 7
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -373,7 +373,7 @@ Dans la console :
             [2.5878203, 48.8413379], 'EPSG:4326', 'EPSG:3857');
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 17,
               center: center
             }),
@@ -422,7 +422,7 @@ au constructeur ``ol.Map`` alors ``ol.Map`` crèe trois *controls* (les
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -471,7 +471,7 @@ Correction exercice élémentaire 10
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -518,7 +518,7 @@ Correction exercice élémentaire 11
           var map = new ol.Map({
             target: 'map',
             renderer: 'canvas',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),

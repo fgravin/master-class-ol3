@@ -9,7 +9,7 @@ var map = new ol.Map({
       })
     })
   ],
-  view: new ol.View2D({
+  view: new ol.View({
     center: seattle,
     zoom: 11
   })

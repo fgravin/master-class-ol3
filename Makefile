@@ -25,5 +25,5 @@ gh-pages: .gh-pages
 	 git push origin gh-pages)
 
 .gh-pages:
-	git clone --branch gh-pages git@github.com:elemoine/master-class-ol3.git .gh-pages
+	git clone --branch gh-pages git@github.com:fgravin/master-class-ol3.git .gh-pages
 

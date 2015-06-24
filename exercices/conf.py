@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Master Class OL3'
-copyright = u'2013, Éric Lemoine'
+copyright = u'2013, Florent Gravin'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -187,7 +187,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'MasterClassOL3.tex', u'Master Class OL3 Documentation',
-   u'Éric Lemoine, Camptocamp', 'manual'),
+   u'Florent Gravin, Camptocamp', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -217,7 +217,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'masterclassol3', u'Master Class OL3 Documentation',
-     [u'Éric Lemoine'], 1)
+     [u'Florent Gravin'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -231,7 +231,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'MasterClassOL3', u'Master Class OL3 Documentation',
-   u'Éric Lemoine', 'MasterClassOL3', 'One line description of project.',
+   u'Florent Gravin', 'MasterClassOL3', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -252,9 +252,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'Master Class OL3'
-epub_author = u'Éric Lemoine'
-epub_publisher = u'Éric Lemoine'
-epub_copyright = u'2013, Éric Lemoine'
+epub_author = u'Florent Gravin'
+epub_publisher = u'Florent Gravin'
+epub_copyright = u'2013, Florent Gravin'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.

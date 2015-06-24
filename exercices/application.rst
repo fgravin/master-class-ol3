@@ -76,7 +76,7 @@ la page dans le navigateur pour vous en assurer.
 À cette étape vous aller modifier la carte pour que celle-ci la couche WMS
 "carte" de la plate-forme GéoBretagne, et que l'affichage se fasse selon la
 projection "EPSG:2154". Vous allez pour ceci modifier la configuration de
-la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
+la vue (``View``), et remplacer la source ``ol.source.OSM`` par une source
 ``ol.source.TileWMS`` configurée correctement.
 
 1. Le service WMS de la plate-forme GéoBretagne que nous utilisons ici prend en
@@ -112,13 +112,13 @@ la vue (``View2D``), et remplacer la source ``ol.source.OSM`` par une source
    sont définies dans le document WMS GetCapabilities à cette URL :
    http://tile.geobretagne.fr/gwc02/service/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=getcapabilities&TILED=true
 
-2. Il s'agit maintenant de configurer la vue (``View2D``) pour que la carte
+2. Il s'agit maintenant de configurer la vue (``View``) pour que la carte
    soit représentée selon la projection EPSG:2154 et que les résolutions d'affichage
    soient celles prises en charge par le service WMS-C.
 
    .. code-block:: javascript
 
-        var view = new ol.View2D({
+        var view = new ol.View({
           projection: 'EPSG:2154',
           resolutions: resolutions
         });

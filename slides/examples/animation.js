@@ -9,7 +9,7 @@ var rome = transform([12.5, 41.9]);
 var bern = transform([7.4458, 46.95]);
 var madrid = transform([-3.683333, 40.4]);
 
-var view = new ol.View2D({
+var view = new ol.View({
   center: istanbul,
   zoom: 6
 });

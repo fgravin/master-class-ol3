@@ -33,7 +33,7 @@ Correction étape 1
 
         <script src="http://ol3js.org/en/master/build/ol.js"></script>
         <script>
-        var view = new ol.View2D();
+        var view = new ol.View();
         var map = new ol.Map({
           target: 'map',
           view: view,
@@ -86,7 +86,7 @@ Correction étape 2
             '+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 '+
             '+units=m +no_defs';
 
-        var view = new ol.View2D();
+        var view = new ol.View();
         var map = new ol.Map({
           target: 'map',
           view: view,
@@ -150,7 +150,7 @@ Correction étape 3
             0.07464553542123999];
         var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
-        var view = new ol.View2D({
+        var view = new ol.View({
           projection: 'EPSG:2154',
           resolutions: resolutions
         });
@@ -281,7 +281,7 @@ Correction étape 5
             0.07464553542123999];
         var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
-        var view = new ol.View2D({
+        var view = new ol.View({
           projection: 'EPSG:2154',
           resolutions: resolutions
         });
@@ -450,7 +450,7 @@ Correction étape 7
             0.07464553542123999];
         var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
 
-        var view = new ol.View2D({
+        var view = new ol.View({
           projection: 'EPSG:2154',
           resolutions: resolutions
         });

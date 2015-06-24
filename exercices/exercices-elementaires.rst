@@ -25,7 +25,7 @@ Tous les exercices de cette partie se font à partir de la page HTML suivante :
           <script>
           var map = new ol.Map({
             target: 'map',
-            view: new ol.View2D({
+            view: new ol.View({
               zoom: 0,
               center: [0, 0]
             }),
@@ -101,7 +101,7 @@ Exercice élémentaire 3
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-3.html`` par exemple.
-2. Modifier l'objet d'options passés au constructeur ``ol.View2D`` pour
+2. Modifier l'objet d'options passés au constructeur ``ol.View`` pour
    que la vue soit initialisée avec un niveau de zoom égal à 17.
 3. Modifier à nouveau l'objet d'options pour que la vue soit initialisée
    avec un centre égal à ``[288074.8449901076, 6247982.515792289]``.
@@ -139,9 +139,9 @@ Exercice élémentaire 4
 
    * La variable ``map`` définie dans le code JavaScript de la page est
      globale. Elle est donc directement accessible dans la console.
-   * Pour obtenir l'objet *vue* (``ol.View2D``) avec lequel la carte a été
+   * Pour obtenir l'objet *vue* (``ol.View``) avec lequel la carte a été
      configurée il faut utiliser ``map.getView()``.
-   * Les objets de type ``ol.View2D`` fournissent des fonctions *getter*
+   * Les objets de type ``ol.View`` fournissent des fonctions *getter*
      pour accéder aux états de la vue. Exemple : ``view.getCenter()``.
    * De la même façon ils fournissent des *setters* pour changer les états
      de la vue. Exemple : ``view.setRotation(45)``.
@@ -158,9 +158,9 @@ Exercice élémentaire 5
 
 1. Copier le code HTML de base dans un nouveau fichier,
    ``exercice-elementaire-5.html`` par exemple.
-2. Modifier le code JavaScript de la page afin que l'objet ``ol.View2D`` soit
+2. Modifier le code JavaScript de la page afin que l'objet ``ol.View`` soit
    créé à l'extérieur de la définition de l'objet des options passé à la carte.
-   L'objet ``ol.View2D`` créé sera référencé par une variable nommé ``view``.
+   L'objet ``ol.View`` créé sera référencé par une variable nommé ``view``.
    Et c'est cette référence qui devra être passé à la carte par l'intermédiaire
    de l'option ``view``.
 3. Après la création de la carte, agir sur la vue (référencée par la variable
@@ -174,7 +174,7 @@ Exercice élémentaire 5
 
 .. hint::
 
-    * C'est la fonction ``fitExtent`` de ``ol.View2D`` qui doit être utilisée
+    * C'est la fonction ``fitExtent`` de ``ol.View`` qui doit être utilisée
       pour ça.
     * La fonction ``getSize`` de ``ol.Map`` doit aussi être utilisée pour cette
       exercice.
