@@ -19,11 +19,12 @@
     <div id="map" class="map"></div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js"></script>
-    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
+    <script src="http://epsg.io/3948.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="http://ol3js.org/en/master/build/ol-debug.js"></script>
     <script>
-    Proj4js.defs['EPSG:2154'] = '+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 ' +
-        '+lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 '+
-        '+units=m +no_defs';
 
     var resolutions = [156543.0339, 78271.51695, 39135.758475,
         19567.8792375, 9783.93961875, 4891.969809375,
@@ -33,38 +34,48 @@
         4.77731426696776, 2.38865713348388, 1.1943285667420798,
         0.5971642833710399, 0.29858214168551994, 0.14929107084275997,
         0.07464553542123999];
-    var extent = [-357823.2365, 6037008.6939, 1313632.3628, 7230727.3772];
+    var extent = [-39458382.388457574, 6041065.413130727, -39120224.97532395, 6319601.944201909];
 
-    var view = new ol.View({
-      projection: 'EPSG:2154',
-      resolutions: resolutions
-    });
+    var view = new ol.View();
 
-    var carteLayer = new ol.layer.Tile({
-      source: new ol.source.TileWMS({
-        url: 'http://tile.geobretagne.fr/gwc02/service/wms',
-        params: {
-          'LAYERS': 'carte',
-          'VERSION': '1.1.1'
-        },
-        tileGrid: new ol.tilegrid.TileGrid({
-          resolutions: resolutions,
-          origin: [-357823.2365, 1313632.3628]
-        }),
-        extent: extent
-      })
-    });
+    var wmsSource = new ol.source.TileWMS(({
+      url: 'https://www.cigalsace.org/geoserver/wms',
+      params: {
+        'LAYERS': 'CRA_COMMUNES_SHP_C48',
+        'TILED': true,
+        'VERSION':'1.1.1'
+      },
+      serverType: 'geoserver'
+    }));
 
     var map = new ol.Map({
       target: 'map',
       renderer: 'canvas',
       view: view,
-      layers: [carteLayer]
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ]
     });
 
-    var initialExtent = [117427.53782167949, 6731783.8687657695,
-        410639.9782710938, 6880224.577668993];
-    view.fitExtent(initialExtent, map.getSize());
+    map.addLayer(new ol.layer.Tile({
+     source: wmsSource
+    }));
+
+    map.addLayer(new ol.layer.Tile({
+      source: new ol.source.TileWMS(({
+        url: 'https://www.cigalsace.org/geoserver/wms',
+        params: {
+          'LAYERS': 'CIGAL_LignesFrontieres_250000_UTM32',
+          'TILED': true,
+          'VERSION':'1.1.1'
+        },
+        serverType: 'geoserver'
+      }))
+    }));
+
+    view.fitExtent(extent, map.getSize());
     </script>
   </body>
 </html>
