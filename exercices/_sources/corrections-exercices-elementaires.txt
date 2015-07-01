@@ -546,3 +546,580 @@ Correction exercice élémentaire 11
           </script>
       </body>
     </html>
+
+.. _correction-exercice-elementaire-12:
+
+Correction exercice élémentaire 12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-12`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+      <title>Exercice élémentaire</title>
+      <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+      <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+      </style>
+    </head>
+    <body>
+    <div id="map"></div>
+    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script>
+
+      var highlightStyleCache = {};
+      var style = function(feature, resolution) {
+        var text = resolution < 5000 ? feature.get('name') : '';
+        if (!highlightStyleCache[text]) {
+          highlightStyleCache[text] = [new ol.style.Style({
+            stroke: new ol.style.Stroke({
+              color: '#f00',
+              width: 1
+            }),
+            fill: new ol.style.Fill({
+              color: 'rgba(255,0,0,0.1)'
+            }),
+            text: new ol.style.Text({
+              font: '12px Calibri,sans-serif',
+              text: text,
+              fill: new ol.style.Fill({
+                color: '#000'
+              }),
+              stroke: new ol.style.Stroke({
+                color: '#f00',
+                width: 3
+              })
+            })
+          })];
+        }
+        return highlightStyleCache[text];
+      }
+
+      var map = new ol.Map({
+        target: 'map',
+        renderer: 'canvas',
+        view: new ol.View({
+          zoom: 2,
+          center: [0, 0]
+        }),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Vector({
+            source: new ol.source.Vector({
+              url: 'countries.geojson',
+              format: new ol.format.GeoJSON({
+                defaultDataProjection: 'EPSG:4326'
+              })
+            }),
+            style: style
+          })
+        ]
+      });
+    </script>
+    </body>
+    </html>
+
+.. _correction-exercice-elementaire-13:
+
+Correction exercice élémentaire 13
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-13`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+
+            var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            view: new ol.View({
+              zoom: 2,
+              center: [0, 0]
+            }),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              new ol.layer.Vector({
+                source: new ol.source.Vector({
+                  wrapX: false,
+                  url: 'countries.geojson',
+                  format: new ol.format.GeoJSON({
+                    defaultDataProjection: 'EPSG:4326'
+                  })
+                }),
+                style: function(feature, resolution) {
+                  return [styles[feature.getGeometry().getType()]];
+                }
+              })
+            ]
+          });
+
+          var styles = {};
+          styles['Polygon'] = new ol.style.Style({
+            stroke: new ol.style.Stroke({
+              color: 'red',
+              width: 2
+            }),
+            fill: new ol.style.Fill({
+              color: 'rgba(0, 0, 255, 0.1)'
+            })
+          });
+          styles['MultiPolygon'] = new ol.style.Style({
+            stroke: new ol.style.Stroke({
+              color: 'blue',
+              width: 2
+            }),
+            fill: new ol.style.Fill({
+              color: 'rgba(0, 0, 255, 0.1)'
+            })
+          });
+          </script>
+      </body>
+    </html>
+
+.. _correction-exercice-elementaire-14:
+
+Correction exercice élémentaire 14
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-14`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+
+            var styleOuter =  new ol.style.Style({
+              stroke: new ol.style.Stroke({
+                color: 'green',
+                width: 4
+              })
+            });
+
+            var styleInner =  new ol.style.Style({
+              stroke: new ol.style.Stroke({
+                color: 'white',
+                width: 2
+              })
+            });
+
+            var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            view: new ol.View({
+              zoom: 0,
+              center: [0, 0]
+            }),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              new ol.layer.Vector({
+                source: new ol.source.Vector({
+                  url: 'countries.geojson',
+                  format: new ol.format.GeoJSON({
+                    defaultDataProjection: 'EPSG:4326'
+                  })
+                }),
+                style: [styleOuter, styleInner]
+              })
+            ]
+          });
+
+          </script>
+      </body>
+    </html>
+
+.. _correction-exercice-elementaire-15:
+
+Correction exercice élémentaire 15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-15`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>Exercice élémentaire</title>
+        <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+        <style>
+            #map {
+              width: 600px;
+              height: 400px;
+            }
+        </style>
+      </head>
+      <body>
+          <div id="map"></div>
+          <script src="http://ol3js.org/en/master/build/ol.js"></script>
+          <script>
+
+            var styleGeom =  new ol.style.Style({
+              stroke: new ol.style.Stroke({
+                color: 'green',
+                width: 4
+              }),
+              image: new ol.style.Circle({
+                radius: 5,
+                fill: new ol.style.Fill({
+                  color: 'orange'
+                })
+              }),
+              geometry: function(f) {
+                //var coordinates = f.getGeometry().getCoordinates()[1][0];
+                return ol.geom.Polygon.fromExtent(f.getGeometry().getExtent());
+              }
+            });
+
+            var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            view: new ol.View({
+              zoom: 2,
+              center: [0, 0]
+            }),
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              }),
+              new ol.layer.Vector({
+                source: new ol.source.Vector({
+                  url: 'countries.geojson',
+                  format: new ol.format.GeoJSON({
+                    defaultDataProjection: 'EPSG:4326'
+                  })
+                }),
+                style: [styleGeom]
+              })
+            ]
+          });
+
+          </script>
+      </body>
+    </html>
+
+.. _correction-exercice-elementaire-16:
+
+Correction exercice élémentaire 16
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-16`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+      <title>Exercice élémentaire</title>
+      <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+      <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+      </style>
+    </head>
+    <body>
+    <div id="map"></div>
+    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script>
+
+      var countrySource =  new ol.source.Vector({
+        url: 'countries.geojson',
+        format: new ol.format.GeoJSON({
+          defaultDataProjection: 'EPSG:4326'
+        })
+      });
+
+      var map = new ol.Map({
+        target: 'map',
+        renderer: 'canvas',
+        view: new ol.View({
+          zoom: 0,
+          center: [0, 0]
+        }),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Vector({
+            source: countrySource
+            ,
+            style: new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(237,12,203,0.3)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(0,0,0,1)',
+                width: 2
+              })
+            })
+          })
+        ]
+      });
+
+      var selectClick = new ol.interaction.Select({
+        condition: ol.events.condition.click
+    /*
+        condition: ol.events.condition.pointerMove
+        condition: function(mapBrowserEvent) {
+          return ol.events.condition.click(mapBrowserEvent) &&
+                  ol.events.condition.altKeyOnly(mapBrowserEvent);
+        }
+    */
+      });
+      map.addInteraction(selectClick);
+
+
+    </script>
+    </body>
+    </html>
+
+.. _correction-exercice-elementaire-17:
+
+Correction exercice élémentaire 17
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-17`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+      <title>Exercice élémentaire</title>
+      <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+      <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+      </style>
+    </head>
+    <body>
+    <div id="map"></div>
+    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script>
+
+      var countrySource =  new ol.source.Vector({
+        url: 'countries.geojson',
+        format: new ol.format.GeoJSON({
+          defaultDataProjection: 'EPSG:4326'
+        })
+      });
+
+      var map = new ol.Map({
+        target: 'map',
+        renderer: 'canvas',
+        view: new ol.View({
+          zoom: 2,
+          center: [0, 0]
+        }),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Vector({
+            source: countrySource
+            ,
+            style: new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(237,12,203,0.3)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(0,0,0,1)',
+                width: 2
+              })
+            })
+          })
+        ]
+      });
+
+      var featureOverlay = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        map: map,
+        style: [new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#f00',
+            width: 1
+          }),
+          fill: new ol.style.Fill({
+            color: 'rgba(255,0,0,0.1)'
+          })
+        })]
+      });
+
+      var highlight;
+      map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+          return feature;
+        });
+
+        if (feature !== highlight) {
+          if (highlight) {
+            featureOverlay.getSource().removeFeature(highlight);
+          }
+          if (feature) {
+            featureOverlay.getSource().addFeature(feature);
+          }
+          highlight = feature;
+        }
+      });
+
+      var selectClick = new ol.interaction.Select({
+        condition: ol.events.condition.click
+    /*
+        condition: ol.events.condition.pointerMove
+        condition: function(mapBrowserEvent) {
+          return ol.events.condition.click(mapBrowserEvent) &&
+                  ol.events.condition.altKeyOnly(mapBrowserEvent);
+        }
+    */
+      });
+      map.addInteraction(selectClick);
+
+
+    </script>
+    </body>
+    </html>
+
+.. _correction-exercice-elementaire-18:
+
+Correction exercice élémentaire 18
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`exercice-elementaire-18`
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+      <title>Exercice élémentaire</title>
+      <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+      <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+      </style>
+    </head>
+    <body>
+    <div id="map"></div>
+    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script>
+
+      var countrySource =  new ol.source.Vector({
+        url: 'countries.geojson',
+        format: new ol.format.GeoJSON({
+          defaultDataProjection: 'EPSG:4326'
+        })
+      });
+
+      var map = new ol.Map({
+        target: 'map',
+        renderer: 'canvas',
+        view: new ol.View({
+          zoom: 2,
+          center: [0, 0]
+        }),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Vector({
+            source: countrySource,
+            style: new ol.style.Style({
+              fill: new ol.style.Fill({
+                color: 'rgba(237,12,203,0.3)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(0,0,0,1)',
+                width: 2
+              })
+            })
+          })
+        ]
+      });
+
+      var drag = new ol.interaction.DragBox({
+        condition: ol.events.condition.shiftKeyOnly,
+        style: new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: [0, 0, 255, 1]
+          })
+        })
+      });
+
+      var select = new ol.interaction.Select();
+      map.addInteraction(select);
+      var selectedFeatures = select.getFeatures();
+
+      map.addInteraction(drag);
+      drag.on('boxstart', function(e) {
+        selectedFeatures.clear();
+      });
+      drag.on('boxend', function(e) {
+        countrySource.forEachFeatureIntersectingExtent(drag.getGeometry().getExtent(), function(feature) {
+          selectedFeatures.push(feature);
+        });
+      });
+
+    </script>
+    </body>
+    </html>

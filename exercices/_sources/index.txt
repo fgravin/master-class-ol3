@@ -8,9 +8,8 @@ Exercices Master Class OL3
 
 .. image:: _static/c2c-logo.png
 
-Ce document contient les énoncés et corrections des exercices de la *master
-class* OpenLayers 3 donnée aux `Rencontres SIG-la-lettre 2013
-<http://www.rencontres-sig-la-lettre.fr/master-class-2013/>`_. Il est
+Ce document contient les énoncés et corrections des exercices du *workshop* OpenLayers 3 donné aux `Journée JDEV 2015
+<http://devlog.cnrs.fr/jdev2015/t7.a10/>`_. Il est
 disponible en ligne à http://erilem.net/master-class-ol3/exercices/.  Une
 version PDF peut être téléchargée
 à http://erilem.net/master-class-ol3/exercices/exercices.pdf.
@@ -21,9 +20,9 @@ indépendant.
 
 La partie *Développement d'une application* propose le développement d'une
 (modeste) application web cartographique de A à Z. Les données géographiques
-utilisées pour cette application sont issues de la plate-forme `GéoBretagne
-<http://cms.geobretagne.fr/>`_. C'est le service WMS mis à disposition par
-GéoBretagne qui sera utilisé.
+utilisées pour cette application sont issues de la plate-forme `CIGALSACE
+<https://cigalsace.org/portail//>`_. C'est le service WMS mis à disposition par
+CIGALSACE qui sera utilisé.
 
 Liens utiles :
 

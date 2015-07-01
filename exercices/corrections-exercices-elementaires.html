@@ -534,6 +534,555 @@ au constructeur <tt class="docutils literal"><span class="pre">ol.Map</span></tt
 </pre></div>
 </div>
 </div>
+<div class="section" id="correction-exercice-elementaire-12">
+<span id="id12"></span><h2>Correction exercice élémentaire 12<a class="headerlink" href="#correction-exercice-elementaire-12" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-12"><em>Exercice élémentaire 12</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nf">#map</span> <span class="p">{</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+      <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+  <span class="kd">var</span> <span class="nx">highlightStyleCache</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">resolution</span> <span class="o">&lt;</span> <span class="mi">5000</span> <span class="o">?</span> <span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">highlightStyleCache</span><span class="p">[</span><span class="nx">text</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">highlightStyleCache</span><span class="p">[</span><span class="nx">text</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+        <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
+          <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">}),</span>
+        <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(255,0,0,0.1)&#39;</span>
+        <span class="p">}),</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Text</span><span class="p">({</span>
+          <span class="nx">font</span><span class="o">:</span> <span class="s1">&#39;12px Calibri,sans-serif&#39;</span><span class="p">,</span>
+          <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span><span class="p">,</span>
+          <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000&#39;</span>
+          <span class="p">}),</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">3</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">})];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">highlightStyleCache</span><span class="p">[</span><span class="nx">text</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+    <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+      <span class="nx">zoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+      <span class="p">}),</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+          <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+          <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+            <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+          <span class="p">})</span>
+        <span class="p">}),</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="nx">style</span>
+      <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-13">
+<span id="id13"></span><h2>Correction exercice élémentaire 13<a class="headerlink" href="#correction-exercice-elementaire-13" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-13"><em>Exercice élémentaire 13</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">}),</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+              <span class="nx">wrapX</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+                <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+              <span class="p">})</span>
+            <span class="p">}),</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="p">[</span><span class="nx">styles</span><span class="p">[</span><span class="nx">feature</span><span class="p">.</span><span class="nx">getGeometry</span><span class="p">().</span><span class="nx">getType</span><span class="p">()]];</span>
+            <span class="p">}</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+
+      <span class="kd">var</span> <span class="nx">styles</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="nx">styles</span><span class="p">[</span><span class="s1">&#39;Polygon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+        <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+          <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+        <span class="p">}),</span>
+        <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(0, 0, 255, 0.1)&#39;</span>
+        <span class="p">})</span>
+      <span class="p">});</span>
+      <span class="nx">styles</span><span class="p">[</span><span class="s1">&#39;MultiPolygon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+        <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+          <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+        <span class="p">}),</span>
+        <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+          <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(0, 0, 255, 0.1)&#39;</span>
+        <span class="p">})</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-14">
+<span id="id14"></span><h2>Correction exercice élémentaire 14<a class="headerlink" href="#correction-exercice-elementaire-14" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-14"><em>Exercice élémentaire 14</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">var</span> <span class="nx">styleOuter</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">4</span>
+          <span class="p">})</span>
+        <span class="p">});</span>
+
+        <span class="kd">var</span> <span class="nx">styleInner</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+          <span class="p">})</span>
+        <span class="p">});</span>
+
+        <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">}),</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+                <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+              <span class="p">})</span>
+            <span class="p">}),</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">[</span><span class="nx">styleOuter</span><span class="p">,</span> <span class="nx">styleInner</span><span class="p">]</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-15">
+<span id="id15"></span><h2>Correction exercice élémentaire 15<a class="headerlink" href="#correction-exercice-elementaire-15" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-15"><em>Exercice élémentaire 15</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">var</span> <span class="nx">styleGeom</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">4</span>
+          <span class="p">}),</span>
+          <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+            <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+              <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;orange&#39;</span>
+            <span class="p">})</span>
+          <span class="p">}),</span>
+          <span class="nx">geometry</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//var coordinates = f.getGeometry().getCoordinates()[1][0];</span>
+            <span class="k">return</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nx">Polygon</span><span class="p">.</span><span class="nx">fromExtent</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">getGeometry</span><span class="p">().</span><span class="nx">getExtent</span><span class="p">());</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">}),</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+                <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+              <span class="p">})</span>
+            <span class="p">}),</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">[</span><span class="nx">styleGeom</span><span class="p">]</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-16">
+<span id="id16"></span><h2>Correction exercice élémentaire 16<a class="headerlink" href="#correction-exercice-elementaire-16" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-16"><em>Exercice élémentaire 16</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nf">#map</span> <span class="p">{</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+      <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+  <span class="kd">var</span> <span class="nx">countrySource</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+      <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+    <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+      <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+      <span class="p">}),</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="nx">countrySource</span>
+        <span class="p">,</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(237,12,203,0.3)&#39;</span>
+          <span class="p">}),</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(0,0,0,1)&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">selectClick</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
+    <span class="nx">condition</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">click</span>
+<span class="cm">/*</span>
+<span class="cm">    condition: ol.events.condition.pointerMove</span>
+<span class="cm">    condition: function(mapBrowserEvent) {</span>
+<span class="cm">      return ol.events.condition.click(mapBrowserEvent) &amp;&amp;</span>
+<span class="cm">              ol.events.condition.altKeyOnly(mapBrowserEvent);</span>
+<span class="cm">    }</span>
+<span class="cm">*/</span>
+  <span class="p">});</span>
+  <span class="nx">map</span><span class="p">.</span><span class="nx">addInteraction</span><span class="p">(</span><span class="nx">selectClick</span><span class="p">);</span>
+
+
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-17">
+<span id="id17"></span><h2>Correction exercice élémentaire 17<a class="headerlink" href="#correction-exercice-elementaire-17" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-17"><em>Exercice élémentaire 17</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nf">#map</span> <span class="p">{</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+      <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+  <span class="kd">var</span> <span class="nx">countrySource</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+      <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+    <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+      <span class="nx">zoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+      <span class="p">}),</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="nx">countrySource</span>
+        <span class="p">,</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(237,12,203,0.3)&#39;</span>
+          <span class="p">}),</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(0,0,0,1)&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">featureOverlay</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(),</span>
+    <span class="nx">map</span><span class="o">:</span> <span class="nx">map</span><span class="p">,</span>
+    <span class="nx">style</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+      <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#f00&#39;</span><span class="p">,</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">}),</span>
+      <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(255,0,0,0.1)&#39;</span>
+      <span class="p">})</span>
+    <span class="p">})]</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">highlight</span><span class="p">;</span>
+  <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">feature</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">forEachFeatureAtPixel</span><span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">pixel</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">layer</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">feature</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span> <span class="o">!==</span> <span class="nx">highlight</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">highlight</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">featureOverlay</span><span class="p">.</span><span class="nx">getSource</span><span class="p">().</span><span class="nx">removeFeature</span><span class="p">(</span><span class="nx">highlight</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">featureOverlay</span><span class="p">.</span><span class="nx">getSource</span><span class="p">().</span><span class="nx">addFeature</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">highlight</span> <span class="o">=</span> <span class="nx">feature</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">selectClick</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
+    <span class="nx">condition</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">click</span>
+<span class="cm">/*</span>
+<span class="cm">    condition: ol.events.condition.pointerMove</span>
+<span class="cm">    condition: function(mapBrowserEvent) {</span>
+<span class="cm">      return ol.events.condition.click(mapBrowserEvent) &amp;&amp;</span>
+<span class="cm">              ol.events.condition.altKeyOnly(mapBrowserEvent);</span>
+<span class="cm">    }</span>
+<span class="cm">*/</span>
+  <span class="p">});</span>
+  <span class="nx">map</span><span class="p">.</span><span class="nx">addInteraction</span><span class="p">(</span><span class="nx">selectClick</span><span class="p">);</span>
+
+
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correction-exercice-elementaire-18">
+<span id="id18"></span><h2>Correction exercice élémentaire 18<a class="headerlink" href="#correction-exercice-elementaire-18" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference internal" href="exercices-elementaires.html#exercice-elementaire-18"><em>Exercice élémentaire 18</em></a></p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nf">#map</span> <span class="p">{</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+      <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+  <span class="kd">var</span> <span class="nx">countrySource</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;countries.geojson&#39;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+      <span class="nx">defaultDataProjection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+    <span class="nx">renderer</span><span class="o">:</span> <span class="s1">&#39;canvas&#39;</span><span class="p">,</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+      <span class="nx">zoom</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">}),</span>
+    <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+      <span class="p">}),</span>
+      <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="nx">countrySource</span><span class="p">,</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+          <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(237,12,203,0.3)&#39;</span>
+          <span class="p">}),</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(0,0,0,1)&#39;</span><span class="p">,</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span>
+          <span class="p">})</span>
+        <span class="p">})</span>
+      <span class="p">})</span>
+    <span class="p">]</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">drag</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">DragBox</span><span class="p">({</span>
+    <span class="nx">condition</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">shiftKeyOnly</span><span class="p">,</span>
+    <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+      <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">();</span>
+  <span class="nx">map</span><span class="p">.</span><span class="nx">addInteraction</span><span class="p">(</span><span class="nx">select</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">selectedFeatures</span> <span class="o">=</span> <span class="nx">select</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">();</span>
+
+  <span class="nx">map</span><span class="p">.</span><span class="nx">addInteraction</span><span class="p">(</span><span class="nx">drag</span><span class="p">);</span>
+  <span class="nx">drag</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;boxstart&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">selectedFeatures</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="nx">drag</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;boxend&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">countrySource</span><span class="p">.</span><span class="nx">forEachFeatureIntersectingExtent</span><span class="p">(</span><span class="nx">drag</span><span class="p">.</span><span class="nx">getGeometry</span><span class="p">().</span><span class="nx">getExtent</span><span class="p">(),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">selectedFeatures</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -556,6 +1105,13 @@ au constructeur <tt class="docutils literal"><span class="pre">ol.Map</span></tt
 <li><a class="reference internal" href="#correction-exercice-elementaire-9">Correction exercice élémentaire 9</a></li>
 <li><a class="reference internal" href="#correction-exercice-elementaire-10">Correction exercice élémentaire 10</a></li>
 <li><a class="reference internal" href="#correction-exercice-elementaire-11">Correction exercice élémentaire 11</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-12">Correction exercice élémentaire 12</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-13">Correction exercice élémentaire 13</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-14">Correction exercice élémentaire 14</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-15">Correction exercice élémentaire 15</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-16">Correction exercice élémentaire 16</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-17">Correction exercice élémentaire 17</a></li>
+<li><a class="reference internal" href="#correction-exercice-elementaire-18">Correction exercice élémentaire 18</a></li>
 </ul>
 </li>
 </ul>
