@@ -343,3 +343,141 @@ Exercice élémentaire 11
       ``ol.style.Stroke``. Pour les fonds il s'agit de ``ol.style.Fill``.
 
 :ref:`correction-exercice-elementaire-11`
+
+.. _exercice-elementaire-12:
+
+Exercice élémentaire 12
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Définir une fonction de style*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-12.html`` par exemple.
+2. Modifier le code JavaScript de la page pour ajouter définir une fonction de
+   syle spécifique qui affiche le label des pays lorsque la résolution est
+   inférieure à 5000.
+
+.. hint::
+
+    * Utilisez les paramètres de la fontion de style ``feature, resolution``.
+
+:ref:`correction-exercice-elementaire-12`
+
+.. _exercice-elementaire-13:
+
+Exercice élémentaire 13
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Appliquer un style selon le feature type*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-13.html`` par exemple.
+2. Modifier le code JavaScript de la page pour ajouter définir une fonction de
+   syle spécifique qui affiche des style différent selon le type des features:
+   ``Polygon`` ou ``MultiPolygon``.
+
+
+:ref:`correction-exercice-elementaire-13`
+
+.. _exercice-elementaire-14:
+
+Exercice élémentaire 14
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Appliquer un tableau de styles*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-14.html`` par exemple.
+2. Modifier le code JavaScript de la page pour ajouter définir une fonction de
+   syle spécifique qui affiche le contour des pays avec des traits
+   doubles blancs au milieu et vert sur les contours.
+
+.. hint::
+
+    * Utilisez un tableau de styles.
+
+
+:ref:`correction-exercice-elementaire-14`
+
+.. _exercice-elementaire-15:
+
+Exercice élémentaire 15
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Utiliser la fonction geometry pour définir un style*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-15.html`` par exemple.
+2. Modifier le code JavaScript de la page pour n'afficher que les extents
+   des pays.
+
+.. hint::
+
+    * Utilisez la fonction ``geometry(feature)``.
+
+
+:ref:`correction-exercice-elementaire-15`
+
+.. _exercice-elementaire-16:
+
+Exercice élémentaire 16
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Découvrir l'interaction Select*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-16.html`` par exemple.
+2. Modifier le code JavaScript de la page pour ajouter une intéraction de
+   sélection.
+3. Modifier les paramètres de cette interaction pour changer la condition
+   de déclenchement de la sélection.
+
+.. hint::
+
+    * Utilisez l'objet ``ol.interaction.Select`` et regardez le paramètres
+    de config ``condition`` et les évènements de type ``ol.events.condition.click``
+
+
+:ref:`correction-exercice-elementaire-16`
+
+.. _exercice-elementaire-17:
+
+Exercice élémentaire 17
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Créer sa propre sélection*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-17.html`` par exemple.
+2. Modifier le code JavaScript, supprimer l'interaction Select et définir
+   son propre comportement de sélection.
+
+.. hint::
+
+    * Utilisez l'évènement ``map.on('click'`` pour détecter un click sur la carte.
+    * Utilisez la fonction ``map.forEachFeatureAtPixel`` pour connaître toutes les
+      features au point du click.
+    * Ajoutez les features trouvées à une couche vectorielle.
+
+:ref:`correction-exercice-elementaire-17`
+
+.. _exercice-elementaire-18:
+
+Exercice élémentaire 18
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*Créer une sélection via BBOX*
+
+1. Copier le code HTML de base dans un nouveau fichier,
+   ``exercice-elementaire-18.html`` par exemple.
+2. Modifier le code JavaScript pour créer une multi sélection par dessin d'une
+   emprise.
+
+.. hint::
+
+    * Utilisez l'interaction ``ol.interaction.DragBox``.
+    * Utilisez la fonction ``forEachFeatureIntersectingExtent`` pour connaître toutes les
+      features intersectées.
+    * Ajoutez les features trouvées à une couche vectorielle.
+
+:ref:`correction-exercice-elementaire-18`
