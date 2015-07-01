@@ -23,8 +23,10 @@ var map = new ol.Map({
 });
 
 
+/*
 var rotation = new ol.dom.Input(document.getElementById('rotation'));
 rotation.bindTo('value', map.getView(), 'rotation');
+*/
 
 var geolocation = new ol.Geolocation();
 geolocation.bindTo('projection', map.getView());

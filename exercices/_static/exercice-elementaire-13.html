@@ -30,6 +30,7 @@
           }),
           new ol.layer.Vector({
             source: new ol.source.Vector({
+              wrapX: false,
               url: 'countries.geojson',
               format: new ol.format.GeoJSON({
                 defaultDataProjection: 'EPSG:4326'
