@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Exercice élémentaire</title>
+    <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+    <style>
+        #map {
+          width: 600px;
+          height: 400px;
+        }
+    </style>
+  </head>
+  <body>
+      <div id="map"></div>
+      <script src="http://ol3js.org/en/master/build/ol.js"></script>
+      <script>
+      var view = new ol.View();
+      var map = new ol.Map({
+        target: 'map',
+        view: view,
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ]
+      });
+
+      var extent = [-67775.47017965523, 5590842.199207263,
+        -67058.87303948171, 5591319.930634046];
+      view.fitExtent(extent, map.getSize());
+      </script>
+  </body>
+</html>

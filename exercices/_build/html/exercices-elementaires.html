@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Exercices élémentaires &mdash; documentation Master Class OL3 2.0</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="documentation Master Class OL3 2.0" href="index.html" />
+    <link rel="next" title="Corrections des exercices élémentaires" href="corrections-exercices-elementaires.html" />
+    <link rel="prev" title="Exercices Master Class OL3" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="corrections-exercices-elementaires.html" title="Corrections des exercices élémentaires"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Exercices Master Class OL3"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="index.html">documentation Master Class OL3 2.0</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="exercices-elementaires">
+<h1>Exercices élémentaires<a class="headerlink" href="#exercices-elementaires" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Tous les exercices de cette partie se font à partir de la page HTML suivante :</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;initial-scale=1.0, user-scalable=no, width=device-width&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Exercice élémentaire<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://ol3js.org/en/master/css/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#map</span> <span class="p">{</span>
+          <span class="k">width</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span>
+          <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ol3js.org/en/master/build/ol.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+      <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">}),</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">]</span>
+      <span class="p">});</span>
+      <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pensez à lire les <strong>indices</strong> !</p>
+</div>
+<div class="section" id="exercice-elementaire-1">
+<span id="id1"></span><h2>Exercice élémentaire 1<a class="headerlink" href="#exercice-elementaire-1" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Afficher une carte simple</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML donné ci-dessus et le coller dans un fichier du nom de
+votre choix, <tt class="docutils literal"><span class="pre">exercice-elementaire-1.html</span></tt> par exemple.</li>
+<li>Placer ce fichier dans un répertoire rendu accessible par HTTP par le serveur
+web.</li>
+<li>Ouvrir la page web dans un navigateur, en utilisant <tt class="docutils literal"><span class="pre">http</span></tt> comme protocole
+d&#8217;accès à la page.</li>
+<li>Vérifier que l&#8217;exemple fonctionne correctement.</li>
+<li>Utiliser les <em>interactions</em> et les <em>controls</em> de la carte.</li>
+</ol>
+<p>(Pas de correction pour cet exercice.)</p>
+</div>
+<div class="section" id="exercice-elementaire-2">
+<span id="id2"></span><h2>Exercice élémentaire 2<a class="headerlink" href="#exercice-elementaire-2" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Choisir le renderer de la carte</em></p>
+<p>OL3 peut utiliser trois technologies web différentes pour l&#8217;affichage de la
+carte : WebGL, Canvas, et DOM. Si rien n&#8217;est précisé par l&#8217;utilisateur la
+librairie OL3 choisit WebGL si le navigateur prend en charge WebGL. Sinon OL3
+choisit Canvas, et enfin, si Canvas n&#8217;est pas pris en charge, c&#8217;est le
+<em>renderer</em> DOM qui est utilisé.</p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-2.html</span></tt> par exemple.</li>
+<li>Faire en sorte que le <em>renderer</em> Canvas soit utilisé par la carte. Il
+faut pour ceci positionner la propriété <tt class="docutils literal"><span class="pre">renderer</span></tt> dans l&#8217;objet d&#8217;options
+passé au constructeur <tt class="docutils literal"><span class="pre">ol.Map</span></tt>. Et la valeur pour cette propriété doit
+être <tt class="docutils literal"><span class="pre">'canvas'</span></tt>.</li>
+<li>Faire maintenant en sorte que ce soit le <em>renderer</em> DOM qui soit utilisé.</li>
+</ol>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-2"><em>Correction exercice élémentaire 2</em></a></p>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<p class="last">Pour vérifier quel <em>renderer</em> est utilisé vous pouvez effectuer un
+clic droit sur la carte et sélectionner &#8220;Inspecter l&#8217;élément&#8221;. Si c&#8217;est
+le <em>renderer</em> DOM qui est utilisé l&#8217;élément inspecté sera une balise
+<tt class="docutils literal"><span class="pre">&lt;img&gt;</span></tt>, sinon ce sera une balise <tt class="docutils literal"><span class="pre">&lt;canvas&gt;</span></tt>. Cette technique
+ne permet pas de distinguer Canvas de WebGL.</p>
+</div>
+</div>
+<div class="section" id="exercice-elementaire-3">
+<span id="id3"></span><h2>Exercice élémentaire 3<a class="headerlink" href="#exercice-elementaire-3" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Initialiser la vue de la carte</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-3.html</span></tt> par exemple.</li>
+<li>Modifier l&#8217;objet d&#8217;options passés au constructeur <tt class="docutils literal"><span class="pre">ol.View</span></tt> pour
+que la vue soit initialisée avec un niveau de zoom égal à 17.</li>
+<li>Modifier à nouveau l&#8217;objet d&#8217;options pour que la vue soit initialisée
+avec un centre égal à <tt class="docutils literal"><span class="pre">[288074.8449901076,</span> <span class="pre">6247982.515792289]</span></tt>.</li>
+<li>Modifier à nouveau l&#8217;objet d&#8217;options pour que la vue soit pivotée
+(rotation) d&#8217;un angle de 45 dans le sens des aiguilles d&#8217;une montre.</li>
+</ol>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-3"><em>Correction exercice élémentaire 3</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-4">
+<span id="id4"></span><h2>Exercice élémentaire 4<a class="headerlink" href="#exercice-elementaire-4" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Changer la vue de la carte</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-4.html</span></tt> par exemple.</li>
+<li>Ouvrir la nouvelle page HTML et ouvrir les outils de développement du
+navigateur. Vous pouvez utiliser la touche <tt class="docutils literal"><span class="pre">F12</span></tt> comme raccourci.</li>
+<li>Saisir dans la console des outils de développement la commande JavaScript
+permettant d&#8217;obtenir le centre actuel de la vue.</li>
+<li>Toujours dans la console, agir sur la vue pour changer son centre à
+<tt class="docutils literal"><span class="pre">[288074.8449901076,</span> <span class="pre">6247982.515792289]</span></tt>.</li>
+<li>Obtenir dans la console la résolution actuelle de la vue.</li>
+<li>Agir sur la vue pour passer à une résolution 131072.0 fois plus petite que
+la résolution actuelle.</li>
+<li>Agir sur la vue pour faire pivoter la carte de 45 degré à l&#8217;est.</li>
+<li>Ajouter les lignes JavaScript saisies précédemment dans la console dans
+le code JavaScript de la page HTML, juste après la création de la carte.
+Recharger la page dans le navigateur et vérifier que la vue est correcte.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>La variable <tt class="docutils literal"><span class="pre">map</span></tt> définie dans le code JavaScript de la page est
+globale. Elle est donc directement accessible dans la console.</li>
+<li>Pour obtenir l&#8217;objet <em>vue</em> (<tt class="docutils literal"><span class="pre">ol.View</span></tt>) avec lequel la carte a été
+configurée il faut utiliser <tt class="docutils literal"><span class="pre">map.getView()</span></tt>.</li>
+<li>Les objets de type <tt class="docutils literal"><span class="pre">ol.View</span></tt> fournissent des fonctions <em>getter</em>
+pour accéder aux états de la vue. Exemple : <tt class="docutils literal"><span class="pre">view.getCenter()</span></tt>.</li>
+<li>De la même façon ils fournissent des <em>setters</em> pour changer les états
+de la vue. Exemple : <tt class="docutils literal"><span class="pre">view.setRotation(45)</span></tt>.</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-4"><em>Correction exercice élémentaire 4</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-5">
+<span id="id5"></span><h2>Exercice élémentaire 5<a class="headerlink" href="#exercice-elementaire-5" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Aller un peu plus loin avec la vue</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-5.html</span></tt> par exemple.</li>
+<li>Modifier le code JavaScript de la page afin que l&#8217;objet <tt class="docutils literal"><span class="pre">ol.View</span></tt> soit
+créé à l&#8217;extérieur de la définition de l&#8217;objet des options passé à la carte.
+L&#8217;objet <tt class="docutils literal"><span class="pre">ol.View</span></tt> créé sera référencé par une variable nommé <tt class="docutils literal"><span class="pre">view</span></tt>.
+Et c&#8217;est cette référence qui devra être passé à la carte par l&#8217;intermédiaire
+de l&#8217;option <tt class="docutils literal"><span class="pre">view</span></tt>.</li>
+<li>Après la création de la carte, agir sur la vue (référencée par la variable
+<tt class="docutils literal"><span class="pre">view</span></tt>) pour recentrer celle-ci sur l&#8217;étendue <tt class="docutils literal"><span class="pre">[287716.5464200208,</span>
+<span class="pre">6247743.650078897,</span> <span class="pre">288433.14356019435,</span> <span class="pre">6248221.38150568]</span></tt>.</li>
+<li>Changer le code pour que la vue n&#8217;ait pas d&#8217;état initial, et pour
+qu&#8217;elle ne soit rééllement définie que lorsque qu&#8217;elle est recentrée sur
+l&#8217;étendue spécifiée.</li>
+<li>Tenter de comprendre pourquoi la fonction <tt class="docutils literal"><span class="pre">fitExtent</span></tt> a besoin des
+dimensions de la carte en pixels pour faire ce qui lui est demandé.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>C&#8217;est la fonction <tt class="docutils literal"><span class="pre">fitExtent</span></tt> de <tt class="docutils literal"><span class="pre">ol.View</span></tt> qui doit être utilisée
+pour ça.</li>
+<li>La fonction <tt class="docutils literal"><span class="pre">getSize</span></tt> de <tt class="docutils literal"><span class="pre">ol.Map</span></tt> doit aussi être utilisée pour cette
+exercice.</li>
+<li>Pensez à jetter un oeil à la doc de l&#8217;API
+: <a class="reference external" href="http://ol3js.org/en/master/apidoc/">http://ol3js.org/en/master/apidoc/</a>.</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-5"><em>Correction exercice élémentaire 5</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-6">
+<span id="id6"></span><h2>Exercice élémentaire 6<a class="headerlink" href="#exercice-elementaire-6" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Utiliser une autre source de donnée de type OpenStreetMap</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-6.html</span></tt> par exemple.</li>
+<li>Changer les options de la vue pour centrer la carte sur l&#8217;ENSEIRB MATMECA. (Options
+utilisées dans <a class="reference internal" href="#exercice-elementaire-3"><em>Exercice élémentaire 3</em></a> par exemple.)</li>
+<li>Passer au constructeur <tt class="docutils literal"><span class="pre">ol.source.OSM</span></tt> un objet d&#8217;options contenant une
+propriété <tt class="docutils literal"><span class="pre">url</span></tt> dont la valeur est
+<tt class="docutils literal"><span class="pre">http://{a-c}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png</span></tt>.  Voir
+<a class="reference external" href="http://www.thunderforest.com/landscape/">http://www.thunderforest.com/landscape/</a> pour obtenir des informations sur
+cette source de donnée. Et voir <tt class="docutils literal"><span class="pre">OSMOptions</span></tt> dans la doc de l&#8217;API pour
+connaître toutes les options qui peuvent être passées à <tt class="docutils literal"><span class="pre">ol.source.OSM</span></tt>.</li>
+<li>Ajouter une attribution à la source pour que les <a class="reference external" href="http://www.thunderforest.com/terms/">conditions d&#8217;utilisation
+des tuiles OpenCycleMap</a> soient
+respectées. Une attribution du type <tt class="docutils literal"><span class="pre">&lt;a</span>
+<span class="pre">href=&quot;http://www.opencyclemap.org&quot;&gt;OpenCycleMap&lt;/a&gt;</span></tt> est
+en accord avec ces conditions.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<p class="last">Regarder l&#8217;exemple
+<a class="reference external" href="http://ol3js.org/en/master/examples/localized-openstreetmap.html">http://ol3js.org/en/master/examples/localized-openstreetmap.html</a> pour
+inspiration.</p>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-6"><em>Correction exercice élémentaire 6</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-7">
+<span id="id7"></span><h2>Exercice élémentaire 7<a class="headerlink" href="#exercice-elementaire-7" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Changer les paramètres d&#8217;affichage d&#8217;une couche</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-7.html</span></tt> par exemple.</li>
+<li>Dans l&#8217;objet d&#8217;options passé au constructor <tt class="docutils literal"><span class="pre">ol.layer.Tile</span></tt> ajouter
+des propriétés <tt class="docutils literal"><span class="pre">opacity</span></tt>, <tt class="docutils literal"><span class="pre">hue</span></tt>, <tt class="docutils literal"><span class="pre">saturation</span></tt>, <tt class="docutils literal"><span class="pre">brightness</span></tt>, et
+<tt class="docutils literal"><span class="pre">contrast</span></tt>.</li>
+<li>Dans la console, récupérer une référence sur la couche et changer sa
+visibilité.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li><tt class="docutils literal"><span class="pre">ol.Map</span></tt> fournit une fonction <tt class="docutils literal"><span class="pre">getLayers</span></tt>. Cette fonction
+retourne un object de type <tt class="docutils literal"><span class="pre">ol.Collection</span></tt>, qui lui même fournit
+des méthodes pour accéder aux différents objets de la collection.
+Voir la doc de l&#8217;API pour plus d&#8217;informations.</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-7"><em>Correction exercice élémentaire 7</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-8">
+<span id="id8"></span><h2>Exercice élémentaire 8<a class="headerlink" href="#exercice-elementaire-8" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Manipuler les projections</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-8.html</span></tt> par exemple.</li>
+<li>Dans une console, afficher le centre de la vue.</li>
+<li>Le système de coordonnée (projection) de ce centre est &#8220;EPSG:3857&#8221; (connu
+sous le nom de Spherical Mercator). Convertir les coordonnées du centre de
+&#8220;EPSG:3857&#8221; à &#8220;EPSG:4326&#8221; (longitude/latitude WGS84).</li>
+<li>Les coordonnées GPS de l&#8217;ENSEIRB MATMECA sont latitude : 44.806314,
+longitude : -0.6056187. Modifier le code JavaScript de la page pour
+que la vue soit centrée sur ces coordonnées à l&#8217;état initial. Changer
+aussi le zoom à 17 pour un meilleur résultat.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>La fonction <tt class="docutils literal"><span class="pre">ol.proj.transform</span></tt> est à utiliser pour transformer
+des coordonnées d&#8217;un système de coordonnée à un autre. Voir la doc
+de l&#8217;API.</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-8"><em>Correction exercice élémentaire 8</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-9">
+<span id="id9"></span><h2>Exercice élémentaire 9<a class="headerlink" href="#exercice-elementaire-9" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Manipuler les controls</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-9.html</span></tt> par exemple.</li>
+<li>Modifier le code JavaScript de la page de telle façon qu&#8217;une échelle
+graphique soit ajoutée à la carte.</li>
+<li>Modifier la configuration du <em>control</em> pour que les unités de
+mesure anglo-saxonnes (inches, feets, miles) soient utilisées plutôt
+que les unités métriques.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>C&#8217;est le <em>control</em> <tt class="docutils literal"><span class="pre">ol.control.ScaleLine</span></tt> qui permet d&#8217;ajouter
+une échelle graphique sur la carte.</li>
+<li>La fonction <tt class="docutils literal"><span class="pre">ol.control.defaults</span></tt> permet d&#8217;obtenir une collection
+(<tt class="docutils literal"><span class="pre">ol.Collection</span></tt>) contenant les <em>controls</em> par défaut, qui peut
+être étendue avec sa méthode <tt class="docutils literal"><span class="pre">extend</span></tt> (qui prend un tableau en
+argument).</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-9"><em>Correction exercice élémentaire 9</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-10">
+<span id="id10"></span><h2>Exercice élémentaire 10<a class="headerlink" href="#exercice-elementaire-10" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Manipuler les interactions</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-10.html</span></tt> par exemple.</li>
+<li>Modifier le code JavaScript de la page pour ajouter une interaction
+de type <tt class="docutils literal"><span class="pre">ol.interaction.DragRotateAndZoom</span></tt> à la carte. (C&#8217;est
+la touche <tt class="docutils literal"><span class="pre">SHIFT</span></tt> qui active cette interaction.)</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>La fonction <tt class="docutils literal"><span class="pre">ol.interaction.defaults</span></tt> permet d&#8217;obtenir une collection
+(<tt class="docutils literal"><span class="pre">ol.Collection</span></tt>) contenant les <em>interactions</em> par défaut, qui peut
+être étendue avec sa méthode <tt class="docutils literal"><span class="pre">extend</span></tt> (qui prend un tableau en
+argument).</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-10"><em>Correction exercice élémentaire 10</em></a></p>
+</div>
+<div class="section" id="exercice-elementaire-11">
+<span id="id11"></span><h2>Exercice élémentaire 11<a class="headerlink" href="#exercice-elementaire-11" title="Lien permanent vers ce titre">¶</a></h2>
+<p><em>Utiliser une couche/source vecteur</em></p>
+<ol class="arabic simple">
+<li>Copier le code HTML&nbsp;de base dans un nouveau fichier,
+<tt class="docutils literal"><span class="pre">exercice-elementaire-11.html</span></tt> par exemple.</li>
+<li>Télécharger le fichier
+<a class="reference external" href="http://ol3js.org/en/master/examples/data/geojson/countries.geojson">http://ol3js.org/en/master/examples/data/geojson/countries.geojson</a>
+et le placer dans le même répertoire que le fichier HTML.</li>
+<li>Modifier le code JavaScript de la page pour ajouter à la carte une
+couche vecteur (<tt class="docutils literal"><span class="pre">ol.layer.Vector</span></tt>) dont le source est un source GeoJSON
+(<tt class="docutils literal"><span class="pre">ol.source.GeoJSON</span></tt>) dont l&#8217;URL référence le fichier countries.geojson
+téléchargé à l&#8217;étape précédente.</li>
+<li>Changer le style de la couche vecteur et utiliser d&#8217;autres couleurs pour
+les contours et les fonds des polygones.</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Indice</p>
+<ul class="last simple">
+<li>Il est nécessaire de passer au source GeoJSON&nbsp;la même projection
+que celle utilisée dans la vue. (Ceci changera peut-être dans des
+versions utérieures d&#8217;OpenLayers.)</li>
+<li>L&#8217;objet objet à utiliser pour changer le style des contours est
+<tt class="docutils literal"><span class="pre">ol.style.Stroke</span></tt>. Pour les fonds il s&#8217;agit de <tt class="docutils literal"><span class="pre">ol.style.Fill</span></tt>.</li>
+</ul>
+</div>
+<p><a class="reference internal" href="corrections-exercices-elementaires.html#correction-exercice-elementaire-11"><em>Correction exercice élémentaire 11</em></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Exercices élémentaires</a><ul>
+<li><a class="reference internal" href="#exercice-elementaire-1">Exercice élémentaire 1</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-2">Exercice élémentaire 2</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-3">Exercice élémentaire 3</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-4">Exercice élémentaire 4</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-5">Exercice élémentaire 5</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-6">Exercice élémentaire 6</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-7">Exercice élémentaire 7</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-8">Exercice élémentaire 8</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-9">Exercice élémentaire 9</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-10">Exercice élémentaire 10</a></li>
+<li><a class="reference internal" href="#exercice-elementaire-11">Exercice élémentaire 11</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="index.html"
+                        title="Chapitre précédent">Exercices Master Class OL3</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="corrections-exercices-elementaires.html"
+                        title="Chapitre suivant">Corrections des exercices élémentaires</a></p>
+  <h3>Cette page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/exercices-elementaires.txt"
+           rel="nofollow">Montrer la source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="corrections-exercices-elementaires.html" title="Corrections des exercices élémentaires"
+             >suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Exercices Master Class OL3"
+             >précédent</a> |</li>
+        <li><a href="index.html">documentation Master Class OL3 2.0</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Florent Gravin.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

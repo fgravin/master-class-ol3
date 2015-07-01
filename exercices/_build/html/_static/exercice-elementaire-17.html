@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <title>Exercice élémentaire</title>
+  <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+  <style>
+    #map {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="http://ol3js.org/en/master/build/ol.js"></script>
+<script>
+
+  var countrySource =  new ol.source.Vector({
+    url: 'countries.geojson',
+    format: new ol.format.GeoJSON({
+      defaultDataProjection: 'EPSG:4326'
+    })
+  });
+
+  var map = new ol.Map({
+    target: 'map',
+    renderer: 'canvas',
+    view: new ol.View({
+      zoom: 2,
+      center: [0, 0]
+    }),
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM()
+      }),
+      new ol.layer.Vector({
+        source: countrySource
+        ,
+        style: new ol.style.Style({
+          fill: new ol.style.Fill({
+            color: 'rgba(237,12,203,0.3)'
+          }),
+          stroke: new ol.style.Stroke({
+            color: 'rgba(0,0,0,1)',
+            width: 2
+          })
+        })
+      })
+    ]
+  });
+
+  var featureOverlay = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+    map: map,
+    style: [new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: '#f00',
+        width: 1
+      }),
+      fill: new ol.style.Fill({
+        color: 'rgba(255,0,0,0.1)'
+      })
+    })]
+  });
+
+  var highlight;
+  map.on('click', function(evt) {
+    var feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+      return feature;
+    });
+
+    if (feature !== highlight) {
+      if (highlight) {
+        featureOverlay.getSource().removeFeature(highlight);
+      }
+      if (feature) {
+        featureOverlay.getSource().addFeature(feature);
+      }
+      highlight = feature;
+    }
+  });
+
+  var selectClick = new ol.interaction.Select({
+    condition: ol.events.condition.click
+/*
+    condition: ol.events.condition.pointerMove
+    condition: function(mapBrowserEvent) {
+      return ol.events.condition.click(mapBrowserEvent) &&
+              ol.events.condition.altKeyOnly(mapBrowserEvent);
+    }
+*/
+  });
+  map.addInteraction(selectClick);
+
+
+</script>
+</body>
+</html>
